@@ -1,3 +1,66 @@
 page-home {
+  .ipInputSet {
+    margin: 0 auto;
+    width: 50vmax;
+    max-width: 95vw;
+    height: 10vmax;
+    color: white;
+  }
 
+  .ipInputVal {
+    display: inline;
+  }
+
+  .ipInputVal input{
+    border: 1px solid gray;
+    width: 10vmax;
+    max-width: 20vw;
+    height: 7vmax;
+    line-height: 5vmax;
+    font-size: 4.5vmax;
+    margin: 0;
+    padding: 0 0 0 4px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+  }
+
+  .connectHeader{
+    color: white;
+    text-align: center;
+    font-size: 5vmax;
+  }
+
+  ion-input.ng-dirty.ng-invalid input{
+    color: red !important;
+    border: 1px solid red;
+  }
+
+  .allMessages {
+    height: 10vh;
+    padding-left: calc((50vmax - 32px)/2);
+  }
+  .errorMessageDiv{
+    color: red !important;
+    width: 50vmax;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .connectButton{
+    margin: 0 auto;
+    display: block;
+    width: 40vmax;
+    min-height: 7.5vmax;
+    font-size: 2.5vmax;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
 }
+
+

@@ -1,14 +1,26 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <p class="connectHeader">Enter ip address of your controller</p>
+  <form [formGroup]="metaForm">
+    <div class="ipInputSet">
+        <!-- <ion-label >1</ion-label> -->
+        <ion-input class="text-input ipInputVal" type="number" formControlName="ip1" id="ip1" [class.invalid]="ip1.touched && !ip1.valid" placeholder="XXX" name="ip1" #ip1 [(ngModel)]="ipObject.ip1" (keyup)="checkLength('ip1', 'myInput2')"></ion-input>
+        <strong>.</strong>
+      <!-- <ion-label >2</ion-label> -->
+        <ion-input class="text-input ipInputVal" type="number" formControlName="ip2" placeholder="XXX" name="ip2" #ip2 [(ngModel)]="ipObject.ip2" (keyup)="checkLength('ip2', 'myInput3')"></ion-input>
+        <strong>.</strong>
+      <!-- <ion-label >3</ion-label> -->
+        <ion-input class="text-input ipInputVal" type="number" formControlName="ip3" placeholder="XXX" name="ip3" #ip3 [(ngModel)]="ipObject.ip3" (keyup)="checkLength('ip3', 'myInput4')"></ion-input>
+        <strong>.</strong>
+      <!-- <ion-label >4</ion-label> -->
+        <ion-input class="text-input ipInputVal" type="number" formControlName="ip4" placeholder="XXX" name="ip4" #ip4 [(ngModel)]="ipObject.ip4" (keyup)="checkLength('ip4', '')"></ion-input>
+    </div>
+    <div class="allMessages">
+      <div class="errorMessageDiv" [hidden]="(metaForm.controls.ip1.pristine || metaForm.controls.ip1.valid) && (metaForm.controls.ip2.pristine || metaForm.controls.ip2.valid) && (metaForm.controls.ip3.pristine || metaForm.controls.ip3.valid) && (metaForm.controls.ip4.pristine || metaForm.controls.ip4.valid)">* Incorrect IP address</div>
+    </div>
+    <div>
+      <button [disabled]="!metaForm.valid" class="submit-btn connectButton" ion-button id="sButton" (click)="submitRequest()">Connect</button>
+    </div>
+
+  </form>
+
 </ion-content>
