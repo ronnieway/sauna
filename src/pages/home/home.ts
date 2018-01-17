@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import {LoadingController, Loading, AlertController  } from 'ionic-angular';
+import {LoadingController, AlertController  } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @Component({
@@ -10,7 +10,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 
 export class HomePage {
-  public loading: Loading;
+  private loader;
+  private connecting: boolean = false;
   public metaForm: FormGroup;
   public browser;
   public url;
@@ -39,58 +40,93 @@ export class HomePage {
   }
 
   public submitRequest() {
-    this.url = `http://${this.ipObject.ip1}.${this.ipObject.ip2}.${this.ipObject.ip3}.${this.ipObject.ip4}`;
-    console.log(this.url);
     if (this.metaForm.valid) {
-      this.browser =  this.iab.create(this.url);
-      this.browser.insertCSS({ code: "body {background-color: #408080 !important;}" });
-      this.browser.reload();
-      this.showLoading();
+      this.url = `http://${this.ipObject.ip1}.${this.ipObject.ip2}.${this.ipObject.ip3}.${this.ipObject.ip4}`;
+      this.connecting = true;
+      this.theLoading();
+      this.loader.present();
+      const options: InAppBrowserOptions = {
+        zoom:'no',
+        location:'no',
+        toolbar:'no',
+        hidden:'yes'
+      };
+      this.browser =  this.iab.create(this.url, '_self', options);
+      this.browser.on('loadstart').subscribe(
+        (event) => {
+          setTimeout(() => {
+            if(this.connecting){
+              if(this.loader) {
+                this.loader.dismiss();
+              }
+              this.connecting = false;
+              this.presentAlert();
+              this.browser.close();
+            }
+          }, 30000);
+        }
+      );
+
+      this.browser.on('loadstop').subscribe(
+        (event) => {
+          if(this.connecting) {
+            if (this.loader) {
+              this.loader.dismiss();
+            }
+            this.connecting = false;
+            this.browser.show();
+          }
+          if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
+            this.browser.insertCSS({code: "body{background-color: #408080 !important; margin: 0 !important;} table, tbody, td, tr{border: 0 !important;}"});
+          }
+        },
+        (err) => {
+          if(this.connecting) {
+            if(this.loader) {
+              this.loader.dismiss();
+            }
+            this.connecting = false;
+            this.presentAlert();
+            this.browser.close();
+          }
+        }
+      );
+
       this.browser.on("loaderror").subscribe(
         (err) => {
-          this.browser.close();
-          this.presentAlert();
-          console.log(err);
+          if (this.connecting) {
+            if (this.loader) {
+              this.loader.dismiss();
+            }
+            this.connecting = false;
+            this.presentAlert();
+            this.browser.close();
+          }
         }
       );
-      this.browser.on("exit").subscribe(
-        (err) => {
-          this.browser.close();
-          this.presentAlert();
-          console.log(err);
-        }
-      );
+
       this.metaForm.reset(this.ipObject);
-      this.hideLoading();
     }
     else {
-      console.log('oops');
+      alert('something wrong with request');
+      this.connecting = false;
     }
   }
 
-  showLoading(message: string = null) {
-  //  this.hideLoading();
-    this.loading = this.loadingCtrl.create({
-      content: message || 'Please wait...',
-      dismissOnPageChange: true
+  theLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: 'Connecting to server...',
+      duration: 30000
     });
-    this.loading.present();
-  }
-
-  hideLoading() {
-    if (!!this.loading) {
-      this.loading.dismiss();
-      this.loading = undefined;
-    }
   }
 
   checkLength(currentOne, nextOne) {
     if (this.ipObject[currentOne].length > 2) {
-        if (nextOne) {
-          this[nextOne].setFocus();
-        } else {
-          document.getElementById("sButton").focus();
-        }
+      if (nextOne) {
+        this[nextOne].setFocus();
+      } else {
+        document.getElementById("sButton").focus();
+      }
     }
   }
 

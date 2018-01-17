@@ -1,8 +1,7 @@
 {
     "name": "sauna",
     "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "author": "SocialTalents",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
@@ -44,7 +43,7 @@
         "typescript": "2.4.2",
         "ws": "3.3.2"
     },
-    "description": "An Ionic project",
+    "description": "Sauna controller mobile project",
     "cordova": {
         "plugins": {
             "cordova-plugin-device": {},
