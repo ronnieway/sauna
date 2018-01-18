@@ -51,7 +51,7 @@ export class HomePage {
         toolbar:'no',
         hidden:'yes'
       };
-      this.browser =  this.iab.create(this.url, '_self', options);
+      this.browser =  this.iab.create(this.url, '_blank', options);
       this.browser.on('loadstart').subscribe(
         (event) => {
           setTimeout(() => {
