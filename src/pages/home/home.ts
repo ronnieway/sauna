@@ -13,7 +13,6 @@ export class HomePage {
   private loader;
   private connecting: boolean = false;
   public metaForm: FormGroup;
-  public browser;
   public url;
   public ipObject  = {
     ip1: '',
@@ -40,6 +39,9 @@ export class HomePage {
   }
 
   public submitRequest() {
+    window.addEventListener('storage', function(e) {
+      alert('iab:' + localStorage.iab);
+    });
     if (this.metaForm.valid) {
       this.url = `http://${this.ipObject.ip1}.${this.ipObject.ip2}.${this.ipObject.ip3}.${this.ipObject.ip4}`;
       this.connecting = true;
@@ -49,10 +51,11 @@ export class HomePage {
         zoom:'no',
         location:'no',
         toolbar:'no',
-        hidden:'yes'
+        hidden:'yes',
+        enableViewportScale: 'yes'
       };
-      this.browser =  this.iab.create(this.url, '_blank', options);
-      this.browser.on('loadstart').subscribe(
+      let browser =  this.iab.create(this.url, '_blank', options);
+      browser.on('loadstart').subscribe(
         (event) => {
           setTimeout(() => {
             if(this.connecting){
@@ -61,23 +64,82 @@ export class HomePage {
               }
               this.connecting = false;
               this.presentAlert();
-              this.browser.close();
+              browser.close();
             }
           }, 30000);
         }
       );
 
-      this.browser.on('loadstop').subscribe(
+      browser.on('loadstop')
+      .subscribe(
         (event) => {
+          browser.executeScript({
+            code: `localStorage.setItem('iab', 'true');
+                    (function() {
+                    var body = document.querySelector('body');
+                    var button = document.createElement('div');
+                    button.innerHTML = '<< back to connect';
+                    button.setAttribute('id', 'closeBrowserButton');
+                    button.onclick = function() { 
+                      localStorage.setItem('iab', 'false'); 
+                    };
+                    body.appendChild(button);
+                  })();`
+          });
+
+          browser.insertCSS({
+            code: `#closeBrowserButton{
+                    position: fixed; 
+                    bottom: 0;
+                    left: 0; 
+                    height: 25px;
+                    width: 100%; 
+                    background: grey; 
+                    color: white; 
+                    padding: 10px; 
+                    font-size: 3vh;
+                    font-weight: bold;
+                    line-height: 4vh; 
+                    z-index: 999;
+                   }`
+          });
+
+          let checkingClick = setInterval(() => {
+            browser.executeScript({
+              code: `var result = function(){
+                    return localStorage.iab;
+                    };
+                    result();`
+              })
+              .then(val =>{
+                if (val[0] == 'false'){
+                  clearInterval(checkingClick);
+                  browser.close();
+                }
+              });
+          }, 1000);
+
           if(this.connecting) {
             if (this.loader) {
               this.loader.dismiss();
             }
             this.connecting = false;
-            this.browser.show();
+            browser.show();
           }
           if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
-            this.browser.insertCSS({code: "body{background-color: #408080 !important; margin: 0 !important;} table, tbody, td, tr{border: 0 !important;}"});
+            browser.insertCSS({
+              code: `body{
+                      background-color: #408080 !important; 
+                      margin: 0 !important; 
+                      width: 100vw !important;
+                    }
+                    table, tbody, td, tr{
+                      border: 0 !important;
+                    }
+                    table{
+                      object-fit: contain !important;
+                    }`
+            });
           }
         },
         (err) => {
@@ -87,12 +149,12 @@ export class HomePage {
             }
             this.connecting = false;
             this.presentAlert();
-            this.browser.close();
+            browser.close();
           }
         }
       );
 
-      this.browser.on("loaderror").subscribe(
+      browser.on("loaderror").subscribe(
         (err) => {
           if (this.connecting) {
             if (this.loader) {
@@ -100,11 +162,10 @@ export class HomePage {
             }
             this.connecting = false;
             this.presentAlert();
-            this.browser.close();
+            browser.close();
           }
         }
       );
-
       this.metaForm.reset(this.ipObject);
     }
     else {
@@ -133,7 +194,7 @@ export class HomePage {
   presentAlert() {
     let alert = this.alertCtrl.create({
       title: 'Connection failed.',
-      subTitle: 'Cannot connect with IP ' + this.url + '. Double check network settings of your device and IP address of your controller and try again.',
+      subTitle: `Cannot connect with IP ${this.url}. Double check network settings of your device and IP address of your controller and try again.`,
       buttons: ['OK']
     });
     alert.present();

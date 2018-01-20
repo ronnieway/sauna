@@ -1,6 +1,6 @@
 {
-    "name": "sauna",
-    "version": "0.0.1",
+    "name": "Cryosauna RC",
+    "version": "1.0.0",
     "author": "SocialTalents",
     "private": true,
     "scripts": {
@@ -43,7 +43,7 @@
         "typescript": "2.4.2",
         "ws": "3.3.2"
     },
-    "description": "Sauna controller mobile project",
+    "description": "Cryosauna Remote Control",
     "cordova": {
         "plugins": {
             "cordova-plugin-device": {},
