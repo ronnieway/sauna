@@ -39,9 +39,6 @@ export class HomePage {
   }
 
   public submitRequest() {
-    window.addEventListener('storage', function(e) {
-      alert('iab:' + localStorage.iab);
-    });
     if (this.metaForm.valid) {
       this.url = `http://${this.ipObject.ip1}.${this.ipObject.ip2}.${this.ipObject.ip3}.${this.ipObject.ip4}`;
       this.connecting = true;

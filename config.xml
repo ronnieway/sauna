@@ -3,7 +3,7 @@
     <name>Cryosauna RC</name>
     <description>Cryosauna Remote Control</description>
     <author href="http://socialtalents.com/">SocialTalents</author>
-    <content original-src="index.html" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
