@@ -6,6 +6,7 @@ page-home {
 
   .ipInputSet {
     margin: 0 auto;
+    margin-bottom: 3vh;
     width: calc(43vw + 24px);
     color: #408080;
   }
@@ -24,12 +25,13 @@ page-home {
     width: 10vw;
     height: 7vw;
     line-height: 7vw;
-    font-size: 4vw;
+    font-size: 5vw;
     font-weight: bold;
     margin: 0;
     padding: 0 0 0 4px;
     background-color: white;
     border-radius: 5px;
+    text-align: center;
     color: #408080;
   }
 
@@ -38,24 +40,6 @@ page-home {
     text-align: center;
     font-size: 4vw;
     margin: 0 0 3vh 0;
-  }
-
-  ion-input.ng-dirty.ng-invalid input{
-    color: red !important;
-    border: 1px solid red;
-  }
-
-  .allMessages {
-    height: 10vh;
-    padding-left: 5vw;
-    margin: 0 auto;
-  }
-
-  .errorMessageDiv{
-    color: red !important;
-    width: 80vw;
-    font-style: italic;
-    margin: 1vh 10vw 0 10vw;
   }
 
   .connectButton{

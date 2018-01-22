@@ -4,26 +4,19 @@
       <img src="assets/imgs/logo.png">
     </div>
   </div>
-  <p class="connectHeader">Enter ip address of your controller</p>
-  <form [formGroup]="metaForm">
+  <p class="connectHeader">IP address of your controller</p>
+  <form>
     <div class="ipInputSet">
-        <!-- <ion-label >1</ion-label> -->
-        <ion-input class="text-input ipInputVal" type="number" formControlName="ip1" id="ip1" [class.invalid]="ip1.touched && !ip1.valid" placeholder="XXX" name="ip1" #ip1 [(ngModel)]="ipObject.ip1" (keyup)="checkLength('ip1', 'myInput2')"></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" placeholder="10" name="ip1" #ip1 disabled></ion-input>
         <span class="dot"><strong>.</strong></span>
-      <!-- <ion-label >2</ion-label> -->
-        <ion-input class="text-input ipInputVal" type="number" formControlName="ip2" placeholder="XXX" name="ip2" #ip2 [(ngModel)]="ipObject.ip2" (keyup)="checkLength('ip2', 'myInput3')"></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" placeholder="10" name="ip2" #ip2 disabled></ion-input>
         <span class="dot"><strong>.</strong></span>
-      <!-- <ion-label >3</ion-label> -->
-        <ion-input class="text-input ipInputVal" type="number" formControlName="ip3" placeholder="XXX" name="ip3" #ip3 [(ngModel)]="ipObject.ip3" (keyup)="checkLength('ip3', 'myInput4')"></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" placeholder="0" name="ip3" #ip3 disabled></ion-input>
         <span class="dot"><strong>.</strong></span>
-      <!-- <ion-label >4</ion-label> -->
-        <ion-input class="text-input ipInputVal" type="number" formControlName="ip4" placeholder="XXX" name="ip4" #ip4 [(ngModel)]="ipObject.ip4" (keyup)="checkLength('ip4', '')"></ion-input>
-    </div>
-    <div class="allMessages">
-      <div class="errorMessageDiv" [hidden]="(metaForm.controls.ip1.pristine || metaForm.controls.ip1.valid) && (metaForm.controls.ip2.pristine || metaForm.controls.ip2.valid) && (metaForm.controls.ip3.pristine || metaForm.controls.ip3.valid) && (metaForm.controls.ip4.pristine || metaForm.controls.ip4.valid)">* Incorrect IP address. Enter ip address of your controller.</div>
+        <ion-input class="text-input ipInputVal" type="number" placeholder="2" name="ip4" #ip4 disabled></ion-input>
     </div>
     <div>
-      <button [disabled]="!metaForm.valid" class="submit-btn connectButton" ion-button id="sButton" (click)="submitRequest()">Connect</button>
+      <button class="submit-btn connectButton" ion-button id="sButton" (click)="submitRequest()">Connect</button>
     </div>
 
   </form>
