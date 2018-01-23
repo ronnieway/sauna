@@ -52,6 +52,7 @@ export class HomePage {
       (event) => {
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
+          alert(window.location.href);
                 (function() {
                   let body = document.querySelector('body');
                   let outerButton = document.createElement('div');
@@ -70,7 +71,6 @@ export class HomePage {
         if(window.location.href != 'http:http://10.0.1.15/syswww/login.xml'){
           browser.executeScript({
             code: `(function(){
-                    alert(window.location.href);
                     let body = document.querySelector('body');
                     let wWidth = window.screen.width;
                     let wHeight = window.screen.height;
@@ -100,7 +100,8 @@ export class HomePage {
                 #closeBrowserButton{
                   padding: 10px 0 10px 0;
                   margin: 0;
-                  left: 90%;
+                  position: absolute;
+                  left: 50%;
                   color: white; 
                   font-size: 3vh;
                   font-weight: bold;
