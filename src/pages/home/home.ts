@@ -52,16 +52,13 @@ export class HomePage {
         if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
           browser.executeScript({
             code: `localStorage.setItem('iab', 'true');
-                    let iOS = "/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream";
+                    let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                     alert(iOS);
                     
                       (function(){
-                        alert('function loaded');
                         let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
                         let wWidth = window.screen.width;
-                        alert('wWidth: ' + wWidth);
                         let wHeight = window.screen.height;
-                        alert('wHeight: ' + wHeight);
                         let bodyRect = document.body.getBoundingClientRect();
                         const absWidth = 803;
                         const absHeight = 600;
@@ -81,6 +78,7 @@ export class HomePage {
                           el.style.height = h.toFixed(0);
                           let w = elWidth * hRatio;
                           el.style.width = w.toFixed(0);
+                          alert('elWidth: ' + elWidth + ', el.style.width: ' + el.style.width);
                           let l = vOffset * vRatio;
                           el.style.top = l.toFixed(0);
                           let t = hOffset * hRatio;
@@ -117,7 +115,7 @@ export class HomePage {
         browser.insertCSS({
           code: `#closeBrowserButton{
                   position: fixed; 
-                  bottom: 0;
+                  bottom: 0 !important;
                   left: 0; 
                   height: 30px;
                   width: 100%; 
