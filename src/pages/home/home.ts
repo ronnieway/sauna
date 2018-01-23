@@ -67,7 +67,7 @@ export class HomePage {
                 })();`
         });
 
-        if(window.location.href == 'http://10.0.1.15/syswww/login.xml'){
+        if(window.location.href != 'http://10.0.1.15/syswww/login.xml'){
           browser.executeScript({
             code: `(function(){
                     let body = document.querySelector('body');
@@ -85,7 +85,6 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     window.scrollTo(leftPad, topPad);
-                    document.body.style.backgroundColor = '#408080';
                   })();`
           });
         };
