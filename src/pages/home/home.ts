@@ -78,7 +78,7 @@ export class HomePage {
                           el.style.height = h.toFixed(0);
                           let w = elWidth * hRatio;
                           el.style.width = w.toFixed(0);
-                          alert('elWidth: ' + elWidth + ', el.style.width: ' + el.style.width);
+                          alert('elWidth: ' + elWidth + ', hRatio: ' + hRatio + ', el.style.width: ' + el.style.width);
                           let l = vOffset * vRatio;
                           el.style.top = l.toFixed(0);
                           let t = hOffset * hRatio;
