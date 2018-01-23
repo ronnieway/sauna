@@ -54,19 +54,22 @@ export class HomePage {
           code: `localStorage.setItem('iab', 'true');
                 (function() {
                   let body = document.querySelector('body');
+                  let outerButton = = document.createElement('div');
+                  outerButton.setAttribute('id', 'outerBrowserButton');
                   let button = document.createElement('div');
                   button.innerHTML = '<< back to connect';
                   button.setAttribute('id', 'closeBrowserButton');
                   button.onclick = function() { 
                     localStorage.setItem('iab', 'false'); 
                   };
-                  body.appendChild(button);
+                  outerButton.appendChild(button);
+                  body.appendChild(outerButton);
                 })();`
         });
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (iOS && event.url != 'http://10.0.1.15/syswww/login.xml'){
+                  if (event.url != 'http://10.0.1.15/syswww/login.xml'){
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
@@ -98,20 +101,22 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
+                  padding: 10px 0 10px 0;
+                  margin: 0 auto;
+                  color: white; 
+                  font-size: 3vh;
+                  font-weight: bold;
+                  text-align: center;
+                  line-height: 4vh; 
+                  z-index: 9999;
+                }
+                #outerBrowserButton{
                   position: fixed; 
                   bottom: 0 !important;
                   left: 0 !important; 
                   height: 30px;
                   width: 1000px; 
                   background: grey; 
-                  color: white; 
-                  padding: 10px 0 10px 0;
-                  margin: 0 auto; 
-                  font-size: 3vh;
-                  font-weight: bold;
-                  text-align: center;
-                  line-height: 4vh; 
-                  z-index: 9999;
                 }`
         });
 
