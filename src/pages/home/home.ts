@@ -88,6 +88,7 @@ export class HomePage {
                         }
                         window.scrollTo(leftPad, topPad);
                         document.body.style.backgroundColor = '#408080';
+                        document.getElementById('closeBrowserButton').style.marginLeft = leftPad + 'px;';
                       }
                     })();
                   };`
