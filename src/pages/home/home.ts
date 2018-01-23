@@ -69,6 +69,7 @@ export class HomePage {
 
           browser.executeScript({
             code: `(function(){
+                    alert(window.location.href);
                     let body = document.querySelector('body');
                     let wWidth = window.screen.width;
                     let wHeight = window.screen.height;
@@ -97,16 +98,16 @@ export class HomePage {
                 }
                 #closeBrowserButton{
                   padding: 10px 0 10px 0;
-                  margin: 0 auto ;
+                  margin: 0;
+                  left: 50vw;
                   color: white; 
                   font-size: 3vh;
                   font-weight: bold;
                   text-align: center;
                   line-height: 4vh; 
                   z-index: 9999;
-                  min-width: 100vw;
+                  width: 100vw;
                   height: 30px;
-                  position: fixed;
                 }
                 #outerBrowserButton{ 
                   position: fixed;
