@@ -69,7 +69,8 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (iOS){
+                  if (event.url != 'http://10.0.1.15/syswww/login.xml'){
+                    console.log(event.url);
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
@@ -88,7 +89,6 @@ export class HomePage {
                         }
                         window.scrollTo(leftPad, topPad);
                         document.body.style.backgroundColor = '#408080';
-                        document.getElementById('closeBrowserButton').style.paddingLeft = leftPad + 'px;';
                       }
                     })();
                   };`
@@ -110,7 +110,7 @@ export class HomePage {
                   text-align: center;
                   line-height: 4vh; 
                   z-index: 9999;
-                  width: 100vw;
+                  min-width: 100vw;
                   height: 30px;
                 }
                 #outerBrowserButton{ 
