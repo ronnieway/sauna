@@ -91,7 +91,6 @@ export class HomePage {
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-                    document.getElementById('outerBrowserButton').style.width = 800; 
                     window.scrollTo(leftPad, topPad);
                   })();`
           });
@@ -121,7 +120,7 @@ export class HomePage {
                   position: absolute;
                   left: 0;
                   bottom: 0;
-                  min-width: 100%;
+                  float: left;
                   background: grey; 
                 }`
         });
