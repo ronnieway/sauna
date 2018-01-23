@@ -97,7 +97,7 @@ export class HomePage {
                 }
                 #closeBrowserButton{
                   padding: 10px 0 10px 0;
-                  margin: 0 auto !important;
+                  margin: 0 auto ;
                   color: white; 
                   font-size: 3vh;
                   font-weight: bold;
@@ -106,6 +106,7 @@ export class HomePage {
                   z-index: 9999;
                   min-width: 100vw;
                   height: 30px;
+                  position: fixed;
                 }
                 #outerBrowserButton{ 
                   position: fixed;
