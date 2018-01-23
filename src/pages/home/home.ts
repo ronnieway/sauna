@@ -90,8 +90,10 @@ export class HomePage {
                           }
                         }
                       })();
-                    };
-                    (function() {
+                    };`
+          });
+          browser.executeScript({
+            code: `(function() {
                       let body = document.querySelector('body');
                       let button = document.createElement('div');
                       button.innerHTML = '<< back to connect';
