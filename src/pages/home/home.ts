@@ -113,7 +113,7 @@ export class HomePage {
                   text-align: center;
                   line-height: 4vh; 
                   z-index: 99999;
-                  width: 50%;
+                  width: 100%;
                   height: 30px;
                 }
                 #outerBrowserButton{ 
