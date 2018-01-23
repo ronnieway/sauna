@@ -54,7 +54,7 @@ export class HomePage {
           code: `localStorage.setItem('iab', 'true');
                 (function() {
                   let body = document.querySelector('body');
-                  let outerButton = = document.createElement('div');
+                  let outerButton = document.createElement('div');
                   outerButton.setAttribute('id', 'outerBrowserButton');
                   let button = document.createElement('div');
                   button.innerHTML = '<< back to connect';
@@ -69,7 +69,7 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (event.url != 'http://10.0.1.15/syswww/login.xml'){
+                  if (iOS){
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
