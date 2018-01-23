@@ -88,11 +88,7 @@ export class HomePage {
         };
 
         browser.insertCSS({
-          code: `body{
-                  background-color: #408080 !important; 
-                  margin: 0 !important; 
-                }
-                table, tbody, td, tr{
+          code: `table, tbody, td, tr{
                   border: 0 !important;
                 }
                 table{
@@ -103,7 +99,7 @@ export class HomePage {
                   bottom: 0 !important;
                   left: 0; 
                   height: 30px;
-                  width: 100vw; 
+                  width: 803px; 
                   background: grey; 
                   color: white; 
                   padding: 10px; 
