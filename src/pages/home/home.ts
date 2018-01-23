@@ -52,8 +52,9 @@ export class HomePage {
         if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
           browser.executeScript({
             code: `localStorage.setItem('iab', 'true');
-                    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                    if (iOS){
+                    let iOS = "/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream";
+                    alert(iOS);
+                    
                       (function(){
                         alert('function loaded);
                         let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
@@ -86,18 +87,17 @@ export class HomePage {
                           el.style.left = t.toFixed(0);
                         }
                       })();
-                    }
-                    
+                        
                     (function() {
-                    let body = document.querySelector('body');
-                    let button = document.createElement('div');
-                    button.innerHTML = '<< back to connect';
-                    button.setAttribute('id', 'closeBrowserButton');
-                    button.onclick = function() { 
-                      localStorage.setItem('iab', 'false'); 
-                    };
-                    body.appendChild(button);
-                  })();`
+                      let body = document.querySelector('body');
+                      let button = document.createElement('div');
+                      button.innerHTML = '<< back to connect';
+                      button.setAttribute('id', 'closeBrowserButton');
+                      button.onclick = function() { 
+                        localStorage.setItem('iab', 'false'); 
+                      };
+                      body.appendChild(button);
+                    })();`
           });
           browser.insertCSS({
             code: `body{
