@@ -68,7 +68,8 @@ export class HomePage {
                 })();`
         });
 
-        if(url != 'http://10.0.1.15/syswww/login.xml'){
+        let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        if (iOS){
           browser.executeScript({
             code: `(function(){
                     let body = document.querySelector('body');
@@ -122,6 +123,7 @@ export class HomePage {
                   bottom: 0;
                   float: left;
                   background: grey; 
+                  width: 100%;
                 }`
         });
 
