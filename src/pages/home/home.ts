@@ -63,7 +63,7 @@ export class HomePage {
                 })();`
         });
 
-        if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
+
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   if (iOS){
@@ -85,7 +85,7 @@ export class HomePage {
                     })();
                   };`
           });
-        };
+
 
         browser.insertCSS({
           code: `table, tbody, td, tr{
