@@ -56,7 +56,7 @@ export class HomePage {
                     alert(iOS);
                     
                       (function(){
-                        alert('function loaded);
+                        alert('function loaded');
                         let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
                         let wWidth = window.screen.width;
                         alert('wWidth: ' + wWidth);
