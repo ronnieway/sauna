@@ -52,7 +52,7 @@ export class HomePage {
       (event) => {
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
-          alert(window.location.href);
+          alert(window.location.href != 'http://10.0.1.15/syswww/login.xml');
                 (function() {
                   let body = document.querySelector('body');
                   let outerButton = document.createElement('div');
@@ -99,9 +99,8 @@ export class HomePage {
                 }
                 #closeBrowserButton{
                   padding: 10px 0 10px 0;
-                  margin: 0;
+                  margin: 0 auto;
                   position: relative;
-                  right: 50%;
                   color: white; 
                   font-size: 3vh;
                   font-weight: bold;
@@ -113,7 +112,10 @@ export class HomePage {
                   background: red; 
                 }
                 #outerBrowserButton{ 
-                  position: fixed;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  width: 100vw;
                   bottom: 0;
                   left: 0;
                   background: grey; 
