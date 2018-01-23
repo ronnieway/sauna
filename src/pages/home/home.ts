@@ -84,6 +84,7 @@ export class HomePage {
                           body.style.cssText += '; transform:scale(' + vRatio + ');';
                         }
                         window.scrollTo(leftPad, topPad);
+                        body.style.background-color = '#408080';
                       }
                     })();
                   };`
