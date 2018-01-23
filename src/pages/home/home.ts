@@ -53,6 +53,7 @@ export class HomePage {
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
                 (function() {
+                  console.log(event.url);
                   let body = document.querySelector('body');
                   let outerButton = document.createElement('div');
                   outerButton.setAttribute('id', 'outerBrowserButton');
@@ -69,7 +70,6 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  console.log(event);
                   if (ios){
                     console.log(event);
                     (function(){
@@ -125,7 +125,7 @@ export class HomePage {
         let checkingClick = setInterval(() => {
           browser.executeScript({
             code: `let result = function(){
-                  return localStorage.iab;
+                    return localStorage.iab;
                   };
                   result();`
             })
