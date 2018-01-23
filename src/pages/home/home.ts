@@ -80,12 +80,7 @@ export class HomePage {
                             let w = elWidth * hRatio;
                             w = w.toFixed(0);
                             el.style.cssText += '; width:' + w + 'px !important;';
-                            let l = vOffset * vRatio;
-                            l = l.toFixed(0);
-                            el.style.cssText += '; left:' + l + 'px !important;';
-                            let t = hOffset * hRatio;
-                            t = t.toFixed(0);
-                            el.style.cssText += '; top:' + t + 'px !important;';
+
                           }
                         }
                       })();
