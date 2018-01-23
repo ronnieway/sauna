@@ -55,9 +55,12 @@ export class HomePage {
                     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                     if (iOS){
                       (function(){
+                        alert('function loaded);
                         let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
                         let wWidth = window.screen.width;
+                        alert('wWidth: ' + wWidth);
                         let wHeight = window.screen.height;
+                        alert('wHeight: ' + wHeight);
                         let bodyRect = document.body.getBoundingClientRect();
                         const absWidth = 803;
                         const absHeight = 600;
@@ -95,6 +98,19 @@ export class HomePage {
                     };
                     body.appendChild(button);
                   })();`
+          });
+          browser.insertCSS({
+            code: `body{
+                    background-color: #408080 !important; 
+                    margin: 0 !important; 
+                    width: 100vw !important;
+                  }
+                  table, tbody, td, tr{
+                    border: 0 !important;
+                  }
+                  table{
+                    object-fit: contain !important;
+                  }`
           });
         };
 
@@ -136,21 +152,6 @@ export class HomePage {
           }
           this.connecting = false;
           browser.show();
-        }
-        if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
-          browser.insertCSS({
-            code: `body{
-                    background-color: #408080 !important; 
-                    margin: 0 !important; 
-                    width: 100vw !important;
-                  }
-                  table, tbody, td, tr{
-                    border: 0 !important;
-                  }
-                  table{
-                    object-fit: contain !important;
-                  }`
-          });
         }
       },
       (err) => {
