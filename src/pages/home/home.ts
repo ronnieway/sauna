@@ -87,7 +87,7 @@ export class HomePage {
                           body.style.cssText += '; transform:scale(' + vRatio + ');';
                         }
                         window.scrollTo(leftPad, topPad);
-                        body.style.background-color = '#408080';
+                        document.body.style.backgroundColor = '#408080';
                       }
                     })();
                   };`
@@ -101,6 +101,7 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
+                  position: fixed; 
                   padding: 10px 0 10px 0;
                   margin: 0 auto;
                   color: white; 
@@ -110,10 +111,7 @@ export class HomePage {
                   line-height: 4vh; 
                   z-index: 9999;
                 }
-                #outerBrowserButton{
-                  position: fixed; 
-                  bottom: 0 !important;
-                  left: 0 !important; 
+                #outerBrowserButton{ 
                   height: 30px;
                   width: 1000px; 
                   background: grey; 
