@@ -71,7 +71,7 @@ export class HomePage {
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   console.log(event);
                   if (ios){
-                    console.log(event.url);
+                    console.log(event);
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
