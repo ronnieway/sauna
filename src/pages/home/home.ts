@@ -64,7 +64,6 @@ export class HomePage {
                 })();`
         });
 
-
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   if (iOS){
@@ -93,9 +92,6 @@ export class HomePage {
         browser.insertCSS({
           code: `table, tbody, td, tr{
                   border: 0 !important;
-                }
-                table{
-                  object-fit: contain !important;
                 }
                 #closeBrowserButton{
                   position: fixed; 
