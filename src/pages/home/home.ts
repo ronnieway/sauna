@@ -109,13 +109,13 @@ export class HomePage {
                   text-align: center;
                   line-height: 4vh; 
                   z-index: 9999;
+                  width: 100vw;
+                  height: 30px;
                 }
                 #outerBrowserButton{ 
                   position: fixed;
                   bottom: 0;
                   left: 0;
-                  height: 30px;
-                  width: 100wv; 
                   background: grey; 
                 }`
         });
