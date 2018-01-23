@@ -92,35 +92,33 @@ export class HomePage {
                       })();
                     };`
           });
-          browser.executeScript({
-            code: `(function() {
-                      let body = document.querySelector('body');
-                      let button = document.createElement('div');
-                      button.innerHTML = '<< back to connect';
-                      button.setAttribute('id', 'closeBrowserButton');
-                      button.onclick = function() { 
-                        localStorage.setItem('iab', 'false'); 
-                      };
-                      body.appendChild(button);
-                    })();`
-          });
-          browser.insertCSS({
-            code: `body{
-                    background-color: #408080 !important; 
-                    margin: 0 !important; 
-                    width: 100vw !important;
-                  }
-                  table, tbody, td, tr{
-                    border: 0 !important;
-                  }
-                  table{
-                    object-fit: contain !important;
-                  }`
-          });
         };
 
+        browser.executeScript({
+          code: `(function() {
+                    let body = document.querySelector('body');
+                    let button = document.createElement('div');
+                    button.innerHTML = '<< back to connect';
+                    button.setAttribute('id', 'closeBrowserButton');
+                    button.onclick = function() { 
+                      localStorage.setItem('iab', 'false'); 
+                    };
+                    body.appendChild(button);
+                  })();`
+        });
         browser.insertCSS({
-          code: `#closeBrowserButton{
+          code: `body{
+                  background-color: #408080 !important; 
+                  margin: 0 !important; 
+                  width: 100vw !important;
+                }
+                table, tbody, td, tr{
+                  border: 0 !important;
+                }
+                table{
+                  object-fit: contain !important;
+                }
+                #closeBrowserButton{
                   position: fixed; 
                   bottom: 0 !important;
                   left: 0; 
@@ -133,7 +131,7 @@ export class HomePage {
                   font-weight: bold;
                   line-height: 4vh; 
                   z-index: 9999;
-                 }`
+                }`
         });
 
         let checkingClick = setInterval(() => {
