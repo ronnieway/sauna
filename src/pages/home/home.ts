@@ -68,39 +68,19 @@ export class HomePage {
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   if (iOS){
                     (function(){
-                      let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
+                      let body = document.querySelector('body');
                       let wWidth = window.screen.width;
                       let wHeight = window.screen.height;
-                      let bodyRect = document.body.getBoundingClientRect();
                       const absWidth = 803;
                       const absHeight = 600;
-              
-                      for (let i=0, max=all.length; i < max; i++) {
-                        let el = all[i];
-                        let elHeight = el.offsetHeight;
-                        let elWidth = el.offsetWidth;
-                        if (elHeight > 0 && elWidth > 0){
-                          let elemRect = el.getBoundingClientRect();
-                          let vRatio;
-                          let hRatio;
-                          let hOffset   = elemRect.left - bodyRect.left;
-                          let vOffset   = elemRect.top - bodyRect.top;
-                          vRatio = wHeight / absHeight;
-                          hRatio = wWidth / absWidth;
-                          let h = elHeight * vRatio;
-                          h = h.toFixed(0);
-                          el.style.cssText += '; height:' + h + 'px !important;';
-                          let w = elWidth * hRatio;
-                          w = w.toFixed(0);
-                          el.style.cssText += '; width:' + w + 'px !important;';
-                          let l = vOffset * vRatio;
-                          l = l.toFixed(0);
-                          el.style.cssText += '; left:' + l + 'px !important;';
-                          let t = hOffset * hRatio;
-                          t = t.toFixed(0);
-                          el.style.cssText += '; top:' + t + 'px !important;';
-                          el.style.cssText += '; background-size:cover !important;';
-                        }
+                      let vRatio;
+                      let hRatio;
+                      vRatio = wHeight / absHeight;
+                      hRatio = wWidth / absWidth;
+                      if (vRatio >= hRatio) { 
+                        body.style.cssText += '; zoom:' + hRatio + ';-moz-transform: scale(' + hRatio + ');
+                      } else {
+                        body.style.cssText += '; zoom:' vRatio ' + ';-moz-transform: scale(' + vRatio + ');
                       }
                     })();
                   };`
