@@ -50,6 +50,7 @@ export class HomePage {
     browser.on('loadstop')
     .subscribe(
       (event) => {
+        let url = window.location.href;
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
                 (function() {
@@ -67,7 +68,7 @@ export class HomePage {
                 })();`
         });
 
-        if(document.URL != 'http://10.0.1.15/syswww/login.xml'){
+        if(url != 'http://10.0.1.15/syswww/login.xml'){
           browser.executeScript({
             code: `(function(){
                     let body = document.querySelector('body');
@@ -76,7 +77,13 @@ export class HomePage {
                     let absWidth = 803;
                     let absHeight = 600;
                     let vRatio = wHeight / absHeight;
+                    if (vRatio > 1) {
+                      vRatio = 1;
+                    }
                     let hRatio = wWidth / absWidth;
+                    if (hRatio > 1) {
+                      hRatio = 1;
+                    }
                     let leftPad = absWidth - absWidth * hRatio;
                     let topPad = absHeight - absHeight * vRatio;
                     if (vRatio >= hRatio) { 
@@ -113,7 +120,7 @@ export class HomePage {
                   position: absolute;
                   left: 0;
                   bottom: 0;
-                  width: 803px;
+                  width: 100%;
                   background: grey; 
                 }`
         });
