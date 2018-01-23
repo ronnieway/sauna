@@ -67,6 +67,7 @@ export class HomePage {
                 })();`
         });
 
+        if(window.location.href != 'http:http://10.0.1.15/syswww/login.xml'){
           browser.executeScript({
             code: `(function(){
                     alert(window.location.href);
@@ -86,9 +87,9 @@ export class HomePage {
                     }
                     window.scrollTo(leftPad, topPad);
                     document.body.style.backgroundColor = '#408080';
-                    })();`
+                  })();`
           });
-
+        };
         browser.insertCSS({
           code: `body{
                   overflow:hidden;
@@ -99,7 +100,7 @@ export class HomePage {
                 #closeBrowserButton{
                   padding: 10px 0 10px 0;
                   margin: 0;
-                  left: 50vw;
+                  left: 90%;
                   color: white; 
                   font-size: 3vh;
                   font-weight: bold;
