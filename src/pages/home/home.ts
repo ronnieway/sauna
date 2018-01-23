@@ -101,7 +101,6 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  position: fixed; 
                   padding: 10px 0 10px 0;
                   margin: 0 auto;
                   color: white; 
@@ -112,8 +111,11 @@ export class HomePage {
                   z-index: 9999;
                 }
                 #outerBrowserButton{ 
+                  position: fixed;
+                  bottom: 0;
+                  left: 0;
                   height: 30px;
-                  width: 1000px; 
+                  width: 100wv; 
                   background: grey; 
                 }`
         });
