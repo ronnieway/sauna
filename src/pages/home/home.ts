@@ -78,9 +78,9 @@ export class HomePage {
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
                       if (vRatio >= hRatio) { 
-                        body.style.cssText += '; transform:scale(' + hRatio + ');';
+                        body.style.cssText += '; transform:scale(' + hRatio + '); transform:translate(0,0);';
                       } else {
-                        body.style.cssText += '; transform:scale(' + vRatio + ');';
+                        body.style.cssText += '; transform:scale(' + vRatio + '); transform:translate(0,0);';
                       }
                     };
                     zoomIt();
