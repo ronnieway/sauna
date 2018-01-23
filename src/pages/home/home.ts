@@ -66,29 +66,30 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                  alert(event.url);
                   if (iOS){
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
                       let wHeight = window.screen.height;
-                      const absWidth = 803;
-                      const absHeight = 600;
-                      let vRatio;
-                      let hRatio;
-                      vRatio = wHeight / absHeight;
-                      hRatio = wWidth / absWidth;
-                      
-                      if (vRatio >= hRatio) { 
-                        body.style.cssText += '; transform:scale(' + hRatio + '); position:absolute !important; top:0 !important; left:0 !important;';
-                      } else {
-                        body.style.cssText += '; transform:scale(' + vRatio + '); position:absolute !important; top:0 !important; left:0 !important;';
+                      let absWidth = 803;
+                      let absHeight = 600;
+                      let vRatio = wHeight / absHeight;
+                      let hRatio = wWidth / absWidth;
+                      if (vRatio < 1 || hRatio < 1) {
+                        let leftPad = absWidth - absWidth * hRatio;
+                        let topPad = absHeight - absHeight * vRatio;
+                        if (vRatio >= hRatio) { 
+                          body.style.cssText += '; transform:scale(' + hRatio + ');';
+                        } else {
+                          body.style.cssText += '; transform:scale(' + vRatio + ');';
+                        }
+                        window.scrollTo(leftPad, topPad);
                       }
-
                     })();
                   };`
           });
-
-
+        
         browser.insertCSS({
           code: `table, tbody, td, tr{
                   border: 0 !important;
