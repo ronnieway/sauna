@@ -53,8 +53,7 @@ export class HomePage {
           browser.executeScript({
             code: `localStorage.setItem('iab', 'true');
                     let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                    alert(iOS);
-                    
+                    if(iOS){
                       (function(){
                         let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
                         let wWidth = window.screen.width;
@@ -67,27 +66,30 @@ export class HomePage {
                           let el = all[i];
                           let elHeight = el.offsetHeight;
                           let elWidth = el.offsetWidth;
-                          let elemRect = el.getBoundingClientRect();
-                          let vRatio;
-                          let hRatio;
-                          let hOffset   = elemRect.left - bodyRect.left;
-                          let vOffset   = elemRect.top - bodyRect.top;
-                          vRatio = wHeight / absHeight;
-                          hRatio = wWidth / absWidth;
-                          let h = elHeight * vRatio;
-                          el.style.height = h.toFixed(0);
-                          let w = elWidth * hRatio;
-                          w = w.toFixed(0);
-                          el.setAttribute('style', 'width:" + w + "px !important');
-                          el.style.cssText += '; width:" + w + "px !important;';
-                          alert('elWidth: ' + elWidth + ', hRatio: ' + hRatio + ', w: ' + w + ', el.style.width: ' + el.style.width);
-                          let l = vOffset * vRatio;
-                          el.style.top = l.toFixed(0);
-                          let t = hOffset * hRatio;
-                          el.style.left = t.toFixed(0);
+                          if (elHeight > 0 && elWidth > 0){
+                            let elemRect = el.getBoundingClientRect();
+                            let vRatio;
+                            let hRatio;
+                            let hOffset   = elemRect.left - bodyRect.left;
+                            let vOffset   = elemRect.top - bodyRect.top;
+                            vRatio = wHeight / absHeight;
+                            hRatio = wWidth / absWidth;
+                            let h = elHeight * vRatio;
+                            h = h.toFixed(0);
+                            el.style.cssText += '; height:" + h + "px !important;';
+                            let w = elWidth * hRatio;
+                            w = w.toFixed(0);
+                            el.style.cssText += '; width:" + w + "px !important;';
+                            let l = vOffset * vRatio;
+                            l = l.toFixed(0);
+                            el.style.cssText += '; left:" + l + "px !important;';
+                            let t = hOffset * hRatio;
+                            t = t.toFixed(0);
+                            el.style.cssText += '; top:" + t + "px !important;';
+                          }
                         }
                       })();
-                        
+                    };    
                     (function() {
                       let body = document.querySelector('body');
                       let button = document.createElement('div');
