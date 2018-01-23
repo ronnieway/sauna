@@ -67,7 +67,7 @@ export class HomePage {
                 })();`
         });
 
-        if(window.location.href != 'http://10.0.1.15/syswww/login.xml'){
+        if(document.URL != 'http://10.0.1.15/syswww/login.xml'){
           browser.executeScript({
             code: `(function(){
                     let body = document.querySelector('body');
@@ -105,18 +105,15 @@ export class HomePage {
                   font-weight: bold;
                   text-align: center;
                   line-height: 4vh; 
-                  z-index: 9999;
+                  z-index: 99999;
                   width: 50%;
                   height: 30px;
-                  background: red; 
                 }
                 #outerBrowserButton{ 
                   position: absolute;
                   left: 0;
                   bottom: 0;
-                  width: 200vw;
-                  bottom: 0;
-                  left: 0;
+                  width: 803px;
                   background: grey; 
                 }`
         });
