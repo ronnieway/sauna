@@ -78,9 +78,9 @@ export class HomePage {
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
                       if (vRatio >= hRatio) { 
-                        body.style.cssText += '; transform:scale(' + hRatio + ') !important; transform:translate(0,0);';
+                        body.style.cssText += '; transform:scale(' + hRatio + ',' + hRatio + ') !important;';
                       } else {
-                        body.style.cssText += '; transform:scale(' + vRatio + ') !important; transform:translate(0,0);';
+                        body.style.cssText += '; transform:scale(' + vRatio + ',' + vRatio + ') !important;';
                       }
                     })();
                   };`
