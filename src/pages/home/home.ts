@@ -67,7 +67,7 @@ export class HomePage {
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   if (iOS){
-                    (function(){
+                    function zoomIt(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
                       let wHeight = window.screen.height;
@@ -82,8 +82,15 @@ export class HomePage {
                       } else {
                         body.style.cssText += '; transform:scale(' + vRatio + ');';
                       }
-                    })();
+                    };
+                    zoomIt();
+                    window.addEventListener("resize", zoomIt, false);
                   };`
+          });
+          browser.insertCSS({
+            code: `#closeBrowserButton{
+              width: 803px !important;
+            }`
           });
         };
 
@@ -107,7 +114,6 @@ export class HomePage {
                   font-weight: bold;
                   line-height: 4vh; 
                   z-index: 9999;
-                  transform:scale(1) !important;
                 }`
         });
 
