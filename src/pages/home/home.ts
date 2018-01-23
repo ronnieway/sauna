@@ -91,8 +91,7 @@ export class HomePage {
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-                    let butWith = 100 * hRatio;
-                    document.getElementById('outerBrowserButton').style.width = '100wv !important;'; 
+                    document.getElementById('outerBrowserButton').style.width = wWidth 'px !important;'; 
                     window.scrollTo(leftPad, topPad);
                   })();`
           });
