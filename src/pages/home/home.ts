@@ -69,7 +69,8 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (event.url != 'http://10.0.1.15/syswww/login.xml'){
+                  console.log(event);
+                  if (ios){
                     console.log(event.url);
                     (function(){
                       let body = document.querySelector('body');
