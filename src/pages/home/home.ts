@@ -53,7 +53,7 @@ export class HomePage {
           browser.executeScript({
             code: `localStorage.setItem('iab', 'true');
                     let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
+                    if (iOS){
                       (function(){
                         let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
                         let wWidth = window.screen.width;
@@ -80,11 +80,16 @@ export class HomePage {
                             let w = elWidth * hRatio;
                             w = w.toFixed(0);
                             el.style.cssText += '; width:' + w + 'px !important;';
-
+                            let l = vOffset * vRatio;
+                            l = l.toFixed(0);
+                            el.style.cssText += '; left:' + l + 'px !important;';
+                            let t = hOffset * hRatio;
+                            t = t.toFixed(0);
+                            el.style.cssText += '; top:' + t + 'px !important;';
                           }
                         }
                       })();
-    
+                    };
                     (function() {
                       let body = document.querySelector('body');
                       let button = document.createElement('div');
