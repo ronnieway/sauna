@@ -68,7 +68,7 @@ export class HomePage {
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   if (iOS && event.url !== 'http://10.0.1.15/syswww/login.xml'){
                     (function(){
-                      let table = document.querySelector('table');
+                      let table = document.querySelector('body');
                       let wWidth = window.screen.width;
                       let wHeight = window.screen.height;
                       const absWidth = 803;
@@ -78,11 +78,11 @@ export class HomePage {
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
                       if (vRatio >= hRatio) { 
-                        table.style.cssText += '; transform:scale(' + hRatio + ');';
+                        body.style.cssText += '; transform:scale(' + hRatio + ');';
                       } else {
-                        table.style.cssText += '; transform:scale(' + vRatio + ');';
+                        body.style.cssText += '; transform:scale(' + vRatio + ');';
                       }
-                      table.style.cssText += '; transform:translate(0,0);';
+                      body.style.cssText += '; transform:translate(0,0);';
                     })();
                   };`
           });
@@ -106,6 +106,7 @@ export class HomePage {
                   padding: 10px; 
                   font-size: 3vh;
                   font-weight: bold;
+                  text-align: center;
                   line-height: 4vh; 
                   z-index: 9999;
                 }`
