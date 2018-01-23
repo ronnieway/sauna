@@ -50,7 +50,7 @@ export class HomePage {
     browser.on('loadstop')
     .subscribe(
       (event) => {
-        let url = window.location.href;
+  //      let url = window.location.href;
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
                 (function() {
