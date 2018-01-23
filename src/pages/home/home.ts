@@ -86,6 +86,7 @@ export class HomePage {
                             let t = hOffset * hRatio;
                             t = t.toFixed(0);
                             el.style.cssText += '; top:' + t + 'px !important;';
+                            el.style.cssText += '; background-size:cover !important;';
                           }
                         }
                       })();
