@@ -83,7 +83,7 @@ export class HomePage {
                       } else {
                         body.style.cssText += '; transform:scale(' + vRatio + ');';
                       }
-                      body.style.cssText += '; transform:translate(0,0);';
+
                     })();
                   };`
           });
