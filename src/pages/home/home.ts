@@ -53,7 +53,6 @@ export class HomePage {
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
                 (function() {
-                  console.log(event.url);
                   let body = document.querySelector('body');
                   let outerButton = document.createElement('div');
                   outerButton.setAttribute('id', 'outerBrowserButton');
