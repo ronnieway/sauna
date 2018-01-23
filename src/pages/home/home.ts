@@ -77,6 +77,7 @@ export class HomePage {
                       let hRatio;
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
+                      alert('1');
                       if (vRatio >= hRatio) { 
                         body.style.cssText += '; transform:scale(' + hRatio + ');';
                       } else {
