@@ -66,7 +66,7 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (iOS && event.url !== 'http://10.0.1.15/syswww/login.xml'){
+                 
                     (function(){
                       let table = document.querySelector('body');
                       let wWidth = window.screen.width;
@@ -85,7 +85,7 @@ export class HomePage {
                       };
 
                     })();
-                  };`
+                  `
           });
 
 
