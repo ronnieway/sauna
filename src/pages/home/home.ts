@@ -90,7 +90,10 @@ export class HomePage {
           });
 
         browser.insertCSS({
-          code: `table, tbody, td, tr{
+          code: `body{
+                  overflow:hidden;
+                }
+                table, tbody, td, tr{
                   border: 0 !important;
                 }
                 #closeBrowserButton{
@@ -98,7 +101,7 @@ export class HomePage {
                   bottom: 0 !important;
                   left: 0 !important; 
                   height: 30px;
-                  width: 100%; 
+                  width: 1000px; 
                   background: grey; 
                   color: white; 
                   padding: 10px;
