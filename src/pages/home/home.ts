@@ -49,68 +49,68 @@ export class HomePage {
     browser.on('loadstop')
     .subscribe(
       (event) => {
+        browser.executeScript({
+          code: `localStorage.setItem('iab', 'true');
+                (function() {
+                  let body = document.querySelector('body');
+                  let button = document.createElement('div');
+                  button.innerHTML = '<< back to connect';
+                  button.setAttribute('id', 'closeBrowserButton');
+                  button.onclick = function() { 
+                    localStorage.setItem('iab', 'false'); 
+                  };
+                  body.appendChild(button);
+                })();`
+        });
+
         if (event.url === 'http://10.0.1.15/PAGE1.XML' || event.url === 'http://10.0.1.15/page1.xml' || event.url === 'http://10.0.1.15/PAGE21.XML') {
           browser.executeScript({
-            code: `localStorage.setItem('iab', 'true');
-                    let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                    if (iOS){
-                      (function(){
-                        let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
-                        let wWidth = window.screen.width;
-                        let wHeight = window.screen.height;
-                        let bodyRect = document.body.getBoundingClientRect();
-                        const absWidth = 803;
-                        const absHeight = 600;
-                
-                        for (let i=0, max=all.length; i < max; i++) {
-                          let el = all[i];
-                          let elHeight = el.offsetHeight;
-                          let elWidth = el.offsetWidth;
-                          if (elHeight > 0 && elWidth > 0){
-                            let elemRect = el.getBoundingClientRect();
-                            let vRatio;
-                            let hRatio;
-                            let hOffset   = elemRect.left - bodyRect.left;
-                            let vOffset   = elemRect.top - bodyRect.top;
-                            vRatio = wHeight / absHeight;
-                            hRatio = wWidth / absWidth;
-                            let h = elHeight * vRatio;
-                            h = h.toFixed(0);
-                            el.style.cssText += '; height:' + h + 'px !important;';
-                            let w = elWidth * hRatio;
-                            w = w.toFixed(0);
-                            el.style.cssText += '; width:' + w + 'px !important;';
-                            let l = vOffset * vRatio;
-                            l = l.toFixed(0);
-                            el.style.cssText += '; left:' + l + 'px !important;';
-                            let t = hOffset * hRatio;
-                            t = t.toFixed(0);
-                            el.style.cssText += '; top:' + t + 'px !important;';
-                            el.style.cssText += '; background-size:cover !important;';
-                          }
+            code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                  if (iOS){
+                    (function(){
+                      let all = document.querySelectorAll('table, tbody, tr, td, div, form, input');
+                      let wWidth = window.screen.width;
+                      let wHeight = window.screen.height;
+                      let bodyRect = document.body.getBoundingClientRect();
+                      const absWidth = 803;
+                      const absHeight = 600;
+              
+                      for (let i=0, max=all.length; i < max; i++) {
+                        let el = all[i];
+                        let elHeight = el.offsetHeight;
+                        let elWidth = el.offsetWidth;
+                        if (elHeight > 0 && elWidth > 0){
+                          let elemRect = el.getBoundingClientRect();
+                          let vRatio;
+                          let hRatio;
+                          let hOffset   = elemRect.left - bodyRect.left;
+                          let vOffset   = elemRect.top - bodyRect.top;
+                          vRatio = wHeight / absHeight;
+                          hRatio = wWidth / absWidth;
+                          let h = elHeight * vRatio;
+                          h = h.toFixed(0);
+                          el.style.cssText += '; height:' + h + 'px !important;';
+                          let w = elWidth * hRatio;
+                          w = w.toFixed(0);
+                          el.style.cssText += '; width:' + w + 'px !important;';
+                          let l = vOffset * vRatio;
+                          l = l.toFixed(0);
+                          el.style.cssText += '; left:' + l + 'px !important;';
+                          let t = hOffset * hRatio;
+                          t = t.toFixed(0);
+                          el.style.cssText += '; top:' + t + 'px !important;';
+                          el.style.cssText += '; background-size:cover !important;';
                         }
-                      })();
-                    };`
+                      }
+                    })();
+                  };`
           });
         };
 
-        browser.executeScript({
-          code: `(function() {
-                    let body = document.querySelector('body');
-                    let button = document.createElement('div');
-                    button.innerHTML = '<< back to connect';
-                    button.setAttribute('id', 'closeBrowserButton');
-                    button.onclick = function() { 
-                      localStorage.setItem('iab', 'false'); 
-                    };
-                    body.appendChild(button);
-                  })();`
-        });
         browser.insertCSS({
           code: `body{
                   background-color: #408080 !important; 
                   margin: 0 !important; 
-                  width: 100vw !important;
                 }
                 table, tbody, td, tr{
                   border: 0 !important;
@@ -123,7 +123,7 @@ export class HomePage {
                   bottom: 0 !important;
                   left: 0; 
                   height: 30px;
-                  width: 100%; 
+                  width: 100vw; 
                   background: grey; 
                   color: white; 
                   padding: 10px; 
