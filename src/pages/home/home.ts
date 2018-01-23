@@ -78,9 +78,9 @@ export class HomePage {
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
                       if (vRatio >= hRatio) { 
-                        body.style.cssText += '; transform:scale(' + hRatio + '); transform:translate(0,0);';
+                        body.style.cssText += '; transform:scale(' + hRatio + ') !important; transform:translate(0,0);';
                       } else {
-                        body.style.cssText += '; transform:scale(' + vRatio + '); transform:translate(0,0);';
+                        body.style.cssText += '; transform:scale(' + vRatio + ') !important; transform:translate(0,0);';
                       }
                     })();
                   };`
@@ -99,7 +99,7 @@ export class HomePage {
                   bottom: 0 !important;
                   left: 0 !important; 
                   height: 30px;
-                  width: 100vw; 
+                  width: 100%; 
                   background: grey; 
                   color: white; 
                   padding: 10px; 
