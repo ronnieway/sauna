@@ -68,29 +68,24 @@ export class HomePage {
         });
 
           browser.executeScript({
-            code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (ios){
-                    (function(){
-                      let body = document.querySelector('body');
-                      let wWidth = window.screen.width;
-                      let wHeight = window.screen.height;
-                      let absWidth = 803;
-                      let absHeight = 600;
-                      let vRatio = wHeight / absHeight;
-                      let hRatio = wWidth / absWidth;
-                      if (vRatio < 1 || hRatio < 1) {
-                        let leftPad = absWidth - absWidth * hRatio;
-                        let topPad = absHeight - absHeight * vRatio;
-                        if (vRatio >= hRatio) { 
-                          body.style.cssText += '; transform:scale(' + hRatio + ');';
-                        } else {
-                          body.style.cssText += '; transform:scale(' + vRatio + ');';
-                        }
-                        window.scrollTo(leftPad, topPad);
-                        document.body.style.backgroundColor = '#408080';
-                      }
-                    })();
-                  };`
+            code: `(function(){
+                    let body = document.querySelector('body');
+                    let wWidth = window.screen.width;
+                    let wHeight = window.screen.height;
+                    let absWidth = 803;
+                    let absHeight = 600;
+                    let vRatio = wHeight / absHeight;
+                    let hRatio = wWidth / absWidth;
+                    let leftPad = absWidth - absWidth * hRatio;
+                    let topPad = absHeight - absHeight * vRatio;
+                    if (vRatio >= hRatio) { 
+                      body.style.cssText += '; transform:scale(' + hRatio + ');';
+                    } else {
+                      body.style.cssText += '; transform:scale(' + vRatio + ');';
+                    }
+                    window.scrollTo(leftPad, topPad);
+                    document.body.style.backgroundColor = '#408080';
+                    })();`
           });
 
         browser.insertCSS({
