@@ -105,11 +105,11 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 10px 0 10px 0;
+                  padding: 5px 0 5px 0;
                   margin: 0 auto;
                   position: relative;
                   color: white; 
-                  font-size: 3vh;
+                  font-size: 4vh;
                   font-weight: bold;
                   text-align: center;
                   line-height: 4vh; 
