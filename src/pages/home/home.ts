@@ -77,11 +77,12 @@ export class HomePage {
                       let hRatio;
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
+                      alert(vRatio + ' ' + hRatio);
                       if (vRatio >= hRatio) { 
                         body.style.cssText += '; transform:scale(' + hRatio + ');';
                       } else {
                         body.style.cssText += '; transform:scale(' + vRatio + ');';
-                      }
+                      };
 
                     })();
                   };`
