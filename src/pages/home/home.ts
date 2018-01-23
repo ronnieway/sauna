@@ -66,7 +66,6 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  alert(event.url);
                   if (iOS){
                     (function(){
                       let body = document.querySelector('body');
@@ -89,7 +88,7 @@ export class HomePage {
                     })();
                   };`
           });
-        
+
         browser.insertCSS({
           code: `table, tbody, td, tr{
                   border: 0 !important;
