@@ -7,13 +7,13 @@
   <p class="connectHeader">IP address of your controller</p>
   <form>
     <div class="ipInputSet">
-        <ion-input class="text-input ipInputVal" type="number" value="10" name="ip1" #ip1 disabled></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" value={{ip[0]}} name="ip1" #ip1 disabled></ion-input>
         <span class="dot"><strong>.</strong></span>
-        <ion-input class="text-input ipInputVal" type="number" value="10" name="ip2" #ip2 disabled></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" value={{ip[1]}} name="ip2" #ip2 disabled></ion-input>
         <span class="dot"><strong>.</strong></span>
-        <ion-input class="text-input ipInputVal" type="number" value="0" name="ip3" #ip3 disabled></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" value={{ip[2]}} name="ip3" #ip3 disabled></ion-input>
         <span class="dot"><strong>.</strong></span>
-        <ion-input class="text-input ipInputVal" type="number" value="2" name="ip4" #ip4 disabled></ion-input>
+        <ion-input class="text-input ipInputVal" type="number" value={{ip[3]}} name="ip4" #ip4 disabled></ion-input>
     </div>
     <div>
       <button class="submit-btn connectButton" ion-button id="sButton" (click)="submitRequest()">Connect</button>
