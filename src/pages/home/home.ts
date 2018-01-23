@@ -66,7 +66,7 @@ export class HomePage {
 
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                  if (iOS){
+                  if (iOS && event.url != 'http://10.0.1.15/syswww/login.xml'){
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
@@ -104,7 +104,7 @@ export class HomePage {
                   width: 1000px; 
                   background: grey; 
                   color: white; 
-                  padding: 10px;
+                  padding: 10px 0 10px 0;
                   margin: 0 auto; 
                   font-size: 3vh;
                   font-weight: bold;
