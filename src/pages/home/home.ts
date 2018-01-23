@@ -85,11 +85,6 @@ export class HomePage {
                     })();
                   };`
           });
-          browser.insertCSS({
-            code: `#closeBrowserButton{
-              width: 803px !important;
-            }`
-          });
         };
 
         browser.insertCSS({
