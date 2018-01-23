@@ -70,7 +70,6 @@ export class HomePage {
           browser.executeScript({
             code: `let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
                   if (ios){
-                    console.log(event);
                     (function(){
                       let body = document.querySelector('body');
                       let wWidth = window.screen.width;
