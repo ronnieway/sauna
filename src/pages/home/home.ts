@@ -97,7 +97,7 @@ export class HomePage {
                 }
                 #closeBrowserButton{
                   padding: 10px 0 10px 0;
-                  margin: 0 auto;
+                  margin: 0 auto !important;
                   color: white; 
                   font-size: 3vh;
                   font-weight: bold;
