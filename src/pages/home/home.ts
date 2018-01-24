@@ -71,10 +71,9 @@ export class HomePage {
         if (iOS){
           browser.insertCSS({
             code: `body{
-                  width: 803px !important;
-                  padding: 5px 0 5px 0;
+                  padding: 50px 0 5px 0;
                   margin: 0 !important;
-                  overflow: hidden;
+                  overflow: hidden !important;
                 }`
           });
 
@@ -90,6 +89,12 @@ export class HomePage {
                   let topPad;
                   
                   function zoomIt(){
+                    let a;
+                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
+                      a = wHeight;
+                      wHeight = wWidth;
+                      wWidth = a; 
+                    }
                     
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
