@@ -116,6 +116,8 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   function doOnOrientationChange() {
+                    wHeight = window.screen.width; 
+                    wWidth = window.screen.height;
                     zoomIt(); 
                   };
                   window.addEventListener('orientationchange', doOnOrientationChange);`
