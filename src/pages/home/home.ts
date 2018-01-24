@@ -88,28 +88,28 @@ export class HomePage {
                   let hRatio;
                   let leftPad;
                   let topPad;
+                  
                   let zoomIt = function(w, h){
                     vRatio = h / absHeight;
                     hRatio = w / absWidth;
                     
                     if (vRatio >= hRatio) { 
-                      body.style.cssText += '; transform:scale(' + hRatio + ');';
-                      topPad = (h - hRatio * absHeight)/2;
-                      leftPad = 0;
+                      body.style.cssText += '; transform:scale(' + hRatio + ');'; 
                     } else {
-                      body.style.cssText += '; transform:scale(' + vRatio + ');';
-                      leftPad = (w - vRatio * absWidth)/2;
-                      topPad = 0;
+                      body.style.cssText += '; transform:scale(' + vRatio + ');';0;
                     }
                     body.style.cssText += '; transform-origin: 0 0;';
                   };
                   zoomIt(wWidth, wHeight);
+                  
                   body.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                   }, false);
+                  
                   body.addEventListener('scroll', function(e) {
                     e.preventDefault();
                   }, false);
+                  
                   function doOnOrientationChange() {
                     if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
                       if (wHeight > wWidth) {
