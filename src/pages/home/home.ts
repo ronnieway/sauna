@@ -78,7 +78,7 @@ export class HomePage {
         if (iOS){
           browser.executeScript({
             code: `let body = document.querySelector('body');
-                  function zoomIt(){
+                  let zoomIt = function(){
                     let wWidth = window.screen.width;
                     let wHeight = window.screen.height;
                     let absWidth = 803;
@@ -99,6 +99,7 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     window.scrollTo(leftPad, topPad);
+                    alert('done');
                   };
                   zoomIt();
                   body.addEventListener('touchmove', function(e) {
