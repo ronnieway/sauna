@@ -78,15 +78,15 @@ export class HomePage {
         if (iOS){
           browser.executeScript({
             code: `let body = document.querySelector('body');
+                  let wHeight;
+                  let wWidth;
+                  let absWidth = 803;
+                  let absHeight = 600;
                   let zoomIt = function(){
-                    let wWidth = window.screen.width;
-                    let wHeight = window.screen.height;
-                    let absWidth = 803;
-                    let absHeight = 600;
+                    wWidth = window.screen.width;
+                    wHeight = window.screen.height;
                     let vRatio = wHeight / absHeight;
-                    
                     let hRatio = wWidth / absWidth;
-                    
                     let leftPad = absWidth - absWidth * hRatio;
                     let topPad = absHeight - absHeight * vRatio;
                     if (vRatio >= hRatio) { 
@@ -107,9 +107,12 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
+                        [wHeight, wWidth] = [wWidth, wHeight];
                         zoomIt();
                         break; 
                       default:
+                        wWidth = window.screen.width;
+                        wHeight = window.screen.height;
                         zoomIt();
                         break; 
                     }
