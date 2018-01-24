@@ -87,25 +87,22 @@ export class HomePage {
                   let hRatio;
                   let leftPad;
                   let topPad;
-                  let zoomIt = function(ww, wh){
-                    vRatio = wh / absHeight;
-                    hRatio = ww / absWidth;
+                  let zoomIt = function(){
+                    vRatio = wHeight / absHeight;
+                    hRatio = wWidth / absWidth;
                     leftPad = absWidth - absWidth * hRatio;
-                    if (leftPad < 0) {
-                     leftPad = 0;
-                    }
+
                     topPad = absHeight - absHeight * vRatio;
-                    if (topPad < 0) {
-                     topPad = 0;
-                    }
+
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
+                    alert(leftPad + ' ' + topPad);
                     window.scrollTo(leftPad, topPad);
                   };
-                  zoomIt(wWidth, wHeight);
+                  zoomIt();
                   body.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                   }, false);
@@ -113,7 +110,7 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   function doOnOrientationChange() {
-                    zoomIt(wWidth, wHeight); 
+                    zoomIt(); 
                   };
                   window.addEventListener('orientationchange', doOnOrientationChange);`
           });
