@@ -107,8 +107,8 @@ export class HomePage {
                   body.addEventListener('scroll', function(e) {
                     e.preventDefault();
                   }, false);
-                  body.addEventListener('resize', alert('resize'), false);
-                  body.addEventListener('orientationchange', alert('rotate'), false);`
+                  window.addEventListener('resize', alert('resize'), false);
+                  window.addEventListener('orientationchange', alert('rotate'), false);`
           });
         };
         browser.insertCSS({
