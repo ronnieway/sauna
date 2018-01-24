@@ -82,9 +82,9 @@ export class HomePage {
                   let wWidth = window.screen.width;
                   let absWidth = 803;
                   let absHeight = 600;
-                  let zoomIt = function(wWidth, wHeight){
-                    let vRatio = wHeight / absHeight;
-                    let hRatio = wWidth / absWidth;
+                  let zoomIt = function(ww, wh){
+                    let vRatio = wh / absHeight;
+                    let hRatio = ww / absWidth;
                     let leftPad = absWidth - absWidth * hRatio;
                     let topPad = absHeight - absHeight * vRatio;
                     if (vRatio >= hRatio) { 
@@ -93,7 +93,7 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     
-                    alert(wWidth);
+                    alert(ww);
                   };
                   zoomIt(wWidth, wHeight);
                   body.addEventListener('touchmove', function(e) {
