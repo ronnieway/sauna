@@ -90,22 +90,7 @@ export class HomePage {
                   let topPad;
                   
                   function zoomIt(){
-                    let a;
-                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      if (wHeight > wWidth) {
-                        a = wHeight;
-                        wHeight = wWidth;
-                        wWidth = a;
-                      } 
-                    } else if (window.screen.orientation.type === "portrait-primary" || window.screen.orientation.type === "portrait-secondary") {  
-                      if (wHeight < wWidth) {
-                        a = wHeight;
-                        wHeight = wWidth;
-                        wWidth = a;
-                      }
-                    } else {
-                      console.log('oops'); 
-                    }
+                    
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
