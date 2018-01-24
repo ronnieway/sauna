@@ -85,6 +85,8 @@ export class HomePage {
                     let absHeight = 600;
                     let vRatio = wHeight / absHeight;
                     
+                    let hRatio = wWidth / absWidth;
+                    
                     let leftPad = absWidth - absWidth * hRatio;
                     let topPad = absHeight - absHeight * vRatio;
                     if (vRatio >= hRatio) { 
