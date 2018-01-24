@@ -50,14 +50,6 @@ export class HomePage {
     browser.on('loadstop')
     .subscribe(
       (event) => {
-        browser.insertCSS({
-          code: `body{
-                  width: 803px !important;
-                  padding: 5px 0 5px 0;
-                  margin: 0 !important;
-                }`
-        });
-
         browser.executeScript({
           code: `localStorage.setItem('iab', 'true');
                 (function() {
@@ -77,6 +69,15 @@ export class HomePage {
 
         let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (iOS){
+          browser.insertCSS({
+            code: `body{
+                  width: 803px !important;
+                  padding: 5px 0 5px 0;
+                  margin: 0 !important;
+                  overflow: hidden;
+                }`
+          });
+
           browser.executeScript({
             code: `let body = document.querySelector('body');
                   let wHeight = window.screen.height;
@@ -93,12 +94,12 @@ export class HomePage {
                     if(hRatio < 1) {
                       leftPad = absWidth - absWidth * hRatio;
                     } else {
-                      leftPad = absWidth - absWidth / hRatio;
+                      leftPad = absWidth * hRatio;
                     }
                     if(vRatio < 1) {
                       topPad = absHeight - absHeight * vRatio;
                     } else { 
-                      topPad = absHeight - absHeight / vRatio;
+                      topPad = absHeight * vRatio;
                     }  
 
                     if (vRatio >= hRatio) { 
