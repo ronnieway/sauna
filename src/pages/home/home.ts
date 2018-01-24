@@ -82,17 +82,27 @@ export class HomePage {
                   let wWidth = window.screen.width;
                   let absWidth = 803;
                   let absHeight = 600;
+                  let vRatio;
+                  let hRatio;
+                  let leftPad;
+                  let topPad;
                   let zoomIt = function(ww, wh){
-                    let vRatio = wh / absHeight;
-                    let hRatio = ww / absWidth;
-                    let leftPad = absWidth - absWidth * hRatio;
-                    let topPad = absHeight - absHeight * vRatio;
+                    vRatio = wh / absHeight;
+                    hRatio = ww / absWidth;
+                    leftPad = absWidth - absWidth * hRatio;
+                    if (leftPad < 0) {
+                     leftPad = 0;
+                    }
+                    topPad = absHeight - absHeight * vRatio;
+                    if (topPad < 0) {
+                     topPad = 0;
+                    }
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-                    
+                    window.scrollTo(leftPad, topPad);
                   };
                   zoomIt(wWidth, wHeight);
                   body.addEventListener('touchmove', function(e) {
@@ -104,7 +114,6 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
-                        alert(window.screen.width);
                         zoomIt(wHeight, wWidth);
                         break; 
                       default:
