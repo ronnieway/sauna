@@ -104,7 +104,7 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
-                        alert(window.screen.width;);
+                        alert(window.screen.width);
                         zoomIt(wHeight, wWidth);
                         break; 
                       default:
