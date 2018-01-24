@@ -93,12 +93,12 @@ export class HomePage {
                     if(hRatio < 1) {
                       leftPad = absWidth - absWidth * hRatio;
                     } else {
-                      leftPad = absWidth * hRatio - absWidth;
+                      leftPad = 0;
                     }
                     if(vRatio < 1) {
                       topPad = absHeight - absHeight * vRatio;
                     } else { 
-                      topPad = absHeight * vRatio - absHeight;
+                      topPad = 0;
                     }  
 
                     if (vRatio >= hRatio) { 
@@ -106,7 +106,6 @@ export class HomePage {
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-                    alert(leftPad + ' ' + topPad);
                     window.scrollTo(leftPad, topPad);
                   };
                   zoomIt();
