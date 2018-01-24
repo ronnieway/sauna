@@ -53,6 +53,7 @@ export class HomePage {
         browser.insertCSS({
           code: `body{
                   width: 803px !important;
+                  padding: 5px;
                 }`
         });
 
@@ -106,7 +107,8 @@ export class HomePage {
                   body.addEventListener('scroll', function(e) {
                     e.preventDefault();
                   }, false);
-                  body.addEventListener('resize', zoomIt(), false);`
+                  body.addEventListener('resize', zoomIt(), false);
+                  body.addEventListener('orientationchange', zoomIt(), false);`
           });
         };
         browser.insertCSS({
