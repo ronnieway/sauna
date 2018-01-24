@@ -108,18 +108,10 @@ export class HomePage {
                   }, false);
                   function doOnOrientationChange() {
                     if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      if (wHeight > wWidth) {
-                        let a = wHeight;
-                        wHeight = wWidth;
-                        wWidth = a;  
-                      }
+                      
                       zoomIt();
                     } else if (window.screen.orientation.type === "portrait-primary" || window.screen.orientation.type === "portrait-secondary") {  
-                      if (wHeight < wWidth) {
-                        let b = wHeight;
-                        wHeight = wWidth;
-                        wWidth = b;  
-                      }
+                      
                       zoomIt();
                     } else {
                       console.log('oops'); 
