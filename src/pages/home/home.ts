@@ -107,7 +107,7 @@ export class HomePage {
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-                    window.scrollTo(leftPad, topPad);
+                    body.style.cssText += '; transform:translate(-100,-100);';
                   };
                   zoomIt();
                   body.addEventListener('touchmove', function(e) {
