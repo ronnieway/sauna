@@ -110,15 +110,14 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
-                        alert('landscape');
+                        zoomIt();
                         break; 
                       default:
-                        alert('portrait');
+                        zoomIt();
                         break; 
                     }
                   };
-                  window.addEventListener('orientationchange', doOnOrientationChange);
-                  doOnOrientationChange();`
+                  window.addEventListener('orientationchange', doOnOrientationChange);`
           });
         };
         browser.insertCSS({
