@@ -101,7 +101,7 @@ export class HomePage {
                       leftPad = (w - vRatio * absWidth)/2;
                       topPad = 0;
                     }
-                    body.style.cssText += '; transform-origin: ' + leftPad + ' ' + topPad + ';';
+                    body.style.cssText += '; transform-origin: 0 0;';
                   };
                   zoomIt(wWidth, wHeight);
                   body.addEventListener('touchmove', function(e) {
