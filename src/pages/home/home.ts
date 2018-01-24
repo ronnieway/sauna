@@ -93,12 +93,12 @@ export class HomePage {
                     if(hRatio < 1) {
                       leftPad = absWidth - absWidth * hRatio;
                     } else {
-                      leftPad = absWidth + absWidth * hRatio;
+                      leftPad = wWidth;
                     }
                     if(vRatio < 1) {
                       topPad = absHeight - absHeight * vRatio;
                     } else { 
-                      topPad = absHeight + absHeight * vRatio;
+                      topPad = wHeight;
                     }  
 
                     if (vRatio >= hRatio) { 
@@ -116,11 +116,18 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   function doOnOrientationChange() {
-                    let a;
-                    a = wHeight;
-                    wHeight = wWidth; 
-                    wWidth = a;
-                    zoomIt(); 
+                    switch(window.orientation) {  
+                      case -90 || 90:
+                        wHeight = window.screen.width; 
+                        wWidth = window.screen.height;
+                        zoomIt();
+                        break; 
+                      default:
+                        wHeight = window.screen.height; 
+                        wWidth = window.screen.width;
+                        zoomIt();
+                        break; 
+                    } 
                   };
                   window.addEventListener('orientationchange', doOnOrientationChange);`
           });
