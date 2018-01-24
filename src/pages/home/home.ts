@@ -53,7 +53,7 @@ export class HomePage {
         browser.insertCSS({
           code: `body{
                   width: 803px !important;
-                  padding: 5px;
+                  padding: 5px 0 5px 0;
                   margin: 0 !important;
                 }`
         });
@@ -90,9 +90,16 @@ export class HomePage {
                   let zoomIt = function(){
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
-                    leftPad = absWidth - absWidth * hRatio;
-
-                    topPad = absHeight - absHeight * vRatio;
+                    if(hRatio > 1) {
+                      leftPad = absWidth - absWidth * hRatio;
+                    } else {
+                      leftPad = absWidth * hRatio - absWidth;
+                    }
+                    if(vRatio > 1) {
+                      topPad = absHeight - absHeight * vRatio;
+                    } else { 
+                      topPad = absHeight * vRatio - absHeight;
+                    }  
 
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
