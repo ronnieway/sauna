@@ -88,18 +88,20 @@ export class HomePage {
                   let hRatio;
                   let leftPad;
                   let topPad;
-                  let zoomIt = function(){
-                    vRatio = wHeight / absHeight;
-                    hRatio = wWidth / absWidth;
+                  let zoomIt = function(w, h){
+                    vRatio = h / absHeight;
+                    hRatio = w / absWidth;
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
+                      topPad = (h - hRatio * absHeight)/2;
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
+                      leftPad = (w - vRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: left top;';
+                    body.style.cssText += '; transform-origin: ' + leftPad + ' ' + topPad + ';';
                   };
-                  zoomIt();
+                  zoomIt(wWidth, wHeight);
                   body.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                   }, false);
@@ -108,11 +110,16 @@ export class HomePage {
                   }, false);
                   function doOnOrientationChange() {
                     if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      
-                      zoomIt();
+                      if (wHeight > wWidth) {
+                        zoomIt(wHeight, wWidth); 
+                      } else {
+                        zoomIt(wWidth, wHeight);
                     } else if (window.screen.orientation.type === "portrait-primary" || window.screen.orientation.type === "portrait-secondary") {  
-                      
-                      zoomIt();
+                      if (wHeight > wWidth) {
+                        zoomIt(wWidth, wHeight);  
+                      } else
+                        zoomIt(wHeight, wWidth);
+                      }
                     } else {
                       console.log('oops'); 
                     } 
@@ -139,15 +146,15 @@ export class HomePage {
                   line-height: 4vh; 
                   z-index: 99999;
                   width: 100%;
-                  height: 30px;
                 }
                 #outerBrowserButton{ 
                   position: absolute;
                   left: 0;
-                  bottom: 0;
+                  bottom: -40px;
                   float: left;
                   background: grey; 
                   width: 803px;
+                  height: 40px;
                 }`
         });
 
