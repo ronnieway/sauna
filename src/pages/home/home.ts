@@ -112,7 +112,7 @@ export class HomePage {
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');'; 
                     } else {
-                      body.style.cssText += '; transform:scale(' + vRatio + ');';0;
+                      body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     body.style.cssText += '; transform-origin: 0 0;';
                   };
