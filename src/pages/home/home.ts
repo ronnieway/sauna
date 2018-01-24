@@ -93,12 +93,12 @@ export class HomePage {
                     if(hRatio < 1) {
                       leftPad = absWidth - absWidth * hRatio;
                     } else {
-                      leftPad = 0;
+                      leftPad = absWidth + absWidth * hRatio;
                     }
                     if(vRatio < 1) {
                       topPad = absHeight - absHeight * vRatio;
                     } else { 
-                      topPad = 0;
+                      topPad = absHeight + absHeight * vRatio;
                     }  
 
                     if (vRatio >= hRatio) { 
@@ -116,8 +116,10 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   function doOnOrientationChange() {
-                    wHeight = window.screen.width; 
-                    wWidth = window.screen.height;
+                    let a;
+                    a = wHeight;
+                    wHeight = wWidth; 
+                    wWidth = a;
                     zoomIt(); 
                   };
                   window.addEventListener('orientationchange', doOnOrientationChange);`
