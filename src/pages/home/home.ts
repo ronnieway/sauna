@@ -93,7 +93,6 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     
-                    alert(ww);
                   };
                   zoomIt(wWidth, wHeight);
                   body.addEventListener('touchmove', function(e) {
@@ -105,6 +104,7 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
+                        alert(window.screen.width;);
                         zoomIt(wHeight, wWidth);
                         break; 
                       default:
