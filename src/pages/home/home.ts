@@ -91,17 +91,7 @@ export class HomePage {
                   let zoomIt = function(){
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
-                    if(hRatio < 1) {
-                      leftPad = absWidth - absWidth * hRatio;
-                    } else {
-                      leftPad = absWidth * hRatio;
-                    }
-                    if(vRatio < 1) {
-                      topPad = absHeight - absHeight * vRatio;
-                    } else { 
-                      topPad = absHeight * vRatio;
-                    }  
-
+                    
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
                     } else {
@@ -117,23 +107,22 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   function doOnOrientationChange() {
-                    switch(window.orientation) {  
-                      case -90 || 90:
-                        if (wHeight > wWidth) {
-                          let a = wHeight;
-                          wHeight = wWidth;
-                          wWidth = a;  
-                        }
-                        zoomIt();
-                        break; 
-                      default:
-                        if (wHeight < wWidth) {
-                          let b = wHeight;
-                          wHeight = wWidth;
-                          wWidth = b;  
-                        }
-                        zoomIt();
-                        break; 
+                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
+                      if (wHeight > wWidth) {
+                        let a = wHeight;
+                        wHeight = wWidth;
+                        wWidth = a;  
+                      }
+                      zoomIt();
+                    } else if (window.screen.orientation.type === "portrait-primary" || window.screen.orientation.type === "portrait-secondary") {  
+                      if (wHeight < wWidth) {
+                        let b = wHeight;
+                        wHeight = wWidth;
+                        wWidth = b;  
+                      }
+                      zoomIt();
+                    } else {
+                      console.log('oops'); 
                     } 
                   };
                   window.addEventListener('orientationchange', doOnOrientationChange);`
