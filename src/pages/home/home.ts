@@ -98,6 +98,9 @@ export class HomePage {
                   body.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                   }, false);
+                  body.addEventListener('scroll', function(e) {
+                    e.preventDefault();
+                  }, false);
                   body.addEventListener('resize', zoomIt(), false);`
           });
         };
@@ -128,7 +131,7 @@ export class HomePage {
                   bottom: 0;
                   float: left;
                   background: grey; 
-                  width: 100%;
+                  width: 803px;
                 }`
         });
 
