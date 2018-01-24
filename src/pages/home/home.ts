@@ -89,9 +89,25 @@ export class HomePage {
                   let leftPad;
                   let topPad;
                   
-                  let zoomIt = function(w, h){
-                    vRatio = h / absHeight;
-                    hRatio = w / absWidth;
+                  function zoomIt(){
+                    let a;
+                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
+                      if (wHeight > wWidth) {
+                        a = wHeight;
+                        wHeight = wWidth;
+                        wWidth = a;
+                      } 
+                    } else if (window.screen.orientation.type === "portrait-primary" || window.screen.orientation.type === "portrait-secondary") {  
+                      if (wHeight < wWidth) {
+                        a = wHeight;
+                        wHeight = wWidth;
+                        wWidth = a;
+                      }
+                    } else {
+                      console.log('oops'); 
+                    }
+                    vRatio = wHeight / absHeight;
+                    hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');'; 
@@ -100,7 +116,7 @@ export class HomePage {
                     }
                     body.style.cssText += '; transform-origin: 0 0;';
                   };
-                  zoomIt(wWidth, wHeight);
+                  zoomIt();
                   
                   body.addEventListener('touchmove', function(e) {
                     e.preventDefault();
@@ -110,23 +126,7 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   
-                  function doOnOrientationChange() {
-                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      if (wHeight > wWidth) {
-                        zoomIt(wHeight, wWidth); 
-                      } else {
-                        zoomIt(wWidth, wHeight);
-                    } else if (window.screen.orientation.type === "portrait-primary" || window.screen.orientation.type === "portrait-secondary") {  
-                      if (wHeight > wWidth) {
-                        zoomIt(wWidth, wHeight);  
-                      } else
-                        zoomIt(wHeight, wWidth);
-                      }
-                    } else {
-                      console.log('oops'); 
-                    } 
-                  };
-                  window.addEventListener('orientationchange', doOnOrientationChange);`
+                  window.addEventListener('orientationchange', zoomIt);`
           });
         };
         browser.insertCSS({
