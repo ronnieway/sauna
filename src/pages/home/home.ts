@@ -71,6 +71,7 @@ export class HomePage {
         if (iOS){
           browser.insertCSS({
             code: `body{
+                  width: 100vw !important;
                   padding: 50px 0 5px 0;
                   margin: 0 !important;
                   overflow: hidden !important;
@@ -128,13 +129,13 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 5px 0 5px 0;
+                  padding: 5px 0 5px 20px;
                   margin: 0 auto;
                   position: relative;
                   color: white; 
                   font-size: 4vh;
                   font-weight: bold;
-                  text-align: center;
+                  text-align: left;
                   line-height: 4vh; 
                   z-index: 99999;
                   width: 100%;
