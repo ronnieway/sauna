@@ -107,8 +107,18 @@ export class HomePage {
                   body.addEventListener('scroll', function(e) {
                     e.preventDefault();
                   }, false);
-                  window.addEventListener('resize', alert('resize'), false);
-                  window.addEventListener('orientationchange', alert('rotate'), false);`
+                  function doOnOrientationChange() {
+                    switch(window.orientation) {  
+                      case -90 || 90:
+                        alert('landscape');
+                        break; 
+                      default:
+                        alert('portrait');
+                        break; 
+                    }
+                  };
+                  window.addEventListener('orientationchange', doOnOrientationChange);
+                  doOnOrientationChange();`
           });
         };
         browser.insertCSS({
