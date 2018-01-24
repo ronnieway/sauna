@@ -95,7 +95,7 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     
-                    alert('done');
+                    alert(wWidth + ' ' + hRatio);
                   };
                   zoomIt();
                   body.addEventListener('touchmove', function(e) {
