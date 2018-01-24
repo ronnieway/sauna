@@ -78,13 +78,11 @@ export class HomePage {
         if (iOS){
           browser.executeScript({
             code: `let body = document.querySelector('body');
-                  let wHeight;
-                  let wWidth;
+                  let wHeight = window.screen.height;
+                  let wWidth = window.screen.width;
                   let absWidth = 803;
                   let absHeight = 600;
-                  let zoomIt = function(){
-                    wWidth = window.screen.width;
-                    wHeight = window.screen.height;
+                  let zoomIt = function(wWidth, wHeight){
                     let vRatio = wHeight / absHeight;
                     let hRatio = wWidth / absWidth;
                     let leftPad = absWidth - absWidth * hRatio;
@@ -95,9 +93,9 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     
-                    alert(wWidth + ' ' + hRatio);
+                    alert(wWidth);
                   };
-                  zoomIt();
+                  zoomIt(wWidth, wHeight);
                   body.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                   }, false);
@@ -107,13 +105,10 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
-                        [wHeight, wWidth] = [wWidth, wHeight];
-                        zoomIt();
+                        zoomIt(wHeight, wWidth);
                         break; 
                       default:
-                        wWidth = window.screen.width;
-                        wHeight = window.screen.height;
-                        zoomIt();
+                        zoomIt(wWidth, wHeight);
                         break; 
                     }
                   };
