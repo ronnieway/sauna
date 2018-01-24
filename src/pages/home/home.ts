@@ -93,12 +93,12 @@ export class HomePage {
                     if(hRatio < 1) {
                       leftPad = absWidth - absWidth * hRatio;
                     } else {
-                      leftPad = wWidth;
+                      leftPad = absWidth * hRatio - absWidth;
                     }
                     if(vRatio < 1) {
                       topPad = absHeight - absHeight * vRatio;
                     } else { 
-                      topPad = wHeight;
+                      topPad = absHeight * vRatio - absHeight;
                     }  
 
                     if (vRatio >= hRatio) { 
@@ -118,13 +118,19 @@ export class HomePage {
                   function doOnOrientationChange() {
                     switch(window.orientation) {  
                       case -90 || 90:
-                        wHeight = window.screen.width; 
-                        wWidth = window.screen.height;
+                        if (wHeight > wWidth) {
+                          let a = wHeight;
+                          wHeight = wWidth;
+                          wWidth = a;  
+                        }
                         zoomIt();
                         break; 
                       default:
-                        wHeight = window.screen.height; 
-                        wWidth = window.screen.width;
+                        if (wHeight < wWidth) {
+                          let b = wHeight;
+                          wHeight = wWidth;
+                          wWidth = b;  
+                        }
                         zoomIt();
                         break; 
                     } 
