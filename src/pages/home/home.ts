@@ -71,7 +71,7 @@ export class HomePage {
         let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (iOS){
           browser.executeScript({
-            code: `(function(){
+            code: `function zoomIt(){
                     let body = document.querySelector('body');
                     let wWidth = window.screen.width;
                     let wHeight = window.screen.height;
@@ -93,7 +93,8 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
                     window.scrollTo(leftPad, topPad);
-                  })();`
+                  };
+                  zoomIt();`
           });
         };
         browser.insertCSS({
