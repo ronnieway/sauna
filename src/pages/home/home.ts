@@ -95,9 +95,11 @@ export class HomePage {
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
                       topPad = (h - hRatio * absHeight)/2;
+                      leftPad = 0;
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                       leftPad = (w - vRatio * absWidth)/2;
+                      topPad = 0;
                     }
                     body.style.cssText += '; transform-origin: ' + leftPad + ' ' + topPad + ';';
                   };
