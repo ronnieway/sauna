@@ -71,8 +71,8 @@ export class HomePage {
         let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (iOS){
           browser.executeScript({
-            code: `function zoomIt(){
-                    let body = document.querySelector('body');
+            code: `let body = document.querySelector('body');
+                  function zoomIt(){
                     let wWidth = window.screen.width;
                     let wHeight = window.screen.height;
                     let absWidth = 803;
@@ -94,7 +94,11 @@ export class HomePage {
                     }
                     window.scrollTo(leftPad, topPad);
                   };
-                  zoomIt();`
+                  zoomIt();
+                  body.addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                  }, false);
+                  body.addEventListener('resize', zoomIt(), false);`
           });
         };
         browser.insertCSS({
