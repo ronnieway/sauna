@@ -93,12 +93,12 @@ export class HomePage {
                     if(hRatio < 1) {
                       leftPad = absWidth - absWidth * hRatio;
                     } else {
-                      leftPad = absWidth * hRatio - absWidth;
+                      leftPad = absWidth - absWidth / hRatio;
                     }
                     if(vRatio < 1) {
                       topPad = absHeight - absHeight * vRatio;
                     } else { 
-                      topPad = absHeight * vRatio - absHeight;
+                      topPad = absHeight - absHeight / vRatio;
                     }  
 
                     if (vRatio >= hRatio) { 
