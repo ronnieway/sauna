@@ -75,6 +75,10 @@ export class HomePage {
                   padding: 50px 0 5px 0;
                   margin: 0 !important;
                   overflow: hidden !important;
+                }
+                .outwrap{
+                  width: 480px;
+                  max-width: 98vw;
                 }`
           });
 
@@ -86,15 +90,21 @@ export class HomePage {
                   let absHeight = 600;
                   let vRatio;
                   let hRatio;
-                  let leftPad;
-                  let topPad;
                   
                   function zoomIt(){
                     let a;
                     if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      a = wHeight;
-                      wHeight = wWidth;
-                      wWidth = a; 
+                      if (wHeight > wWidth) {
+                        a = wHeight;
+                        wHeight = wWidth;
+                        wWidth = a;
+                      } 
+                    } else {
+                      if (wHeight < wWidth) {
+                        a = wHeight;
+                        wHeight = wWidth;
+                        wWidth = a;
+                      }
                     }
                     
                     vRatio = wHeight / absHeight;
@@ -105,7 +115,12 @@ export class HomePage {
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-                    body.style.cssText += '; transform-origin: 0 0;';
+                    
+                    let leftPad;
+                    if (hRatio * absWidth < wWidth) {
+                      leftPad = (wWidth - hRatio * absWidth)/2;
+                    }
+                    body.style.cssText += '; transform-origin: ' + leftPad + ' 0;';
                   };
                   zoomIt();
                   
