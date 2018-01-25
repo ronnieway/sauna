@@ -99,14 +99,12 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = 1.5 * (wHeight / absHeight);
+                    vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
-                    if (vRatio >= hRatio) { 
-                      body.style.cssText += '; transform:scale(' + hRatio + ');'; 
-                    } else {
-                      body.style.cssText += '; transform:scale(' + vRatio + ');';
-                    }
+                     
+                      body.style.cssText += '; transform:scale(' + hRatio + ',' + vRatio + ');'; 
+                    
 
                     body.style.cssText += '; transform-origin: 0 0;';
                     
