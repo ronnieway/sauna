@@ -93,17 +93,11 @@ export class HomePage {
                   function zoomIt(){
                     let a;
                     if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      if (wHeight > wWidth) {
+
                         a = wHeight;
                         wHeight = wWidth;
                         wWidth = a;
-                      } 
-                    } else {
-                      if (wHeight < wWidth) {
-                        a = wHeight;
-                        wHeight = wWidth;
-                        wWidth = a;
-                      }
+                      
                     }
                     
                     vRatio = wHeight / absHeight;
@@ -119,7 +113,7 @@ export class HomePage {
                     if (hRatio * absWidth < wWidth) {
                       leftPad = (wWidth - hRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: 0 30;';
+                    body.style.cssText += '; transform-origin: ' + leftPad + ' 30;';
                   };
                   zoomIt();
                   
