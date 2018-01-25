@@ -75,10 +75,12 @@ export class HomePage {
                   height: 100%;
                   margin: 0 !important;
                   overflow: hidden !important;
+                  background-color: red;
                 }
                 #customWrapper{
                   width: 803px !important;
                   margin: 0 auto;
+                  padding-left: 100px;
                 }
                 #wrapper.border{
                   width: 480px !important;
