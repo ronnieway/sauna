@@ -109,8 +109,8 @@ export class HomePage {
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
-
-                    body.style.cssText += '; transform-origin: center 0;';
+                    a = 100;
+                    body.style.cssText += '; transform-origin: ' + a + ' 0;';
                     
                   };
                   zoomIt();
