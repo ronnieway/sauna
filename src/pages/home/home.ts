@@ -109,7 +109,7 @@ export class HomePage {
                       a =  (wWidth - (absWidth * hRatio))/2;
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a =  (wWidth - (absWidth * hRatio))/2; 
+                      a =  (wWidth - (absWidth * vRatio))/2; 
                     }
 
                     alert(a);
