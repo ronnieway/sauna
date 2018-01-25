@@ -108,7 +108,8 @@ export class HomePage {
                     if (hRatio * absWidth < wWidth) {
                       leftPad = (wWidth - hRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: ' + leftPad + ' 30;';
+                    body.style.cssText += '; transform-origin: 0 30;';
+                    body.style.cssText += '; padding-left: ' + leftPad + ' !important;';
                   };
                   zoomIt();
                   
