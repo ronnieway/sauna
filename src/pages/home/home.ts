@@ -77,7 +77,7 @@ export class HomePage {
                   text-align: center;
                 }
                 #customWrapper{
-
+                  width: 100%;
                   margin: 0 auto;
                   background-color: yellow !important;
                   display: inline-block;
