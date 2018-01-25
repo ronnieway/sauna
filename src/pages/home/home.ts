@@ -159,7 +159,7 @@ export class HomePage {
                   color: white; 
                   font-size: 4vh;
                   font-weight: bold;
-                  text-align: left;
+                  text-align: center;
                   line-height: 4vh; 
                   z-index: 99999;
                   width: 100%;
@@ -168,9 +168,8 @@ export class HomePage {
                   position: absolute;
                   left: 0;
                   bottom: -40px;
-                  float: left;
                   background: grey; 
-                  width: 50vw;
+                  width: 100vw;
                   height: 40px;
                 }`
         });
