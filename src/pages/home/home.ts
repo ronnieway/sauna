@@ -127,7 +127,7 @@ export class HomePage {
                       
                     }
  
-                    wrapper.style.cssText += '; transform-origin: 0 0;';
+                   
                     
                   };
                   zoomIt();
