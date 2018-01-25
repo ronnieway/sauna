@@ -77,7 +77,6 @@ export class HomePage {
                   text-align: center;
                 }
                 #customWrapper{
-                  width: 100%;
                   margin: 0 auto;
                   background-color: yellow !important;
                   display: inline-block;
@@ -121,7 +120,8 @@ export class HomePage {
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
-                    
+                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
+                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
                     
                     if (vRatio >= hRatio) { 
                       document.body.style.cssText += '; transform:scale(' + hRatio + ');';
