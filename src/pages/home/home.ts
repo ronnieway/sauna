@@ -74,11 +74,13 @@ export class HomePage {
                   margin: 0 !important;
                   overflow: hidden !important;
                   background-color: red !important;
+                  text-align: center;
                 }
                 #customWrapper{
                   width: 803px !important;
                   margin: 0 auto;
                   background-color: yellow !important;
+                  display: inline-block;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -127,8 +129,7 @@ export class HomePage {
                       
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
-                    wrapper.style.cssText += '; width: ' + wWidth + 'px !important;';
-                    wrapper.style.cssText += '; height: ' + wHeight + 'px !important;';
+                   
                     document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
                     document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
                     
