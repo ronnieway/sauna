@@ -92,13 +92,7 @@ export class HomePage {
                   
                   function zoomIt(){
                     let a;
-                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-
-                        a = wHeight;
-                        wHeight = wWidth;
-                        wWidth = a;
-                      
-                    }
+                    
                     
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
