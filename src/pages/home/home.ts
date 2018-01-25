@@ -127,8 +127,9 @@ export class HomePage {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
-                    body.style.cssText += '; transform-origin: 0 0;';
-                   
+                    wrapper.style.cssText += '; transform-origin: 0 0;';
+                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
+                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
                     
                   };
                   zoomIt();
