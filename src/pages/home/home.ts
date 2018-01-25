@@ -106,13 +106,17 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a =  (wWidth - (absWidth * hRatio))/2;
+                      
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a =  (wWidth - (absWidth * vRatio))/2; 
+                       
                     }
-
-                    alert('wWidth: ' + wWidth  + ', absWidth: ' + absWidth + ', vRatio: ' + vRatio + ', hRatio: ' + hRatio + ', a: ' + a);
+                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
+                      a =  (wHeight - (absWidth * vRatio))/2;
+                    } else {
+                      a =  (wWidth - (absWidth * vRatio))/2;
+                    }
+                    alert(a);
                     body.style.cssText += '; transform-origin: ' + a + ' 0;';
                     
                   };
