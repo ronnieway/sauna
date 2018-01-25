@@ -125,14 +125,14 @@ export class HomePage {
                     document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
+                      document.body..style.cssText += '; transform:scale(' + hRatio + ');';
                       
                     } else {
-                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
+                      document.body..style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
+                    wrapper.style.cssText += '; transform-origin: 0 0;';
 
-                    wrapper.style.cssText += 'height: ' + wHeight + 'px !important;';
                     
                     
                   };
