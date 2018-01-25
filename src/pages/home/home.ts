@@ -116,7 +116,7 @@ export class HomePage {
  
                     alert('bodyOffsetHeight: ' + bodyOffsetHeight + ', wHeight: ' + wHeight);
                     body.style.cssText += '; transform-origin: 0 0;';
-                    body.style.cssText += '; height: 100vh;';
+                    body.style.cssText += '; height: ' + wHeight + ';';
                     
                   };
                   zoomIt();
