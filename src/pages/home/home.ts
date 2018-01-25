@@ -90,15 +90,17 @@ export class HomePage {
 
           browser.executeScript({
             code: `let body = document.querySelector('body');
-                  let wHeight = window.screen.height;
-                  let wWidth = window.screen.width;
+                  let wHeight;
+                  let wWidth;
                   let absWidth = 803;
                   let absHeight = 600;
                   let vRatio;
                   let hRatio;
                   
                   function zoomIt(){
-                    let a;
+                    wHeight = window.screen.height;
+                    wWidth = window.screen.width;
+                    let bodyOffsetHeight = body.offsetHeight;
                     
                     
                     vRatio = wHeight / absHeight;
@@ -106,16 +108,14 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a = absWidth * hRatio;
+                      
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a = absWidth * vRatio; 
+                      
                     }
-                   
-                    a = (wHeight - a)/2;
-                    
-                    alert(a);
-                    body.style.cssText += '; transform-origin: ' + a + ' 0;';
+ 
+                    alert('bodyOffsetHeight: ' + bodyOffsetHeight + ', wHeight: ' + wHeight);
+                    body.style.cssText += '; transform-origin: 0 0;';
                     
                   };
                   zoomIt();
