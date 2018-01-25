@@ -130,8 +130,7 @@ export class HomePage {
                       
                     }
                     document.body.style.cssText += '; transform-origin: 0 0;';
-                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
-                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
+                    
                     
                     
                   };
