@@ -166,7 +166,7 @@ export class HomePage {
                 }
                 #outerBrowserButton{ 
                   position: absolute;
-                  left: 0;
+                  right: 0;
                   bottom: -40px;
                   background: grey; 
                   width: 100vw;
