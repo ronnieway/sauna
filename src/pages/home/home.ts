@@ -80,6 +80,7 @@ export class HomePage {
                   margin: 0 auto;
                   background-color: yellow !important;
                   display: inline-block;
+                  width: 803px;
                 }
                 #wrapper.border{
                   width: 480px !important;
