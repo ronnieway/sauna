@@ -73,6 +73,7 @@ export class HomePage {
             code: `body{
                   width: 803px !important;
                   margin: 0 !important;
+                  padding-top: 30px;
                   overflow: hidden !important;
                 }
                 .outwrap{
@@ -108,7 +109,7 @@ export class HomePage {
                     if (hRatio * absWidth < wWidth) {
                       leftPad = (wWidth - hRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: 0 30;';
+                    body.style.cssText += '; transform-origin: 0 0;';
                     
                   };
                   zoomIt();
