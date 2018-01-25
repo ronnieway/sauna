@@ -106,7 +106,7 @@ export class HomePage {
                   
                   document.body.appendChild(wrapper);
                   
-                  
+                  let a;
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
@@ -121,6 +121,9 @@ export class HomePage {
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
+                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
+                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
+                    
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
                       
@@ -129,9 +132,8 @@ export class HomePage {
                       
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
-                   
-                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
-                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
+                    wrapper.style.cssText += 'height: ' + wHeight + 'px !important;';
+                    
                     
                   };
                   zoomIt();
