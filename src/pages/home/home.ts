@@ -72,7 +72,6 @@ export class HomePage {
           browser.insertCSS({
             code: `body{
                   width: 100vw !important;
-                  padding: 50px 0 5px 0;
                   margin: 0 !important;
                   overflow: hidden !important;
                 }
@@ -120,7 +119,7 @@ export class HomePage {
                     if (hRatio * absWidth < wWidth) {
                       leftPad = (wWidth - hRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: ' + leftPad + ' 0;';
+                    body.style.cssText += '; transform-origin: 0 30;';
                   };
                   zoomIt();
                   
