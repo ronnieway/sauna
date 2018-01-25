@@ -73,7 +73,7 @@ export class HomePage {
             code: `body{
                   width: 803px !important;
                   margin: 0 !important;
-                  padding-top: 30px;
+                  padding-top: 50px;
                   overflow: hidden !important;
                 }
                 .outwrap{
@@ -96,7 +96,7 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = wHeight / absHeight;
+                    vRatio = (wHeight + 50) / absHeight;
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
