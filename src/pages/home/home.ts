@@ -78,6 +78,7 @@ export class HomePage {
                 }
                 #customWrapper{
                   width: 803px !important;
+                  margin: 0 auto;
                 }
                 #wrapper.border{
                   width: 480px !important;
