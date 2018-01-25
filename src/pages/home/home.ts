@@ -131,12 +131,8 @@ export class HomePage {
                     a = (wWidth - a)/2;
                     
                     wrapper.style.cssText += '; padding-left:' + a +  'px;';
-                    alert(wWidth + ' ' + a);
-                    if (window.innerHeight > window.innerWidth) {
-                      alert('por');
-                    } else {
-                      alert('lan');
-                    }
+                    alert(window.innerHeight + ' ' + window.innerWidth);
+
                     
                   };
                   zoomIt();
