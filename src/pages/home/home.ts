@@ -80,6 +80,9 @@ export class HomePage {
                   width: 480px;
                   max-width: 98vw;
                   margin: 0 auto;
+                }
+                table{
+                margin: 0 auto !important;
                 }`
           });
 
@@ -96,7 +99,7 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = 1.2 * (wHeight / absHeight);
+                    vRatio = 1.5 * (wHeight / absHeight);
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
