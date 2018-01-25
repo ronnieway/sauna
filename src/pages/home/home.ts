@@ -100,14 +100,9 @@ export class HomePage {
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
-                      body.style.cssText += '; transform:scale(' + hRatio + ');'; 
+                      body.style.cssText += '; transform:scale(' + vRatio + ');'; 
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
-                    }
-                    
-                    let leftPad;
-                    if (hRatio * absWidth < wWidth) {
-                      leftPad = (wWidth - hRatio * absWidth)/2;
                     }
                     body.style.cssText += '; transform-origin: 0 0;';
                     
