@@ -78,6 +78,7 @@ export class HomePage {
                 .outwrap{
                   width: 480px;
                   max-width: 98vw;
+                  margin: 0 auto;
                 }`
           });
 
@@ -107,7 +108,7 @@ export class HomePage {
                     if (hRatio * absWidth < wWidth) {
                       leftPad = (wWidth - hRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: 0 0;';
+                    body.style.cssText += '; transform-origin: ' + leftPad + ' 30;';
                   };
                   zoomIt();
                   
