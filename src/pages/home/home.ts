@@ -80,7 +80,7 @@ export class HomePage {
                   margin: 0 auto;
                   background-color: yellow !important;
                   display: inline-block;
-                  width: 803px;
+                  width: 803px !important;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -91,8 +91,7 @@ export class HomePage {
                 }
                 html{
                   overflow: hidden !important;
-                }
-                `
+                }`
           });
 
           browser.executeScript({
@@ -121,8 +120,7 @@ export class HomePage {
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
-                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
-                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
+
                     
                     if (vRatio >= hRatio) { 
                       document.body.style.cssText += '; transform:scale(' + hRatio + ');';
@@ -131,8 +129,9 @@ export class HomePage {
                       document.body.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
-                    wrapper.style.cssText += '; transform-origin: 0 0;';
-
+                    document.body.style.cssText += '; transform-origin: 0 0;';
+                    document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
+                    document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
                     
                     
                   };
