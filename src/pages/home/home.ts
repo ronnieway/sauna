@@ -101,7 +101,6 @@ export class HomePage {
                   document.body.appendChild(wrapper);
                   
                   let a;
-                  let b;
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
@@ -121,16 +120,14 @@ export class HomePage {
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/(2 * hRatio);
-                      b = (window.innerHeight - wrapper.offsetHeight * hRatio)/(2 * hRatio);
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/(2 * vRatio);
-                      b = (window.innerHeight - wrapper.offsetHeight * vRatio)/(2 * vRatio);
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
 
                     wrapper.style.cssText += '; padding-left:' + a +  'px;';
-                    wrapper.style.cssText += '; padding-top:' + b +  'px;';
+                    wrapper.style.cssText += '; padding-top: 30px;';
 
                       
                     
