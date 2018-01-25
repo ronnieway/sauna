@@ -121,15 +121,14 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
-                      
+                      a = wrapper.offsetWidth * hRatio;
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
-                      
+                      a = wrapper.offsetWidth * vRatio;
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
-                    wrapper.style.cssText += '; height: 100vh;';
-                    wrapper.style.cssText += '; padding-left: 10vw;';
-                    alert(wWidth + ' ' + wrapper.offsetWidth);
+                    wrapper.style.cssText += '; padding-left:' + a +  'px;';
+                    alert(wWidth + ' ' + a);
                     
                     
                   };
