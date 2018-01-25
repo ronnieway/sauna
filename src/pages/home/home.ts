@@ -71,7 +71,7 @@ export class HomePage {
         if (iOS){
           browser.insertCSS({
             code: `body{
-                  width: 100vw !important;
+                  width: 803px !important;
                   margin: 0 !important;
                   overflow: hidden !important;
                 }
@@ -107,7 +107,7 @@ export class HomePage {
                     if (hRatio * absWidth < wWidth) {
                       leftPad = (wWidth - hRatio * absWidth)/2;
                     }
-                    body.style.cssText += '; transform-origin: 30 0;';
+                    body.style.cssText += '; transform-origin: 0 0;';
                   };
                   zoomIt();
                   
