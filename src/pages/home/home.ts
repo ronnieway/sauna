@@ -131,7 +131,7 @@ export class HomePage {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
-                    wrapper.style.cssText += '; transform-origin: 0 0;';
+
                     wrapper.style.cssText += 'height: ' + wHeight + 'px !important;';
                     
                     
