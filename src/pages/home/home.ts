@@ -126,8 +126,8 @@ export class HomePage {
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
 
-                    wrapper.style.cssText += '; padding-left:' + a +  'px;';
-                    wrapper.style.cssText += '; padding-top: 30px;';
+                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.paddingTop = '30px';
 
                       
                     
@@ -170,7 +170,7 @@ export class HomePage {
                   bottom: -40px;
                   float: left;
                   background: grey; 
-                  width: 803px;
+                  width: 50vw;
                   height: 40px;
                 }`
         });
