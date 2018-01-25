@@ -124,7 +124,7 @@ export class HomePage {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/(2 * vRatio);
                     }
-                    wrapper.style.transformOrigin = '0 0;';
+                    wrapper.style.transformOrigin = '0 0';
 
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '30px';
