@@ -80,6 +80,7 @@ export class HomePage {
                 #wrapper.border{
                   width: 480px !important;
                   margin: 0 auto;
+                  margin-bottom: 10px;
                 }
                 table{
                   margin: 0 auto !important;
@@ -124,7 +125,7 @@ export class HomePage {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/(2 * vRatio);
                     }
-                    wrapper.style.transformOrigin = '0 0';
+                    wrapper.style.transformOrigin = 'left top';
 
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '30px';
@@ -159,14 +160,15 @@ export class HomePage {
                   color: white; 
                   font-size: 4vh;
                   font-weight: bold;
-                  text-align: center;
+                  text-align: left;
                   line-height: 4vh; 
                   z-index: 99999;
                   width: 100%;
                 }
                 #outerBrowserButton{ 
                   position: absolute;
-                  right: 0;
+                  left: 0
+                  float: left;
                   bottom: -40px;
                   background: grey; 
                   width: 100vw;
