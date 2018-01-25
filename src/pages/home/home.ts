@@ -106,13 +106,13 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
-                      
+                      a = absHeight * hRatio;
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
-                       
+                      a = absHeight * vRatio; 
                     }
                    
-                      a =  (wHeight - (absWidth * hRatio))/2;
+                    a = (wHeight - a)/2;
                     
                     alert(a);
                     body.style.cssText += '; transform-origin: ' + a + ' 0;';
