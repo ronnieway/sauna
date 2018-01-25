@@ -117,6 +117,7 @@ export class HomePage {
                     hRatio = wWidth / absWidth;
                     
 
+                    wrapper.style.paddingLeft = 0px';
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
