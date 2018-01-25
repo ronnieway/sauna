@@ -72,14 +72,11 @@ export class HomePage {
           browser.insertCSS({
             code: `body{;
                   margin: 0 !important;
-                  overflow: hidden !important;
                   background-color: red !important;
-                  text-align: center;
                 }
                 #customWrapper{
-                  margin: 0 auto;
+                  margin: 0 auto !important;
                   background-color: yellow !important;
-                  display: inline-block;
                   width: 803px !important;
                 }
                 #wrapper.border{
@@ -95,7 +92,7 @@ export class HomePage {
           });
 
           browser.executeScript({
-            code: `var wrapper = document.createElement("div");
+            code: `let wrapper = document.createElement("div");
                   wrapper.id = "customWrapper";
                   
                   while (document.body.firstChild)
@@ -123,13 +120,13 @@ export class HomePage {
 
                     
                     if (vRatio >= hRatio) { 
-                      document.body.style.cssText += '; transform:scale(' + hRatio + ');';
+                      wrapper.body.style.cssText += '; transform:scale(' + hRatio + ');';
                       
                     } else {
-                      document.body.style.cssText += '; transform:scale(' + vRatio + ');';
+                      wrapper.body.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
-                    document.body.style.cssText += '; transform-origin: 0 0;';
+                    wrapper.body.style.cssText += '; transform-origin: 0 0;';
                     
                     
                     
