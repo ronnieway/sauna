@@ -132,10 +132,10 @@ export class HomePage {
                     
                     wrapper.style.cssText += '; padding-left:' + a +  'px;';
                     alert(wWidth + ' ' + a);
-                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
-                      alert('1');
+                    if (window.innerHeight > window.innerWidth) {
+                      alert('por');
                     } else {
-                      alert('2');
+                      alert('lan');
                     }
                     
                   };
