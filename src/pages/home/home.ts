@@ -120,13 +120,13 @@ export class HomePage {
 
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.body.style.cssText += '; transform:scale(' + hRatio + ');';
+                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
                       
                     } else {
-                      wrapper.body.style.cssText += '; transform:scale(' + vRatio + ');';
+                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
-                    wrapper.body.style.cssText += '; transform-origin: 0 0;';
+                    wrapper.style.cssText += '; transform-origin: 0 0;';
                     
                     
                     
