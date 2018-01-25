@@ -96,7 +96,7 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = (wHeight + 200) / absHeight;
+                    vRatio = (wHeight + 500) / absHeight;
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
