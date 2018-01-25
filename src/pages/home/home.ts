@@ -70,17 +70,16 @@ export class HomePage {
         let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (iOS){
           browser.insertCSS({
-            code: `body{
-                  width: 100%;
-                  height: 100%;
+            code: `body{;
                   margin: 0 !important;
                   overflow: hidden !important;
-                  background-color: red;
+                  background-color: red !important;
                 }
                 #customWrapper{
                   width: 803px !important;
                   margin: 0 auto;
-                  padding-left: 100px;
+                  padding-left: 50px;
+                  background-color: yellow !important;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -128,7 +127,7 @@ export class HomePage {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
- 
+                    body.style.cssText += '; transform-origin: 0 0;';
                    
                     
                   };
@@ -147,7 +146,7 @@ export class HomePage {
         };
         browser.insertCSS({
           code: `body{
-                  background-color:white;
+                  
                 }
                 table, tbody, td, tr{
                   border: 0 !important;
