@@ -71,9 +71,13 @@ export class HomePage {
         if (iOS){
           browser.insertCSS({
             code: `body{
-                  width: 803px !important;
+                  width: 100%;
+                  height: 100%;
                   margin: 0 !important;
                   overflow: hidden !important;
+                }
+                #customWrapper{
+                  width: 803px !important;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -89,7 +93,17 @@ export class HomePage {
           });
 
           browser.executeScript({
-            code: `let body = document.querySelector('body');
+            code: `var wrapper = document.createElement("div");
+                  wrapper.id = "customWrapper";
+                  
+                  while (document.body.firstChild)
+                  {
+                      wrapper.appendChild(document.body.firstChild);
+                  }
+                  
+                  document.body.appendChild(wrapper);
+                  
+                  
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
@@ -100,32 +114,28 @@ export class HomePage {
                   function zoomIt(){
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
-                    let bodyOffsetHeight = body.offsetHeight;
-                    
-                    
+ 
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
-                      body.style.cssText += '; transform:scale(' + hRatio + ');';
+                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
                       
                     } else {
-                      body.style.cssText += '; transform:scale(' + vRatio + ');';
+                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       
                     }
  
-                    alert('bodyOffsetHeight: ' + bodyOffsetHeight + ', wHeight: ' + wHeight);
-                    body.style.cssText += '; transform-origin: 0 0;';
-                    body.style.cssText += '; height: ' + wHeight + 'px !important;';
+                    wrapper.style.cssText += '; transform-origin: 0 0;';
                     
                   };
                   zoomIt();
                   
-                  body.addEventListener('touchmove', function(e) {
+                  window.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                   }, false);
                   
-                  body.addEventListener('scroll', function(e) {
+                  window.addEventListener('scroll', function(e) {
                     e.preventDefault();
                   }, false);
                   
@@ -134,7 +144,6 @@ export class HomePage {
         };
         browser.insertCSS({
           code: `body{
-                  overflow:hidden;
                   background-color:white;
                 }
                 table, tbody, td, tr{
