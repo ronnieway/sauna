@@ -121,14 +121,13 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a = wrapper.offsetWidth * hRatio;
+                      a = hRatio * (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a = wrapper.offsetWidth * vRatio;
+                      a = vRatio * (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
                                           
-                    a = (window.innerWidth - a)/2;
                     alert(a);
                     wrapper.style.cssText += '; padding-left:' + a +  'px;';
                     
