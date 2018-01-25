@@ -106,10 +106,10 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a = absHeight * hRatio;
+                      a = absWidth * hRatio;
                     } else {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a = absHeight * vRatio; 
+                      a = absWidth * vRatio; 
                     }
                    
                     a = (wHeight - a)/2;
