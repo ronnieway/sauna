@@ -78,7 +78,6 @@ export class HomePage {
                 #customWrapper{
                   width: 803px !important;
                   margin: 0 auto;
-                  padding-left: 50px;
                   background-color: yellow !important;
                 }
                 #wrapper.border{
@@ -128,6 +127,8 @@ export class HomePage {
                       
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
+                    wrapper.style.cssText += '; width: ' + wWidth + 'px !important;';
+                    wrapper.style.cssText += '; height: ' + wHeight + 'px !important;';
                     document.body.style.cssText += '; width: ' + wWidth + 'px !important;';
                     document.body.style.cssText += '; height: ' + wHeight + 'px !important;';
                     
