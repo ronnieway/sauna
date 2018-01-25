@@ -121,10 +121,10 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a = hRatio * (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
+                      a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2 * hRatio;
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a = vRatio * (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
+                      a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2 * vRatio;
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
                                           
