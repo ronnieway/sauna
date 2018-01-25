@@ -127,7 +127,7 @@ export class HomePage {
                       
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
-                    wrapper.style.cssText += '; height: 500px;';
+                    wrapper.style.cssText += '; height: 1000px;';
                     
                     
                     
