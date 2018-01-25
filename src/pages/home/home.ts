@@ -111,11 +111,9 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                        
                     }
-                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
+                   
                       a =  (wHeight - (absWidth * vRatio))/2;
-                    } else {
-                      a =  (wWidth - (absWidth * vRatio))/2;
-                    }
+                    
                     alert(a);
                     body.style.cssText += '; transform-origin: ' + a + ' 0;';
                     
