@@ -127,12 +127,13 @@ export class HomePage {
                       a = wrapper.offsetWidth * vRatio;
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
-                    
-                    a = (wWidth - a)/2;
-                    
+                                          
+                    a = (window.innerWidth - a)/2;
+                    alert(a);
                     wrapper.style.cssText += '; padding-left:' + a +  'px;';
-                    alert(window.innerHeight + ' ' + window.innerWidth);
+                    
 
+                      
                     
                   };
                   zoomIt();
