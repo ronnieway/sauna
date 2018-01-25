@@ -129,7 +129,7 @@ export class HomePage {
                     wrapper.style.cssText += '; transform-origin: 0 0;';
                     wrapper.style.cssText += '; height: 100vh;';
                     wrapper.style.cssText += '; padding-left: 10vw;';
-                    alert(wWidth } + ' ' + wrapper.offsetWidth);
+                    alert(wWidth + ' ' + wrapper.offsetWidth);
                     
                     
                   };
