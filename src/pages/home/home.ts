@@ -127,9 +127,16 @@ export class HomePage {
                       a = wrapper.offsetWidth * vRatio;
                     }
                     wrapper.style.cssText += '; transform-origin: 0 0;';
+                    
+                    a = (wWidth - a)/2;
+                    
                     wrapper.style.cssText += '; padding-left:' + a +  'px;';
                     alert(wWidth + ' ' + a);
-                    
+                    if (window.screen.orientation.type === "landscape-primary" || window.screen.orientation.type === "landscape-secondary") {
+                      alert('1');
+                    } else {
+                      alert('2');
+                    }
                     
                   };
                   zoomIt();
