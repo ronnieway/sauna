@@ -171,6 +171,7 @@ export class HomePage {
                   background: grey; 
                   width: 100vw;
                   height: 40px;
+                  margin-top: 10px;
                 }`
         });
 
