@@ -103,7 +103,7 @@ export class HomePage {
                     let bodyOffsetHeight = body.offsetHeight;
                     
                     
-                    vRatio = (wHeight + 50) / absHeight;
+                    vRatio = wHeight / absHeight + 0.2;
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
