@@ -76,13 +76,12 @@ export class HomePage {
                   padding-top: 50px;
                   overflow: hidden !important;
                 }
-                .outwrap{
-                  width: 480px;
-                  max-width: 98vw;
+                #wrapper.border{
+                  width: 480px !important;
                   margin: 0 auto;
                 }
                 table{
-                margin: 0 auto !important;
+                  margin: 0 auto !important;
                 }`
           });
 
@@ -99,14 +98,16 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = wHeight / absHeight;
+                    vRatio = 1.5 * (wHeight / absHeight);
                     hRatio = wWidth / absWidth;
                     
-                     
-                      body.style.cssText += '; transform:scale(' + hRatio + ',' + vRatio + ');'; 
-                    
+                    if (vRatio >= hRatio) { 
+                      body.style.cssText += '; transform:scale(' + hRatio + ');'; 
+                    } else {
+                      body.style.cssText += '; transform:scale(' + vRatio + ');';
+                    }
 
-                    body.style.cssText += '; transform-origin: 0 0;';
+                    body.style.cssText += '; transform-origin: 0 50;';
                     
                   };
                   zoomIt();
