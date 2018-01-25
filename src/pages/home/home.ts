@@ -172,7 +172,7 @@ export class HomePage {
                   float: left;
                   bottom: -40px;
                   background: grey; 
-                  width: 100vw;
+                  width: 803px;
                   height: 40px;
                   margin-top: 10px;
                 }`
