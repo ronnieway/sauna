@@ -73,7 +73,6 @@ export class HomePage {
             code: `body{
                   width: 803px !important;
                   margin: 0 !important;
-                  padding-top: 50px;
                   overflow: hidden !important;
                 }
                 #wrapper.border{
@@ -82,7 +81,11 @@ export class HomePage {
                 }
                 table{
                   margin: 0 auto !important;
-                }`
+                }
+                html{
+                  overflow: hidden !important;
+                }
+                `
           });
 
           browser.executeScript({
@@ -98,7 +101,7 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = 1.5 * (wHeight / absHeight);
+                    vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
@@ -107,7 +110,7 @@ export class HomePage {
                       body.style.cssText += '; transform:scale(' + vRatio + ');';
                     }
 
-                    body.style.cssText += '; transform-origin: 0 50;';
+                    body.style.cssText += '; transform-origin: center 0;';
                     
                   };
                   zoomIt();
