@@ -112,7 +112,7 @@ export class HomePage {
                        
                     }
                    
-                      a =  (wHeight - (absWidth * vRatio))/2;
+                      a =  (wHeight - (absWidth * hRatio))/2;
                     
                     alert(a);
                     body.style.cssText += '; transform-origin: ' + a + ' 0;';
