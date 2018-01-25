@@ -103,7 +103,7 @@ export class HomePage {
                     let bodyOffsetHeight = body.offsetHeight;
                     
                     
-                    vRatio = wHeight / absHeight + 0.2;
+                    vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     
                     if (vRatio >= hRatio) { 
@@ -116,6 +116,7 @@ export class HomePage {
  
                     alert('bodyOffsetHeight: ' + bodyOffsetHeight + ', wHeight: ' + wHeight);
                     body.style.cssText += '; transform-origin: 0 0;';
+                    body.style.cssText += '; height: 100vh;';
                     
                   };
                   zoomIt();
