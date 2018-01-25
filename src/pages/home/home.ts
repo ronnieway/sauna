@@ -96,8 +96,8 @@ export class HomePage {
                     let a;
                     
                     
-                    vRatio = 2 * (wHeight / absHeight);
-                    hRatio = 2 * (wWidth / absWidth);
+                    vRatio = 1.2 * (wHeight / absHeight);
+                    hRatio = 1.2 * (wWidth / absWidth);
                     
                     if (vRatio >= hRatio) { 
                       body.style.cssText += '; transform:scale(' + hRatio + ');'; 
