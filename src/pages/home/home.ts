@@ -160,7 +160,7 @@ export class HomePage {
                   padding: 5px 0 5px 20px;
                   margin: 0 auto;
                   position: relative;
-                  color: white; 
+                  color: black; 
                   font-size: 4vh;
                   font-weight: bold;
                   text-align: left;
@@ -173,7 +173,7 @@ export class HomePage {
                   left: 0
                   float: left;
                   bottom: -40px;
-                  background: grey; 
+                  background: white; 
                   width: 803px;
                   height: 40px;
                   margin-top: 10px;
