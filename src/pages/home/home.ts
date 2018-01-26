@@ -72,7 +72,7 @@ export class HomePage {
           browser.insertCSS({
             code: `body{;
                   margin: 0 !important;
-                  padding-top: 30px;
+                  padding-top: 10px;
                 }
                 #customWrapper{
                   margin: 0 auto !important;
@@ -160,7 +160,7 @@ export class HomePage {
                   padding: 5px 0 5px 20px;
                   margin: 0 auto;
                   position: relative;
-                  color: black; 
+                  color: blue; 
                   font-size: 4vh;
                   font-weight: bold;
                   text-align: left;
