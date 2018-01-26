@@ -100,6 +100,7 @@ export class HomePage {
                   }
                   
                   document.body.appendChild(wrapper);
+                  let connectButton = document.getElementById('outerBrowserButton');
                   
                   let a;
                   let wHeight;
@@ -130,7 +131,7 @@ export class HomePage {
 
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '30px';
-
+                    connectButton.style.left = a +  'px';
                       
                     
                   };
