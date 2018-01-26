@@ -72,6 +72,7 @@ export class HomePage {
           browser.insertCSS({
             code: `body{;
                   margin: 0 !important;
+                  padding-top: 30px;
                 }
                 #customWrapper{
                   margin: 0 auto !important;
@@ -131,7 +132,7 @@ export class HomePage {
 
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '30px';
-                    connectButton.style.left = a +  'px';
+                    connectButton.style.left = '0px';
                       
                     
                   };
