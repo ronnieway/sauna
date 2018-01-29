@@ -130,7 +130,7 @@ export class HomePage {
             wrapper.style.paddingLeft = '0px';
 
             wrapper.style.transform = 'scale(' + hRatio + ')';
-            a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
+            a = 0;
             wrapper.style.transformOrigin = 'left top';
 alert (wWidth + ' ' + hRatio + ' ' + a);
             wrapper.style.paddingTop = '0px';
@@ -149,14 +149,14 @@ alert (wWidth + ' ' + hRatio + ' ' + a);
             wrapper.style.paddingLeft = '0px';
 
             wrapper.style.transform = 'scale(' + vRatio + ')';
-            b = (wWidth - wrapper.offsetWidth * vRatio) / 2;
+            b = (window.screen.width - wrapper.offsetWidth * vRatio) / 2;
             wrapper.style.transformOrigin = 'left top';
 alert (wHeight + ' ' + vRatio + ' ' + b);
             wrapper.style.paddingTop = '0px';
           };
           zoomIt();`
 
-        alert(this.screenOrientation);
+        alert(this.screenOrientation.type);
         if (this.screenOrientation.type == 'portrait') {
           browser.executeScript({
             code: portraitCode
@@ -171,15 +171,15 @@ alert (wHeight + ' ' + vRatio + ' ' + b);
 
         this.screenOrientation.onChange().subscribe(
           () => {
-            alert(this.screenOrientation);
+            alert(this.screenOrientation.type);
             if (this.screenOrientation.type == 'portrait') {
               browser.executeScript({
                 code: portraitCode
-              })
+              });
             } else if (this.screenOrientation.type == 'landscape') {
               browser.executeScript({
                 code: landscapeCode
-              })
+              });
             } else {
               console.log('something wrong');
             }
@@ -187,10 +187,7 @@ alert (wHeight + ' ' + vRatio + ' ' + b);
         );
 
         browser.insertCSS({
-          code: `body{
-
-                }
-                table, tbody, td, tr{
+          code: `table, tbody, td, tr{
                   border: 0 !important;
                 }
                 #closeBrowserButton{
