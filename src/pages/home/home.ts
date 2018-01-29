@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, AlertController } from 'ionic-angular';
+import { LoadingController, AlertController, Platform } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
@@ -16,7 +16,8 @@ export class HomePage {
 
   constructor(private iab: InAppBrowser,
               private loadingCtrl: LoadingController,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              public platform: Platform
   ) {
   }
 
@@ -156,9 +157,8 @@ export class HomePage {
                     e.preventDefault(); 
                   }, false);
 
-                  window.on('orientationchange', function() {
-                  alert('1');
-                    setTimeout(zoomIt, 100);
+                  window.addEventListener("orientationchange", function() {
+                    alert(window.orientation);
                   }, false);`
           });
         };
