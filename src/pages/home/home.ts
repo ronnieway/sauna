@@ -172,7 +172,6 @@ export class HomePage {
                   line-height: 4vh; 
                   z-index: 99999;
                   width: 100%;
-                  background-color:green;
                 }
                 #outerBrowserButton{ 
                   position: fixed;
@@ -180,9 +179,7 @@ export class HomePage {
                   float: left;
                   top: 0;
                   width: 803px;
-                  height: 40px;
                   z-index: 99998;
-                  background-color:red;
                 }`
         });
 
