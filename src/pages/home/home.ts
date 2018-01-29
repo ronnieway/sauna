@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LoadingController, AlertController, Platform } from 'ionic-angular';
+import { LoadingController, AlertController } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +17,7 @@ export class HomePage {
   constructor(private iab: InAppBrowser,
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController,
-              public platform: Platform
+              private screenOrientation: ScreenOrientation
   ) {
   }
 
@@ -155,13 +155,69 @@ export class HomePage {
                   
                    window.addEventListener('dragstart', (e) => { 
                     e.preventDefault(); 
+                  }, false);`
+          });
+        };
+        this.screenOrientation.onChange().subscribe(
+          () => {
+            browser.executeScript({
+              code: `alert('changed');
+                  let a;
+                  let wHeight;
+                  let wWidth;
+                  let absWidth = 803;
+                  let absHeight = 600;
+                  let vRatio;
+                  let hRatio;
+                  
+                  function zoomIt(){
+                    wHeight = window.screen.height;
+                    wWidth = window.screen.width;
+ 
+                    vRatio = wHeight / absHeight;
+                    hRatio = wWidth / absWidth;
+
+                    wrapper.style.paddingLeft = '0px';
+                    
+                    if (vRatio >= hRatio) { 
+                      hRatio = hRatio;
+                      wrapper.style.transform = 'scale(' + hRatio + ')';
+                      a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
+                    } else {
+                      vRatio = vRatio;
+                      wrapper.style.transform = 'scale(' + vRatio + ')';
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio); 
+                    }
+                    wrapper.style.transformOrigin = 'left top';
+                    
+                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.paddingTop = '30px';
+                    connectButton.style.left = '0px';
+                  };
+                  zoomIt();
+                  
+                  window.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                  }, false);
+                  
+                  window.addEventListener('scroll', (e) => {
+                    e.preventDefault();
+                  }, false);
+                  
+                  window.addEventListener('touchstart', (e) => { 
+                    e.preventDefault(); 
+                  }, false);
+                  
+                   window.addEventListener('dragstart', (e) => { 
+                    e.preventDefault(); 
                   }, false);
 
                   window.addEventListener("orientationchange", () => {
                     alert(window.orientation);
                   }, false);`
-          });
-        };
+            });
+          }
+        );
         browser.insertCSS({
           code: `body{
 
