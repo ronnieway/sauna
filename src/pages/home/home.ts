@@ -96,8 +96,6 @@ export class HomePage {
 
         let iOS = true; /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (iOS){
-
-
           browser.executeScript({
             code: `let wrapper = document.createElement("div");
                   wrapper.id = "customWrapper";
@@ -111,7 +109,7 @@ export class HomePage {
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
-                  let absHeight = 500;
+                  let absHeight = 200;
                   let vRatio;
                   let hRatio;
                   
@@ -158,63 +156,7 @@ export class HomePage {
                   }, false);`
           });
         };
-        this.screenOrientation.onChange().subscribe(
-          () => {
-            browser.executeScript({
-              code: `
-                  let a;
-                  let wHeight;
-                  let wWidth;
-                  let absWidth = 803;
-                  let absHeight = 600;
-                  let vRatio;
-                  let hRatio;
-                  
-                  function zoomIt(){
-                    wHeight = window.screen.height;
-                    wWidth = window.screen.width;
-                    alert(wHeight + ' ' + wrapper.offsetHeight);
- 
-                    vRatio = wHeight / absHeight;
-                    hRatio = wWidth / absWidth;
 
-                    wrapper.style.paddingLeft = '0px';
-                    
-                    if (vRatio >= hRatio) { 
-                      hRatio = hRatio;
-                      wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
-                    } else {
-                      vRatio = vRatio;
-                      wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio); 
-                    }
-                    wrapper.style.transformOrigin = 'left top';
-                    
-                    wrapper.style.paddingLeft =  a +  'px';
-                    wrapper.style.paddingTop = '30px';
-                    connectButton.style.left = '0px';
-                  };
-                  zoomIt();
-                  
-                  window.addEventListener('touchmove', (e) => {
-                    e.preventDefault();
-                  }, false);
-                  
-                  window.addEventListener('scroll', (e) => {
-                    e.preventDefault();
-                  }, false);
-                  
-                  window.addEventListener('touchstart', (e) => { 
-                    e.preventDefault(); 
-                  }, false);
-                  
-                   window.addEventListener('dragstart', (e) => { 
-                    e.preventDefault(); 
-                  }, false);`
-            });
-          }
-        );
         browser.insertCSS({
           code: `body{
 
