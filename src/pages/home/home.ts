@@ -161,7 +161,7 @@ export class HomePage {
         this.screenOrientation.onChange().subscribe(
           () => {
             browser.executeScript({
-              code: `alert('changed');
+              code: `
                   let a;
                   let wHeight;
                   let wWidth;
@@ -173,6 +173,7 @@ export class HomePage {
                   function zoomIt(){
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
+                    alert(wHeight + ' ' + wrapper.offsetHeight);
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
@@ -210,10 +211,6 @@ export class HomePage {
                   
                    window.addEventListener('dragstart', (e) => { 
                     e.preventDefault(); 
-                  }, false);
-
-                  window.addEventListener("orientationchange", () => {
-                    alert(window.orientation);
                   }, false);`
             });
           }
