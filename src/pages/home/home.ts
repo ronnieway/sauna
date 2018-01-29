@@ -154,11 +154,14 @@ export class HomePage {
                     e.preventDefault(); 
                   }, false);
                   
-                   window.addEventListener("dragstart", function(e){ 
+                   window.addEventListener('dragstart', function(e){ 
                     e.preventDefault(); 
                   }, false);
 
-                  document.addEventListener('orientationchange', zoomIt);`
+                  document.addEventListener('orientationchange', function() {
+                    alert('orient');
+                    setTimeout(zoomIt, 100);
+                  }, false);`
           });
         };
         browser.insertCSS({
