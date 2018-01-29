@@ -127,18 +127,24 @@ export class HomePage {
                       hRatio = hRatio;
                       wrapper.style.transform = 'scale(' + hRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
-                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio + ' ' + a);
                     } else {
                       vRatio = vRatio;
                       wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio);
-                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio); 
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '30px';
                     connectButton.style.left = '0px';
+                    
+                    if (window.matchMedia("(orientation: portrait)").matches) {
+                      alert ('portrait');
+                    }
+                    
+                    if (window.matchMedia("(orientation: landscape)").matches) {
+                      alert ('landscape');
+                    }
                   };
                   zoomIt();
                   
@@ -158,8 +164,7 @@ export class HomePage {
                     e.preventDefault(); 
                   }, false);
 
-                  document.addEventListener('orientationchange', function() {
-                    alert('orient');
+                  window.addEventListener('orientationchange', function() {
                     setTimeout(zoomIt, 100);
                   }, false);`
           });
