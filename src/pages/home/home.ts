@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,8 @@ export class HomePage {
 
   constructor(private iab: InAppBrowser,
               private loadingCtrl: LoadingController,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              private screenOrientation: ScreenOrientation
   ) {
   }
 
@@ -103,52 +105,84 @@ export class HomePage {
                   }
                   document.body.appendChild(wrapper);
                   
-                  let a;
-                  let wHeight;
-                  let wWidth;
-                  let absWidth = 803;
-                  let absHeight = 600;
-                  let vRatio;
-                  let hRatio;
-                  
-                  function zoomIt(){
-                    wHeight = window.screen.height;
-                    wWidth = window.screen.width;
- 
-                    vRatio = wHeight / absHeight;
-                    hRatio = wWidth / absWidth;
-                    alert(vRatio + ' ' + hRatio);
-                    wrapper.style.paddingLeft = '0px';
-                    
-                    if (vRatio >= hRatio) { 
-                      wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
-                    } else {
-                      wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2; 
-                    }
-                    wrapper.style.transformOrigin = 'left top';
-                    alert(a);
-
-                    wrapper.style.paddingTop = '0px';
-                  };
-                  zoomIt();
-                  
                   window.addEventListener('touchmove', (e) => {
                     e.preventDefault();
                   }, false);
-                  
+
                   window.addEventListener('scroll', (e) => {
                     e.preventDefault();
                   }, false);
 
-                   window.addEventListener('dragstart', (e) => { 
-                    e.preventDefault(); 
-                  }, false);
-                  
-                  window.addEventListener('orientationchange', zoomIt);`
-          });
-        };
+                   window.addEventListener('dragstart', (e) => {
+                    e.preventDefault();
+                  }, false);`
+          })
+        }
+
+        let portraitCode =`let a;
+          let wWidth;
+          let absWidth = 803;
+          let hRatio;
+
+          function zoomIt(){
+            wWidth = window.screen.width;
+            hRatio = wWidth / absWidth;
+            wrapper.style.paddingLeft = '0px';
+
+            wrapper.style.transform = 'scale(' + hRatio + ')';
+            a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
+            wrapper.style.transformOrigin = 'left top';
+
+            wrapper.style.paddingTop = '0px';
+          };
+          zoomIt();`
+
+        let landscapeCode =`let a;
+          let wHeight;
+          let absHeight = 600;
+          let vRatio;
+
+          function zoomIt(){
+            wHeight = window.screen.height;
+
+            vRatio = wHeight / absHeight;
+            wrapper.style.paddingLeft = '0px';
+
+            wrapper.style.transform = 'scale(' + vRatio + ')';
+            a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
+            wrapper.style.transformOrigin = 'left top';
+
+            wrapper.style.paddingTop = '0px';
+          };
+          zoomIt();`
+
+        if (this.screenOrientation.type == 'portrait') {
+          browser.executeScript({
+            code: portraitCode
+          })
+        } else if (this.screenOrientation.type == 'landscape') {
+          browser.executeScript({
+            code: landscapeCode
+          })
+        } else {
+          console.log('something wrong');
+        }
+
+        this.screenOrientation.onChange().subscribe(
+          () => {
+            if (this.screenOrientation.type == 'portrait') {
+              browser.executeScript({
+                code: portraitCode
+              })
+            } else if (this.screenOrientation.type == 'landscape') {
+              browser.executeScript({
+                code: landscapeCode
+              })
+            } else {
+              console.log('something wrong');
+            }
+          }
+        );
 
         browser.insertCSS({
           code: `body{
@@ -161,15 +195,15 @@ export class HomePage {
                   padding: 10px 0 4px 20px;
                   margin: 0 auto;
                   position: relative;
-                  color: blue; 
+                  color: blue;
                   font-size: 4vh;
                   font-weight: bold;
                   text-align: left;
-                  line-height: 4vh; 
+                  line-height: 4vh;
                   z-index: 99999;
                   width: 100%;
                 }
-                #outerBrowserButton{ 
+                #outerBrowserButton{
                   position: fixed;
                   left: 0;
                   float: left;
