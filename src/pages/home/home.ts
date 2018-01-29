@@ -124,12 +124,14 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       hRatio = hRatio;
-                      wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
+                      let herehRatio = hRatio * 1.4;
+                      wrapper.style.transform = 'scale(' + herehRatio + ')';
+                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
                     } else {
                       vRatio = vRatio;
-                      wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio); 
+                      let herevRatio = vRatio * 1.4;
+                      wrapper.style.transform = 'scale(' + herevRatio + ')';
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2; 
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
