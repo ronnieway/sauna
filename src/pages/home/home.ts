@@ -137,7 +137,6 @@ export class HomePage {
                     alert(a);
                     wrapper.style.marginLeft =  a +  'px';
                     wrapper.style.padding = '0px';
-                    connectButton.style.left = '0px';
                   };
                   zoomIt();
                   
@@ -182,7 +181,7 @@ export class HomePage {
                   position: fixed;
                   left: 0;
                   float: left;
-                  top: 25px;
+                  top: 10px;
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
