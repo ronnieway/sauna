@@ -156,7 +156,7 @@ export class HomePage {
                     e.preventDefault(); 
                   }, false);
 
-                  window.addEventListener('orientationchange', zoomIt, false);`
+                  document.addEventListener('orientationchange', zoomIt);`
           });
         };
         browser.insertCSS({
