@@ -78,7 +78,6 @@ export class HomePage {
                 }
                 #pmess{
                   margin-top: 90px;
-                  background-color: red;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -116,7 +115,7 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    wHeight = window.screen.height + 50;
+                    wHeight = window.screen.height - 100;
                     wWidth = window.screen.width;
  
                     vRatio = wHeight / absHeight;
@@ -185,7 +184,6 @@ export class HomePage {
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
-                  background-color: purple;
                 }`
         });
 
