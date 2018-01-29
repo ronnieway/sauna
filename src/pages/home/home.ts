@@ -129,7 +129,7 @@ export class HomePage {
                     }
                     wrapper.style.transformOrigin = 'left top';
                     alert(a);
-
+                    wrapper.style.marginLeft =  a +  'px';
                     wrapper.style.paddingTop = '0px';
                   };
                   zoomIt();
@@ -174,7 +174,7 @@ export class HomePage {
                   width: 100%;
                 }
                 #outerBrowserButton{ 
-                  position: absolute;
+                  position: fixed;
                   left: 0;
                   float: left;
                   top: 0;
