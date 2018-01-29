@@ -115,21 +115,21 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    wHeight = window.screen.height + 300;
+                    wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
-                    vRatio = wHeight / absHeight;
-                    hRatio = wWidth / absWidth;
+                    vRatio = wHeight / absHeight * 1.5;
+                    hRatio = wWidth / absWidth * 1.5;
                     alert (vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
+                      a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
                     } else {
                       wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio);
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
@@ -166,7 +166,7 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 4px 0 4px 20px;
+                  padding: 10px 0 4px 20px;
                   margin: 0 auto;
                   position: relative;
                   color: blue; 
