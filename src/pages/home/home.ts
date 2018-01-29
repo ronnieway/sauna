@@ -121,10 +121,10 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.transform = 'scale(' + hRatio + ');';
+                      wrapper.style.transform = 'scale(' + hRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
                     } else {
-                      wrapper.style.transform = 'scale(' + vRatio + ');';
+                      wrapper.style.transform = 'scale(' + vRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * vRatio) / 2; 
                     }
                     wrapper.style.transformOrigin = 'left top';
@@ -141,9 +141,7 @@ export class HomePage {
                   window.addEventListener('scroll', (e) => {
                     e.preventDefault();
                   }, false);
-                  
-                  
-                  
+
                    window.addEventListener('dragstart', (e) => { 
                     e.preventDefault(); 
                   }, false);
