@@ -192,7 +192,7 @@ export class HomePage {
                   left: 0;
                   top: 8px;
                   width: 803px;
-                  height: 40px;
+                  height: 0;
                   z-index: 99998;
                   background-color: purple;
                 }`
