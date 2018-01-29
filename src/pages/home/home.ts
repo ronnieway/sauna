@@ -107,7 +107,7 @@ export class HomePage {
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
-                  let absHeight = 200;
+                  let absHeight = 600;
                   let vRatio;
                   let hRatio;
                   
