@@ -117,22 +117,20 @@ export class HomePage {
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
-                    alert(vRatio);
+
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      let herehRatio = vRatio;
-                      wrapper.style.transform = 'scale(' + herehRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
+                      wrapper.style.transform = 'scale(' + 1.1 + ')';
+                      a = (wWidth - wrapper.offsetWidth * 1.1) / 2;
                     } else {
-                      let herevRatio = vRatio;
-                      wrapper.style.transform = 'scale(' + herevRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2; 
+                      wrapper.style.transform = 'scale(' + 1.1 + ')';
+                      a = (wWidth - wrapper.offsetWidth * 1.1) / 2; 
                     }
-                    wrapper.style.transformOrigin = a + ' top';
+                    wrapper.style.transformOrigin = 'left top';
                     alert(a);
-                    wrapper.style.margin = '0 auto';
-                    wrapper.style.padding = '0px';
+                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.paddingTop = '0px';
                   };
                   zoomIt();
                   
@@ -150,7 +148,9 @@ export class HomePage {
                   
                    window.addEventListener('dragstart', (e) => { 
                     e.preventDefault(); 
-                  }, false);`
+                  }, false);
+                  
+                  window.addEventListener('orientationchange', zoomIt);`
           });
         };
 
@@ -174,7 +174,7 @@ export class HomePage {
                   width: 100%;
                 }
                 #outerBrowserButton{ 
-                  position: absolute;
+                  position: fixed;
                   left: 0;
                   float: left;
                   top: 0;
