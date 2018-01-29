@@ -123,21 +123,18 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      hRatio = hRatio;
-                      let herehRatio = hRatio * 1.25;
+                      let herehRatio = vRatio * 1.25;
                       wrapper.style.transform = 'scale(' + herehRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * hRatio * 1.25) / 2;
                     } else {
-                      vRatio = vRatio;
                       let herevRatio = vRatio * 1.25;
                       wrapper.style.transform = 'scale(' + herevRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * vRatio * 1.25) / 2; 
                     }
-                    wrapper.style.transformOrigin = 'left top';
+                    wrapper.style.transformOrigin = 'a top';
                     alert(a);
                     wrapper.style.margin = '0 auto';
-                    wrapper.style.paddingTop = '0px';
-                    connectButton.style.left = '0px';
+                    wrapper.style.padding = '0px';
                   };
                   zoomIt();
                   
@@ -182,7 +179,7 @@ export class HomePage {
                   position: absolute;
                   left: 0;
                   float: left;
-                  top: 12px;
+                  top: 0;
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
