@@ -72,16 +72,20 @@ export class HomePage {
                   margin: 0 !important;
                   position: relative;
                   overflow: hidden !important;
+                  background-color: green;
                 }
                 #customWrapper{
                   margin: -10px 0 0 0 auto !important;
                   width: 803px !important;
+                  background-color: yellow;
                 }
                 #pmess{
                   margin-top: 90px;
+                  background-color: red;
                 }
                 #wrapper.border{
                   width: 480px !important;
+                  background-color: brown;
                 }
                 table{
                   margin: 0 auto !important;
@@ -191,6 +195,7 @@ export class HomePage {
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
+                  background-color: purple;
                 }`
         });
 
