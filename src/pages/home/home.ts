@@ -115,6 +115,7 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
+                    alert('here');
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
@@ -155,7 +156,7 @@ export class HomePage {
                     e.preventDefault(); 
                   }, false);
 
-                  window.addEventListener('orientationchange', zoomIt);`
+                  window.addEventListener('orientationchange', zoomIt, false);`
           });
         };
         browser.insertCSS({
