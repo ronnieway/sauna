@@ -121,16 +121,19 @@ export class HomePage {
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
-                    alert (vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
+                      hRatio = 1.5 * hRatio;
                       wrapper.style.transform = 'scale(' + hRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio + ' ' + a);
                     } else {
+                      vRatio = 1.5 * vRatio;
                       wrapper.style.transform = 'scale(' + vRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio + ' ' + a);
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
