@@ -124,14 +124,14 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       hRatio = hRatio;
-                      let herehRatio = hRatio * 1.4;
+                      let herehRatio = hRatio * 1.25;
                       wrapper.style.transform = 'scale(' + herehRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
+                      a = (wWidth - wrapper.offsetWidth * hRatio * 1.25) / 2;
                     } else {
                       vRatio = vRatio;
-                      let herevRatio = vRatio * 1.4;
+                      let herevRatio = vRatio * 1.25;
                       wrapper.style.transform = 'scale(' + herevRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2; 
+                      a = (wWidth - wrapper.offsetWidth * vRatio * 1.25) / 2; 
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
@@ -182,7 +182,7 @@ export class HomePage {
                   position: fixed;
                   left: 0;
                   float: left;
-                  top: 12px;
+                  top: 25px;
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
