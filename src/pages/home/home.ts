@@ -79,7 +79,7 @@ export class HomePage {
                   margin-top: 90px;
                 }
                 #wrapper.border{
-                  width: 480px !important;
+                  width: 420px !important;
                   margin: 0 auto;
                 }
                 table{
@@ -121,15 +121,15 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.transform = 'scale(' + 1.1 + ')';
-                      a = (wWidth - wrapper.offsetWidth * 1.1) / 2;
+                      wrapper.style.transform = 'scale(0,7)';
+                      a = (wWidth - wrapper.offsetWidth * 0.7) / 2;
                     } else {
-                      wrapper.style.transform = 'scale(' + 1.1 + ')';
-                      a = (wWidth - wrapper.offsetWidth * 1.1) / 2; 
+                      wrapper.style.transform = 'scale(0.7)';
+                      a = (wWidth - wrapper.offsetWidth * 0.7) / 2; 
                     }
                     wrapper.style.transformOrigin = 'left top';
                     alert(a);
-                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.marginLeft =  a +  'px';
                     wrapper.style.paddingTop = '0px';
                   };
                   zoomIt();
