@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -16,8 +15,7 @@ export class HomePage {
 
   constructor(private iab: InAppBrowser,
               private loadingCtrl: LoadingController,
-              private alertCtrl: AlertController,
-              private screenOrientation: ScreenOrientation
+              private alertCtrl: AlertController
   ) {
   }
 
@@ -136,7 +134,6 @@ export class HomePage {
                     wrapper.style.transformOrigin = 'left top';
                     alert(a);
                     wrapper.style.marginLeft =  a +  'px';
-                    wrapper.style.padding = '0px';
                   };
                   zoomIt();
                   
@@ -178,8 +175,7 @@ export class HomePage {
                   width: 100%;
                 }
                 #outerBrowserButton{ 
-                  position: fixed;
-                  left: 0;
+                  position: relative;
                   float: left;
                   top: 10px;
                   width: 803px;
