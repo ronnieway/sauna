@@ -118,7 +118,7 @@ export class HomePage {
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
-                    vRatio = wHeight / absHeight * 1.25;
+                    vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
                     alert (vRatio + ' ' + hRatio);
 
