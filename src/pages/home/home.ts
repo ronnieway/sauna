@@ -70,14 +70,11 @@ export class HomePage {
         browser.insertCSS({
           code: `body{
                   margin: 0 !important;
-                  position: relative;
-                  overflow: hidden !important;
-                  background-color: green;
+                  padding-top: 30px;
                 }
                 #customWrapper{
-                  margin: -10px 0 0 0 auto !important;
+                  margin: 0 auto !important;
                   width: 803px !important;
-                  background-color: yellow;
                 }
                 #pmess{
                   margin-top: 90px;
@@ -85,7 +82,7 @@ export class HomePage {
                 }
                 #wrapper.border{
                   width: 480px !important;
-                  background-color: brown;
+                  margin: 0 auto;
                 }
                 table{
                   margin: 0 auto !important;
@@ -110,7 +107,7 @@ export class HomePage {
                   }
                   document.body.appendChild(wrapper);
                   
-                  let a = 0;
+                  let a;
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
@@ -119,26 +116,26 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    wHeight = window.screen.height - 40;
+                    wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
 
-                    wrapper.style.padding = '0px';
+                    wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.transform = 'scale(' + hRatio + ')';
-                      wrapper.style.transformOrigin = 'left top'; 
                       a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
                     } else {
                       wrapper.style.transform = 'scale(' + vRatio + ')';
-                      wrapper.style.transformOrigin = 'left top'; 
                       a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
                     }
+                    wrapper.style.transformOrigin = 'left top';
                     
-                    
-                    
+                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.paddingTop = '30px';
+                    connectButton.style.left = '0px';
                   };
                   zoomIt();
                   
@@ -178,14 +175,15 @@ export class HomePage {
                   text-align: left;
                   line-height: 4vh; 
                   z-index: 99999;
-                  width: 100%;  
+                  width: 100%;
                 }
                 #outerBrowserButton{ 
                   position: fixed;
                   left: 0;
+                  float: left;
                   top: 8px;
                   width: 803px;
-                  height: 0;
+                  height: 40px;
                   z-index: 99998;
                   background-color: purple;
                 }`
