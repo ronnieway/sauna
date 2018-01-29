@@ -70,7 +70,7 @@ export class HomePage {
         browser.insertCSS({
           code: `body{
                   margin: 0 !important;
-                  padding-top: 30px;
+                  padding-top: 0;
                 }
                 #customWrapper{
                   margin: 0 auto !important;
@@ -116,7 +116,7 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    wHeight = window.screen.height;
+                    wHeight = window.screen.height + 50;
                     wWidth = window.screen.width;
  
                     vRatio = wHeight / absHeight;
