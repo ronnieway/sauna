@@ -141,23 +141,23 @@ export class HomePage {
                   };
                   zoomIt();
                   
-                  window.addEventListener('touchmove', function(e) {
+                  window.addEventListener('touchmove', (e) => {
                     e.preventDefault();
                   }, false);
                   
-                  window.addEventListener('scroll', function(e) {
+                  window.addEventListener('scroll', (e) => {
                     e.preventDefault();
                   }, false);
                   
-                  window.addEventListener('touchstart', function(e){ 
+                  window.addEventListener('touchstart', (e) => { 
                     e.preventDefault(); 
                   }, false);
                   
-                   window.addEventListener('dragstart', function(e){ 
+                   window.addEventListener('dragstart', (e) => { 
                     e.preventDefault(); 
                   }, false);
 
-                  window.addEventListener("orientationchange", function() {
+                  window.addEventListener("orientationchange", () => {
                     alert(window.orientation);
                   }, false);`
           });
