@@ -188,10 +188,9 @@ export class HomePage {
                   width: 100%;  
                 }
                 #outerBrowserButton{ 
-                  position: absolute;
+                  position: fixed;
                   left: 0;
                   top: 8px;
-                  float: left;
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
