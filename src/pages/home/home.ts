@@ -137,14 +137,6 @@ export class HomePage {
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '30px';
                     connectButton.style.left = '0px';
-                    
-                    if (window.matchMedia("(orientation: portrait)").matches) {
-                      alert ('portrait');
-                    }
-                    
-                    if (window.matchMedia("(orientation: landscape)").matches) {
-                      alert ('landscape');
-                    }
                   };
                   zoomIt();
                   
@@ -164,7 +156,8 @@ export class HomePage {
                     e.preventDefault(); 
                   }, false);
 
-                  window.addEventListener('orientationchange', function() {
+                  window.on('orientationchange', function() {
+                  alert('1');
                     setTimeout(zoomIt, 100);
                   }, false);`
           });
