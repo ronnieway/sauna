@@ -120,7 +120,7 @@ export class HomePage {
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
 
-                    wrapper.style.paddingLeft = '0px';
+                    wrapper.style.marginLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
                       hRatio = hRatio;
@@ -134,9 +134,9 @@ export class HomePage {
                       a = (wWidth - wrapper.offsetWidth * vRatio * 1.25) / 2; 
                     }
                     wrapper.style.transformOrigin = 'left top';
-                    
-                    wrapper.style.paddingLeft =  a +  'px';
-                    wrapper.style.paddingTop = '30px';
+                    alert(a);
+                    wrapper.style.marginLeft =  a +  'px';
+                    wrapper.style.padding = '0px';
                     connectButton.style.left = '0px';
                   };
                   zoomIt();
@@ -167,7 +167,7 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 10px 0 4px 20px;
+                  padding: 10px 0 4px 30px;
                   margin: 0 auto;
                   position: relative;
                   color: blue; 
