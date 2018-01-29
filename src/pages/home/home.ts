@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -16,8 +15,7 @@ export class HomePage {
 
   constructor(private iab: InAppBrowser,
               private loadingCtrl: LoadingController,
-              private alertCtrl: AlertController,
-              private screenOrientation: ScreenOrientation
+              private alertCtrl: AlertController
   ) {
   }
 
@@ -123,15 +121,15 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      let herehRatio = vRatio * 1.25;
+                      let herehRatio = vRatio;
                       wrapper.style.transform = 'scale(' + herehRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio * 1.25) / 2;
+                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
                     } else {
-                      let herevRatio = vRatio * 1.25;
+                      let herevRatio = vRatio;
                       wrapper.style.transform = 'scale(' + herevRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio * 1.25) / 2; 
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2; 
                     }
-                    wrapper.style.transformOrigin = 'a top';
+                    wrapper.style.transformOrigin = a + ' top';
                     alert(a);
                     wrapper.style.margin = '0 auto';
                     wrapper.style.padding = '0px';
