@@ -124,15 +124,15 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      hRatio = 1.2 * hRatio;
+                      hRatio = 50 + hRatio;
                       wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio / 1.2) / (2 * hRatio / 1.2);
-                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio / 1.2 + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * hRatio - 50) / (2 * hRatio - 50);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio - 50 + ' ' + a);
                     } else {
                       vRatio = 1.2 * vRatio;
                       wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio / 1.2) / (2 * vRatio / 1.2);
-                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio / 1.2 + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * vRatio - 50) / (2 * vRatio - 50);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio - 50 + ' ' + a);
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
