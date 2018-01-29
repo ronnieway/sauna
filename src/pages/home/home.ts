@@ -115,7 +115,7 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    wHeight = window.screen.height - 100;
+                    wHeight = window.screen.height + 300;
                     wWidth = window.screen.width;
  
                     vRatio = wHeight / absHeight;
@@ -124,10 +124,10 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.transform = 'scale(2)';
+                      wrapper.style.transform = 'scale(' + hRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
                     } else {
-                      wrapper.style.transform = 'scale(2)';
+                      wrapper.style.transform = 'scale(' + vRatio + ')';
                       a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
                     }
                     wrapper.style.transformOrigin = 'left top';
