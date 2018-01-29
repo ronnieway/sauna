@@ -120,6 +120,7 @@ export class HomePage {
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
+                    alert (vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
                     
@@ -180,7 +181,7 @@ export class HomePage {
                   position: fixed;
                   left: 0;
                   float: left;
-                  top: 8px;
+                  top: 12px;
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
