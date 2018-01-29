@@ -23,7 +23,6 @@ export class HomePage {
   public submitRequest() {
     this.connecting = true;
     this.theLoading();
-    this.loader.present();
     const options: InAppBrowserOptions = {
       zoom:'no',
       location:'no',
@@ -38,6 +37,7 @@ export class HomePage {
           if(this.connecting){
             if(this.loader) {
               this.loader.dismiss();
+              this.loader = null;
             }
             this.connecting = false;
             this.presentAlert();
@@ -57,7 +57,7 @@ export class HomePage {
                   let outerButton = document.createElement('div');
                   outerButton.setAttribute('id', 'outerBrowserButton');
                   let button = document.createElement('div');
-                  button.innerHTML = '<< back to connect';
+                  button.innerHTML = '< back';
                   button.setAttribute('id', 'closeBrowserButton');
                   button.onclick = function() { 
                     localStorage.setItem('iab', 'false'); 
@@ -67,41 +67,44 @@ export class HomePage {
                 })();`
         });
 
-        let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-        if (iOS){
-          browser.insertCSS({
-            code: `body{;
+        browser.insertCSS({
+          code: `body{
                   margin: 0 !important;
-                  padding-top: 10px;
+                  position: relative;
+                  overflow: hidden !important;
                 }
                 #customWrapper{
-                  margin: 0 auto !important;
+                  margin: -10px 0 0 0 auto !important;
                   width: 803px !important;
+                }
+                #pmess{
+                  margin-top: 90px;
                 }
                 #wrapper.border{
                   width: 480px !important;
-                  margin: 0 auto;
-                  margin-bottom: 10px;
                 }
                 table{
                   margin: 0 auto !important;
+                  width: 100%;
+                  height: 100%;
                 }
                 html{
                   overflow: hidden !important;
                 }`
-          });
+        });
+
+        let iOS = true; /iPad|iPhone|iPod/.test(navigator.userAgent);
+        if (iOS){
+
 
           browser.executeScript({
             code: `let wrapper = document.createElement("div");
                   wrapper.id = "customWrapper";
-                  
                   while (document.body.firstChild)
                   {
                       wrapper.appendChild(document.body.firstChild);
                   }
-                  
                   document.body.appendChild(wrapper);
-                  let connectButton = document.getElementById('outerBrowserButton');
                   
                   let a;
                   let wHeight;
@@ -112,28 +115,32 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    wHeight = window.screen.height;
+                    wHeight = window.screen.height - 40;
                     wWidth = window.screen.width;
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
-                    
 
-                    wrapper.style.paddingLeft = '0px';
+                    wrapper.style.padding = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a = (window.innerWidth - wrapper.offsetWidth * hRatio)/(2 * hRatio);
+                      wrapper.style.transform = 'scale(' + hRatio + ')';
+                      wrapper.style.transformOrigin = 'left top'; 
+                      a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
                     } else {
-                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a = (window.innerWidth - wrapper.offsetWidth * vRatio)/(2 * vRatio);
+                      wrapper.style.transform = 'scale(' + vRatio + ')';
+                      wrapper.style.transformOrigin = 'left top'; 
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
                     }
-                    wrapper.style.transformOrigin = 'left top';
-
-                    wrapper.style.paddingLeft =  a +  'px';
-                    wrapper.style.paddingTop = '30px';
-                    connectButton.style.left = '0px';
-                      
+                    
+                    if (a > 0){ 
+                      a = a + 50;
+                      wrapper.style.paddingLeft =  a + 'px';  
+                      document.getElementById('outerBrowserButton').style.left = a + 'px'; 
+                    } else {
+                      wrapper.style.paddingLeft = '0px';
+                      document.getElementById('outerBrowserButton').style.left = '0px';
+                    }
                     
                   };
                   zoomIt();
@@ -146,18 +153,26 @@ export class HomePage {
                     e.preventDefault();
                   }, false);
                   
+                  window.addEventListener('touchstart', function(e){ 
+                    e.preventDefault(); 
+                  }, false);
+                  
+                   window.addEventListener("dragstart", function(e){ 
+                    e.preventDefault(); 
+                  }, false);
+
                   window.addEventListener('orientationchange', zoomIt);`
           });
         };
         browser.insertCSS({
           code: `body{
-                  
+
                 }
                 table, tbody, td, tr{
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 5px 0 5px 20px;
+                  padding: 4px 0 4px 20px;
                   margin: 0 auto;
                   position: relative;
                   color: blue; 
@@ -166,17 +181,16 @@ export class HomePage {
                   text-align: left;
                   line-height: 4vh; 
                   z-index: 99999;
-                  width: 100%;
+                  width: 100%;  
                 }
                 #outerBrowserButton{ 
-                  position: fixed;
-                  left: 0
+                  position: absolute;
+                  left: 0;
+                  top: 8px;
                   float: left;
-                  bottom: -40px;
-                  background: white; 
                   width: 803px;
                   height: 40px;
-                  margin-top: 10px;
+                  z-index: 99998;
                 }`
         });
 
@@ -198,6 +212,7 @@ export class HomePage {
         if(this.connecting) {
           if (this.loader) {
             this.loader.dismiss();
+            this.loader = null;
           }
           this.connecting = false;
           browser.show();
@@ -207,6 +222,7 @@ export class HomePage {
         if(this.connecting) {
           if(this.loader) {
             this.loader.dismiss();
+            this.loader = null;
           }
           this.connecting = false;
           this.presentAlert();
@@ -221,6 +237,7 @@ export class HomePage {
         if (this.connecting) {
           if (this.loader) {
             this.loader.dismiss();
+            this.loader = null;
           }
           this.connecting = false;
           this.presentAlert();
@@ -231,10 +248,13 @@ export class HomePage {
   }
 
   theLoading() {
-    this.loader = this.loadingCtrl.create({
-      content: 'Connecting to server...',
-      duration: 30000
-    });
+    if(!this.loader) {
+      this.loader = this.loadingCtrl.create({
+        content: 'Connecting to server...',
+        duration: 30000
+      });
+      this.loader.present();
+    }
   }
 
   presentAlert() {
