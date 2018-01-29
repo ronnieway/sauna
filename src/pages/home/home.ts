@@ -115,7 +115,6 @@ export class HomePage {
                   let hRatio;
                   
                   function zoomIt(){
-                    alert('here');
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
@@ -125,15 +124,15 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      hRatio = 1.25 * hRatio;
+                      hRatio = 1.2 * hRatio;
                       wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
-                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio / 1.25 + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * hRatio / 1.2) / (2 * hRatio / 1.2);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio / 1.2 + ' ' + a);
                     } else {
-                      vRatio = 1.25 * vRatio;
+                      vRatio = 1.2 * vRatio;
                       wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio);
-                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio / 1.25 + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * vRatio / 1.2) / (2 * vRatio / 1.2);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio / 1.2 + ' ' + a);
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
