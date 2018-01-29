@@ -110,7 +110,7 @@ export class HomePage {
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
-                  let absHeight = 600;
+                  let absHeight = 500;
                   let vRatio;
                   let hRatio;
                   
@@ -124,15 +124,15 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      hRatio = 0.5 + hRatio;
+                      hRatio = hRatio;
                       wrapper.style.transform = 'scale(' + hRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * (hRatio - 0.5)) / (2 * (hRatio - 0.5));
-                      alert (wWidth + ' ' + wrapper.offsetWidth * (hRatio - 0.5) + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * hRatio) / (2 * hRatio);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * hRatio + ' ' + a);
                     } else {
-                      vRatio = 0.5 + vRatio;
+                      vRatio = vRatio;
                       wrapper.style.transform = 'scale(' + vRatio + ')';
-                      a = (wWidth - wrapper.offsetWidth * (vRatio - 0.5)) / (2 * (vRatio - 0.5));
-                      alert (wWidth + ' ' + wrapper.offsetWidth * (vRatio - 0.5) + ' ' + a);
+                      a = (wWidth - wrapper.offsetWidth * vRatio) / (2 * vRatio);
+                      alert (wWidth + ' ' + wrapper.offsetWidth * vRatio + ' ' + a);
                     }
                     wrapper.style.transformOrigin = 'left top';
                     
