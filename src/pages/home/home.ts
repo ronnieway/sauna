@@ -110,7 +110,7 @@ export class HomePage {
                   }
                   document.body.appendChild(wrapper);
                   
-                  let a;
+                  let a = 0;
                   let wHeight;
                   let wWidth;
                   let absWidth = 803;
@@ -137,14 +137,7 @@ export class HomePage {
                       a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
                     }
                     
-                    if (a > 0){ 
-                      a = a + 50;
-                      wrapper.style.paddingLeft =  a + 'px';  
-                      document.getElementById('outerBrowserButton').style.left = a + 'px'; 
-                    } else {
-                      wrapper.style.paddingLeft = '0px';
-                      document.getElementById('outerBrowserButton').style.left = '0px';
-                    }
+                    
                     
                   };
                   zoomIt();
