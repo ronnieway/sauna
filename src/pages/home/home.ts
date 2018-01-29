@@ -118,8 +118,8 @@ export class HomePage {
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
-                    vRatio = wHeight / absHeight * 1.5;
-                    hRatio = wWidth / absWidth * 1.5;
+                    vRatio = wHeight / absHeight * 1.25;
+                    hRatio = wWidth / absWidth;
                     alert (vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
