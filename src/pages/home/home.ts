@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,8 @@ export class HomePage {
 
   constructor(private iab: InAppBrowser,
               private loadingCtrl: LoadingController,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              private screenOrientation: ScreenOrientation
   ) {
   }
 
@@ -118,7 +120,7 @@ export class HomePage {
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
 
-                    wrapper.style.marginLeft = '0px';
+                    wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
                       hRatio = hRatio;
@@ -133,7 +135,9 @@ export class HomePage {
                     }
                     wrapper.style.transformOrigin = 'left top';
                     alert(a);
-                    wrapper.style.marginLeft =  a +  'px';
+                    wrapper.style.margin = '0 auto';
+                    wrapper.style.paddingTop = '0px';
+                    connectButton.style.left = '0px';
                   };
                   zoomIt();
                   
@@ -163,7 +167,7 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 10px 0 4px 30px;
+                  padding: 10px 0 4px 20px;
                   margin: 0 auto;
                   position: relative;
                   color: blue; 
@@ -175,9 +179,10 @@ export class HomePage {
                   width: 100%;
                 }
                 #outerBrowserButton{ 
-                  position: relative;
+                  position: fixed;
+                  left: 0;
                   float: left;
-                  top: 10px;
+                  top: 12px;
                   width: 803px;
                   height: 40px;
                   z-index: 99998;
