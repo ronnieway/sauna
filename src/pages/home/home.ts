@@ -123,7 +123,7 @@ export class HomePage {
           let wWidth;
           let absWidth = 803;
           let hRatio;
-
+          
           function zoomIt(){
             wWidth = window.screen.width;
             hRatio = wWidth / absWidth;
@@ -132,12 +132,12 @@ export class HomePage {
             wrapper.style.transform = 'scale(' + hRatio + ')';
             a = (wWidth - wrapper.offsetWidth * hRatio) / 2;
             wrapper.style.transformOrigin = 'left top';
-
+alert (wWidth + ' ' + hRatio + ' ' + a);
             wrapper.style.paddingTop = '0px';
           };
           zoomIt();`
 
-        let landscapeCode =`let a;
+        let landscapeCode =`let b;
           let wHeight;
           let absHeight = 600;
           let vRatio;
@@ -149,13 +149,14 @@ export class HomePage {
             wrapper.style.paddingLeft = '0px';
 
             wrapper.style.transform = 'scale(' + vRatio + ')';
-            a = (wWidth - wrapper.offsetWidth * vRatio) / 2;
+            b = (wWidth - wrapper.offsetWidth * vRatio) / 2;
             wrapper.style.transformOrigin = 'left top';
-
+alert (wHeight + ' ' + vRatio + ' ' + b);
             wrapper.style.paddingTop = '0px';
           };
           zoomIt();`
 
+        alert(this.screenOrientation);
         if (this.screenOrientation.type == 'portrait') {
           browser.executeScript({
             code: portraitCode
@@ -170,6 +171,7 @@ export class HomePage {
 
         this.screenOrientation.onChange().subscribe(
           () => {
+            alert(this.screenOrientation);
             if (this.screenOrientation.type == 'portrait') {
               browser.executeScript({
                 code: portraitCode
