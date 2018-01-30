@@ -74,7 +74,7 @@ export class HomePage {
                   margin: 0 !important;
                 }
                 #customWrapper{
-
+                  margin: 0 auto;
                   width: 803px !important;
                   position: relative;
                 }
@@ -135,10 +135,10 @@ export class HomePage {
                     }
                     wrapper.style.transformOrigin = 'left top';
 
-                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.paddingLeft =  a + 'px';
                     wrapper.style.paddingTop = '0px';
-                    wrapper.style.marginLeft = '-50px';
-                    connectButton.style.left = '0px';  
+                    wrapper.style.marginLeft = a + 'px';
+                    connectButton.style.left = a + 'px';  
                   };
                   zoomIt();
                   
