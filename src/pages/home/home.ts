@@ -79,7 +79,7 @@ export class HomePage {
                   position: relative;
                 }
                 #pmess{
-                  margin-top: 90px;
+                  margin-top: 40px;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -92,6 +92,7 @@ export class HomePage {
                 }
                 html{
                   overflow: hidden !important;
+                  background-color: #408080 !important;
                 }`
             });
 
@@ -127,36 +128,32 @@ export class HomePage {
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
-                      alert(a);
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
-                      alert(a);
                     }
                     wrapper.style.transformOrigin = 'left top';
-
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
                   };
                   zoomIt();
                   
-                  window.addEventListener('touchmove', function(e) {
+                  window.addEventListener('touchmove', (e) => {
                     e.preventDefault();
                   }, false);
                   
-                  window.addEventListener('scroll', function(e) {
+                  window.addEventListener('scroll', (e) => {
                     e.preventDefault();
                   }, false);
                   
-                  window.addEventListener('orientationchange', zoomIt);`
+                  window.addEventListener('dragstart', (e) => { 
+                    e.preventDefault(); 
+                  }, false);`
             });
           };
           browser.insertCSS({
-            code: `body{
-                  
-                }
-                table, tbody, td, tr{
+            code: `table, tbody, td, tr{
                   border: 0 !important;
                 }
                 #closeBrowserButton{
