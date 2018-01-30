@@ -126,12 +126,16 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
+                      wrapper.style.webkitTransform = 'scale(' + hRatio + ');';
+                      wrapper.style.transform = 'scale(' + hRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                     } else {
-                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
+                      wrapper.style.webkitTransform = 'scale(' + vRatio + ');';
+                      wrapper.style.transform = 'scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
+                    
+                    wrapper.style.webkitTransformOrigin = 'left top';
                     wrapper.style.transformOrigin = 'left top';
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
