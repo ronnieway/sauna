@@ -129,7 +129,7 @@ export class HomePage {
                     wrapper.style.transformOrigin = 'left top';
 
                     wrapper.style.paddingLeft =  a +  'px';
-                    wrapper.style.paddingTop = '30px';
+                    wrapper.style.paddingTop = '0px';
                     connectButton.style.left = '0px';
                       
                     
@@ -158,7 +158,7 @@ export class HomePage {
                   padding: 5px 0 5px 20px;
                   margin: 0 auto;
                   position: relative;
-                  color: blue; 
+                  color: white; 
                   font-size: 4vh;
                   font-weight: bold;
                   text-align: left;
@@ -173,7 +173,7 @@ export class HomePage {
                   top: 0;
                   width: 803px;
                   height: 40px;
-                  margin-top: 10px;
+                  margin-top: 15px;
                 }`
           });
 
