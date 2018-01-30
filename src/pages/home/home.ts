@@ -134,9 +134,8 @@ export class HomePage {
                     }
                     wrapper.style.transformOrigin = 'left top';
 
-                    wrapper.style.marginLeft =  a +  'px';
+                    wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '0px';
-                    wrapper.style.paddingLeft = '0px';
                     connectButton.style.left = '0px';
                       
                     
@@ -179,7 +178,7 @@ export class HomePage {
                   float: left;
                   top: 0;
                   width: 803px;
-                  margin-top: 15px;
+                  margin-top: 8px;
                   z-index: 99998;
                 }`
           });
