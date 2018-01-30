@@ -77,12 +77,17 @@ export class HomePage {
                   margin: 0 auto !important;
                   width: 803px !important;
                 }
+                #pmess{
+                  margin-top: 90px;
+                }
                 #wrapper.border{
                   width: 480px !important;
                   margin: 0 auto;
                 }
                 table{
                   margin: 0 auto !important;
+                  width: 100%;
+                  height: 100%;
                 }
                 html{
                   overflow: hidden !important;
@@ -113,8 +118,8 @@ export class HomePage {
                     wHeight = window.screen.height;
                     wWidth = window.screen.width;
  
-                    vRatio = wHeight / absHeight;
-                    hRatio = wWidth / absWidth;
+                    vRatio = wHeight / absHeight * 1.1;
+                    hRatio = wWidth / absWidth * 1.1;
                     alert(vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
@@ -155,14 +160,14 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 5px 0 5px 20px;
+                  padding: 5px 0 5px 40px;
                   margin: 0 auto;
                   position: relative;
                   color: white; 
-                  font-size: 4vh;
+                  font-size: 20px;
                   font-weight: bold;
                   text-align: left;
-                  line-height: 4vh; 
+                  line-height: 20px; 
                   z-index: 99999;
                   width: 100%;
                 }
@@ -172,8 +177,7 @@ export class HomePage {
                   float: left;
                   top: 0;
                   width: 803px;
-                  height: 40px;
-                  margin-top: 15px;
+                  margin-top: 25px;
                 }`
           });
 
