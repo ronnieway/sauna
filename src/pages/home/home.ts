@@ -135,7 +135,6 @@ export class HomePage {
                     }
                     wrapper.style.transformOrigin = 'left top';
 
-                    wrapper.style.paddingLeft =  a + 'px';
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
