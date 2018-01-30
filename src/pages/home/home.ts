@@ -157,11 +157,11 @@ alert (wHeight + ' ' + vRatio + ' ' + b);
           zoomIt();`
 
         alert(this.screenOrientation.type);
-        if (this.screenOrientation.type == 'portrait') {
+        if (this.screenOrientation.type.includes('portrait')) {
           browser.executeScript({
             code: portraitCode
           })
-        } else if (this.screenOrientation.type == 'landscape') {
+        } else if (this.screenOrientation.type.includes('landscape')) {
           browser.executeScript({
             code: landscapeCode
           })
@@ -172,11 +172,11 @@ alert (wHeight + ' ' + vRatio + ' ' + b);
         this.screenOrientation.onChange().subscribe(
           () => {
             alert(this.screenOrientation.type);
-            if (this.screenOrientation.type == 'portrait') {
+            if (this.screenOrientation.type.includes('portrait')) {
               browser.executeScript({
                 code: portraitCode
               });
-            } else if (this.screenOrientation.type == 'landscape') {
+            } else if (this.screenOrientation.type.includes('landscape')) {
               browser.executeScript({
                 code: landscapeCode
               });
