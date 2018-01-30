@@ -159,7 +159,6 @@ export class HomePage {
                   border: 0 !important;
                 }
                 #closeBrowserButton{
-                  padding: 5px 0 5px 40px;
                   margin: 0 auto;
                   position: relative;
                   color: white; 
