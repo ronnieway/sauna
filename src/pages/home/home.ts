@@ -126,15 +126,15 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      document.body.style.cssText += '; transform:scale(0.3);';
+                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
 
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                     } else {
-                      document.body.style.cssText += '; transform:scale(0.3);';
+                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
 
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
-					wrapper.style.transformOrigin = 'left top';
+					          wrapper.style.transformOrigin = 'left top';
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
