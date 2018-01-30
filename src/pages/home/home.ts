@@ -57,7 +57,7 @@ export class HomePage {
                   let outerButton = document.createElement('div');
                   outerButton.setAttribute('id', 'outerBrowserButton');
                   let button = document.createElement('div');
-                  button.innerHTML = '<< back to connect';
+                  button.innerHTML = '< back';
                   button.setAttribute('id', 'closeBrowserButton');
                   button.onclick = function() { 
                     localStorage.setItem('iab', 'false'); 
@@ -72,7 +72,6 @@ export class HomePage {
             browser.insertCSS({
               code: `body{;
                   margin: 0 !important;
-                  padding-top: 30px;
                 }
                 #customWrapper{
                   margin: 0 auto !important;
@@ -81,7 +80,6 @@ export class HomePage {
                 #wrapper.border{
                   width: 480px !important;
                   margin: 0 auto;
-                  margin-bottom: 10px;
                 }
                 table{
                   margin: 0 auto !important;
