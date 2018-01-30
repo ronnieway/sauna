@@ -11,7 +11,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 export class HomePage {
   private loader;
   private connecting: boolean = false;
-  public ip = [10,0,1,15];
+  public ip = [10,10,0,2];
   public url = `http://${this.ip[0]}.${this.ip[1]}.${this.ip[2]}.${this.ip[3]}`;
 
   constructor(private iab: InAppBrowser,
@@ -75,6 +75,7 @@ export class HomePage {
                 }
                 #customWrapper{
                   margin: 0 auto;
+                  width: 803px !important;
                   position: relative;
                 }
                 #pmess{
@@ -88,7 +89,6 @@ export class HomePage {
                   margin: 0 auto !important;
                   width: 100%;
                   height: 100%;
-                  table-layout: auto !important;
                 }
                 html{
                   overflow: hidden !important;
@@ -126,19 +126,18 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
+                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
 
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                     } else {
-                      wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
+                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
 
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
-					          wrapper.style.transformOrigin = 'left top';
+					wrapper.style.transformOrigin = 'left top';
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
-                    connectButton.style.left = '0px';  
-                    
+                    connectButton.style.left = '0px';
                   }; 
                   zoomIt();
                   
