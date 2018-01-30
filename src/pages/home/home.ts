@@ -74,8 +74,9 @@ export class HomePage {
                   margin: 0 !important;
                 }
                 #customWrapper{
-                  margin: 0 auto !important;
+
                   width: 803px !important;
+                  position: relative;
                 }
                 #pmess{
                   margin-top: 90px;
