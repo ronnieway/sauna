@@ -139,7 +139,7 @@ export class HomePage {
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
-                    document.body.style.maxWidth = window.innerWidth + 'px';
+                    wrapper.style.cssText += '; max-width: 200px !important; overflow: hidden;';
                   }; 
                   zoomIt();
                   
