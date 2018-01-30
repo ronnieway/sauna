@@ -75,7 +75,7 @@ export class HomePage {
                 }
                 #customWrapper{
                   margin: 0 auto;
-                  width: 803px !important;
+                  width: 803px;
                   position: relative;
                 }
                 #pmess{
@@ -139,7 +139,7 @@ export class HomePage {
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
-                    wrapper.style.cssText += '; max-width: 200px !important; overflow: hidden;';
+                    
                   }; 
                   zoomIt();
                   
