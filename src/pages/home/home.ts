@@ -139,7 +139,7 @@ export class HomePage {
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
-                    document.body.width = window.innerWidth;
+                    wrapper.style.width = window.innerWidth + 'px';
                   }; 
                   zoomIt();
                   
