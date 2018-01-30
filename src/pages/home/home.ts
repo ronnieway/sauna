@@ -70,7 +70,7 @@ export class HomePage {
           let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
           if (iOS){
             browser.insertCSS({
-              code: `body{;
+              code: `body{ background-color: #408080 !important;
                   margin: 0 !important;
                 }
                 #customWrapper{
@@ -115,7 +115,7 @@ export class HomePage {
  
                     vRatio = wHeight / absHeight;
                     hRatio = wWidth / absWidth;
-                    
+                    alert(vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
                     
