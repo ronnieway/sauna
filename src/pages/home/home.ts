@@ -136,9 +136,8 @@ export class HomePage {
 
                     wrapper.style.paddingLeft =  a +  'px';
                     wrapper.style.paddingTop = '0px';
-                    connectButton.style.left = '0px';
-                      
-                    
+                    wrapper.style.marginLeft = '-50px';
+                    connectButton.style.left = '0px';  
                   };
                   zoomIt();
                   
@@ -178,7 +177,7 @@ export class HomePage {
                   float: left;
                   top: 0;
                   width: 803px;
-                  margin-top: 8px;
+                  margin-top: 5px;
                   z-index: 99998;
                 }`
           });
