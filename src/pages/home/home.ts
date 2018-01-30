@@ -126,11 +126,11 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
-                      a = (window.innerWidth - wrapper.offsetWidth * hRatio)/(2 * hRatio);
+                      a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                       alert(a);
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
-                      a = (window.innerWidth - wrapper.offsetWidth * vRatio)/(2 * vRatio);
+                      a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       alert(a);
                     }
                     wrapper.style.transformOrigin = 'left top';
@@ -138,7 +138,7 @@ export class HomePage {
                     wrapper.style.paddingLeft =  a + 'px';
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
-                    connectButton.style.left = a + 'px';  
+                    connectButton.style.left = '0px';  
                   };
                   zoomIt();
                   
