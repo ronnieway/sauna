@@ -94,7 +94,7 @@ export class HomePage {
                 }`
         });
 
-        let iOS = true; /iPad|iPhone|iPod/.test(navigator.userAgent);
+        let iOS = true; // /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (iOS){
           browser.executeScript({
             code: `let wrapper = document.createElement("div");
@@ -132,10 +132,10 @@ export class HomePage {
             wrapper.style.transform = 'scale(' + hRatio + ')';
             a = 0;
             wrapper.style.transformOrigin = 'left top';
-alert (wWidth + ' ' + hRatio + ' ' + a);
+            alert (wWidth + ' ' + hRatio + ' ' + a);
             wrapper.style.paddingTop = '0px';
           };
-          zoomIt();`
+          zoomIt();`;
 
         let landscapeCode =`let b;
           let wHeight;
@@ -151,27 +151,29 @@ alert (wWidth + ' ' + hRatio + ' ' + a);
             wrapper.style.transform = 'scale(' + vRatio + ')';
             b = (window.screen.width - wrapper.offsetWidth * vRatio) / 2;
             wrapper.style.transformOrigin = 'left top';
-alert (wHeight + ' ' + vRatio + ' ' + b);
+            alert (wHeight + ' ' + vRatio + ' ' + b);
             wrapper.style.paddingTop = '0px';
           };
-          zoomIt();`
+          zoomIt();`;
 
-        alert(this.screenOrientation.type);
         if (this.screenOrientation.type.includes('portrait')) {
+          alert('1 ' + this.screenOrientation.type);
           browser.executeScript({
             code: portraitCode
-          })
+          });
         } else if (this.screenOrientation.type.includes('landscape')) {
+          alert('2 ' + this.screenOrientation.type);
           browser.executeScript({
             code: landscapeCode
-          })
+          });
         } else {
           console.log('something wrong');
         }
 
-        this.screenOrientation.onChange().subscribe(
+        this.screenOrientation.onChange()
+          .subscribe(
           () => {
-            alert(this.screenOrientation.type);
+            alert('3 ' + this.screenOrientation.type);
             if (this.screenOrientation.type.includes('portrait')) {
               browser.executeScript({
                 code: portraitCode
