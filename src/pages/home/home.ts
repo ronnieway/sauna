@@ -78,7 +78,6 @@ export class HomePage {
                   width: 803px !important;
                   position: relative;
                   -webkit-transform-origin = 'left top';
-                  transform-origin = 'left top';
                 }
                 #pmess{
                   margin-top: 10px;
