@@ -79,7 +79,7 @@ export class HomePage {
                   position: relative;
                 }
                 #pmess{
-                  margin-top: 40px;
+                  margin-top: 10px;
                 }
                 #wrapper.border{
                   width: 480px !important;
@@ -149,7 +149,9 @@ export class HomePage {
                   
                   window.addEventListener('dragstart', (e) => { 
                     e.preventDefault(); 
-                  }, false);`
+                  }, false);
+                  
+                  window.addEventListener('orientationchange', zoomIt);`
             });
           };
           browser.insertCSS({
