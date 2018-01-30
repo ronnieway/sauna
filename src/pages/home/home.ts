@@ -120,21 +120,23 @@ export class HomePage {
  
                     vRatio = wHeight / absHeight * 1.1;
                     hRatio = wWidth / absWidth * 1.1;
-                    alert(vRatio + ' ' + hRatio);
 
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/(2 * hRatio);
+                      alert(a);
                     } else {
                       wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/(2 * vRatio);
+                      alert(a);
                     }
                     wrapper.style.transformOrigin = 'left top';
 
-                    wrapper.style.paddingLeft =  a +  'px';
+                    wrapper.style.marginLeft =  a +  'px';
                     wrapper.style.paddingTop = '0px';
+                    wrapper.style.paddingLeft = '0px';
                     connectButton.style.left = '0px';
                       
                     
@@ -177,7 +179,8 @@ export class HomePage {
                   float: left;
                   top: 0;
                   width: 803px;
-                  margin-top: 25px;
+                  margin-top: 15px;
+                  z-index: 99998;
                 }`
           });
 
