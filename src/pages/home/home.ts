@@ -77,7 +77,6 @@ export class HomePage {
                   margin: 0 auto;
                   width: 803px !important;
                   position: relative;
-                  -webkit-transform-origin = 'left top';
                 }
                 #pmess{
                   margin-top: 10px;
@@ -135,7 +134,7 @@ export class HomePage {
 
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
-
+					wrapper.style.transformOrigin = 'left top';
                     wrapper.style.paddingTop = '0px';
                     wrapper.style.marginLeft = a + 'px';
                     connectButton.style.left = '0px';  
