@@ -128,11 +128,11 @@ export class HomePage {
                     wrapper.style.paddingLeft = '0px';
                     
                     if (vRatio >= hRatio) { 
-                      wrapper.style.webkitTransform = 'scale(' + hRatio + ');';
+
                       wrapper.style.transform = 'scale(' + hRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                     } else {
-                      wrapper.style.webkitTransform = 'scale(' + vRatio + ');';
+
                       wrapper.style.transform = 'scale(' + vRatio + ');';
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
