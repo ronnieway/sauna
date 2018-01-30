@@ -57,7 +57,7 @@ export class HomePage {
                   let outerButton = document.createElement('div');
                   outerButton.setAttribute('id', 'outerBrowserButton');
                   let button = document.createElement('div');
-                  button.innerHTML = '< back';
+                  button.innerHTML = '< Home';
                   button.setAttribute('id', 'closeBrowserButton');
                   button.onclick = function() { 
                     localStorage.setItem('iab', 'false'); 
@@ -129,11 +129,11 @@ export class HomePage {
                     
                     if (vRatio >= hRatio) { 
                       wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + ');';
-                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
+
                       a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                     } else {
                       wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + ');';
-                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
+
                       a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                     }
 
