@@ -10,7 +10,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 export class HomePage {
   private loader;
   private connecting: boolean = false;
-  public ip = [10,10,0,2];
+  public ip = [10,0,1,15];
   public url = `http://${this.ip[0]}.${this.ip[1]}.${this.ip[2]}.${this.ip[3]}`;
 
   constructor(private iab: InAppBrowser,
