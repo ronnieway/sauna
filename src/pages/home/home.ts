@@ -54,8 +54,15 @@ export class HomePage {
           let iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent);
           if (iOS){
             browser.executeScript({
-              code: `if (!!document.getElementById('wrap')) {
-                      document.body.style.margin = 'auto';
+              code: `let wrapper = document.createElement("div");
+                    wrapper.id = "customWrapper";
+                    while (document.body.firstChild) {
+                      wrapper.appendChild(document.body.firstChild);
+                    } 
+                    document.body.appendChild(wrapper);
+
+                    if (!!document.getElementById('wrap')) {
+                      wrapper.style.margin = 'auto';
                     }
                     
                     let a;
@@ -73,20 +80,20 @@ export class HomePage {
                       vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
   
-                      document.body.style.paddingLeft = '0px';
+                      wrapper.style.paddingLeft = '0px';
                       
                       if (vRatio >= hRatio) { 
-                        document.body.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
-                        document.body.style.transformOrigin = 'left top';
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                       } else {
-                        document.body.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
-                        document.body.style.transformOrigin = 'left top';
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
-                      document.body.style.paddingTop = '0px';
-                      document.body.style.marginLeft = a + 'px';  
+                      wrapper.style.paddingTop = '0px';
+                      wrapper.style.marginLeft = a + 'px';  
                     }; 
                     zoomIt();
                     
@@ -133,7 +140,12 @@ export class HomePage {
                   }
                   table, tbody, td, tr{
                     border: 0 !important;
-                  }`
+                  }
+                  #customWrapper{
+                  margin: 0 auto;
+                  width: 803px;
+                  position: relative;
+                }`
           });
 
           if(this.connecting) {
