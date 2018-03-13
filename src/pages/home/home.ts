@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { LoadingController, AlertController } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -18,6 +17,7 @@ export class HomePage {
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController
   ) {
+
   }
 
   public submitRequest() {
@@ -30,6 +30,7 @@ export class HomePage {
       toolbar:'no',
       hidden:'yes'
     };
+
     let browser =  this.iab.create(this.url, '_blank', options);
     browser.on('loadstart')
       .subscribe(
@@ -50,145 +51,86 @@ export class HomePage {
     browser.on('loadstop')
       .subscribe(
         (event) => {
-          browser.executeScript({
-            code: `localStorage.setItem('iab', 'true');
-                (function() {
-                  let body = document.querySelector('body');
-                  let outerButton = document.createElement('div');
-                  outerButton.setAttribute('id', 'outerBrowserButton');
-                  let button = document.createElement('div');
-                  button.innerHTML = '< Home';
-                  button.setAttribute('id', 'closeBrowserButton');
-                  button.onclick = function() { 
-                    localStorage.setItem('iab', 'false'); 
-                  };
-                  outerButton.appendChild(button);
-                  body.appendChild(outerButton);
-                })();`
-          });
-
-          let iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+          let iOS = true;// /iPad|iPhone|iPod/.test(navigator.userAgent);
           if (iOS){
-            browser.insertCSS({
-              code: `body{ background-color: #408080 !important;
-                  margin: 0 !important;
-                }
-                #customWrapper{
-                  margin: 0 auto;
-                  width: 803px !important;
-                  position: relative;
-                }
-                #pmess{
-                  margin-top: 10px;
-                }
-                #wrapper.border{
-                  width: 480px !important;
-                  margin: 0 auto;
-                }
-                table{
-                  margin: 0 auto !important;
-                  width: 100%;
-                  height: 100%;
-                }
-                html{
-                  overflow: hidden !important;
-                  background-color: #408080 !important;
-                }`
-            });
-
             browser.executeScript({
-              code: `let wrapper = document.createElement("div");
-                  wrapper.id = "customWrapper";
-                  
-                  while (document.body.firstChild)
-                  {
-                      wrapper.appendChild(document.body.firstChild);
-                  }
-                  
-                  document.body.appendChild(wrapper);
-                  let connectButton = document.getElementById('outerBrowserButton');
-                  
-                  let a;
-                  let wHeight;
-                  let wWidth;
-                  let absWidth = 803;
-                  let absHeight = 600;
-                  let vRatio;
-                  let hRatio;
-                  
-                  function zoomIt(){
-                    wHeight = window.screen.height;
-                    wWidth = window.screen.width;
- 
-                    vRatio = wHeight / absHeight * 1.1;
-                    hRatio = wWidth / absWidth * 1.1;
-
-                    wrapper.style.paddingLeft = '0px';
-                    
-                    if (vRatio >= hRatio) { 
-                      wrapper.style.cssText += '; transform:scale(' + hRatio + ');';
-
-                      a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
+              code: `localStorage.setItem('iab', 'true');
+                    let outerButton;
+                    let button;
+                    if (window.screen.height > window.screen.width && !!document.getElementById('wrap')) {
+                      document.body.style.marginLeft = '7%';
                     } else {
-                      wrapper.style.cssText += '; transform:scale(' + vRatio + ');';
-
-                      a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
+                      document.body.style.marginLeft = 'auto';
                     }
-					wrapper.style.transformOrigin = 'left top';
-                    wrapper.style.paddingTop = '0px';
-                    wrapper.style.marginLeft = a + 'px';
-                    connectButton.style.left = '0px';
-                  }; 
-                  zoomIt();
-                  
-                  window.addEventListener('touchmove', (e) => {
-                    e.preventDefault();
-                  }, false);
-                  
-                  window.addEventListener('scroll', (e) => {
-                    e.preventDefault();
-                  }, false);
-                  
-                  window.addEventListener('dragstart', (e) => { 
-                    e.preventDefault(); 
-                  }, false);
-                  
-                  window.addEventListener('orientationchange', zoomIt);`
-            });
-          };
-          browser.insertCSS({
-            code: `table, tbody, td, tr{
-                  border: 0 !important;
-                }
-                #closeBrowserButton{
-                  padding: 2px 0 0 50px;
-                  margin: 0 auto;
-                  position: relative;
-                  color: white; 
-                  font-size: 20px;
-                  font-weight: bold;
-                  text-align: left;
-                  line-height: 20px; 
-                  z-index: 99999;
-                  width: 100%;
-                }
-                #outerBrowserButton{ 
-                  position: fixed;
-                  left: 0;
-                  float: left;
-                  top: 0;
-                  width: 803px;
-                  margin-top: 5px;
-                  z-index: 99998;
-                }`
-          });
+                      
+                    if (!!document.getElementById('outerBrowserButton') && !!document.getElementById('closeBrowserButton')){
+                      outerButton = document.getElementById('outerBrowserButton');
+                      button = document.getElementById('closeBrowserButton');
 
+                    } else {
+                      setTimeout(function() {
+                        outerButton = document.createElement('div');
+                        outerButton.setAttribute('id', 'outerBrowserButton');
+                        button = document.createElement('div');
+                        button.innerHTML = '< Home';
+                        button.setAttribute('id', 'closeBrowserButton');
+                        button.onclick = function() {
+                          localStorage.setItem('iab', 'false');
+                        };
+                        outerButton.appendChild(button);
+                        document.body.appendChild(outerButton);
+                      }, 1000);
+                    }`
+            });
+          }
+
+          browser.insertCSS({
+            code: `body{ 
+                    background-color: #408080 !important;
+                    margin: 25px 0 0 0 !important;
+                  }
+                  #pmess{
+                    margin-top: 10px;
+                  }
+                  #wrapper.border{
+                    width: 480px;
+                    margin: 0 auto;
+                  }
+                  html{
+                    overflow: hidden !important;
+                    background-color: #408080 !important;
+                  }
+                  table, tbody, td, tr{
+                    border: 0 !important;
+                  }
+                  #closeBrowserButton{
+                    padding: 5px 0 0 15px;
+                    margin: 0 auto;
+                    position: relative;
+                    color: white; 
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-align: left;
+                    line-height: 18px; 
+                    z-index: 99999;
+                    width: 100%;
+                  }
+                  #outerBrowserButton{ 
+                    position: fixed;
+                    left: 0;
+                    float: left;
+                    top: 0;
+                    width: 803px;
+                    margin-top: 30px;
+                    z-index: 99998;
+                  }`
+          });
           let checkingClick = setInterval(() => {
             browser.executeScript({
               code: `let result = function(){
-                    return localStorage.iab;
-                  };
-                  result();`
+                      return localStorage.iab;
+                    };
+                    result();`
             })
               .then(val =>{
                 if (val[0] == 'false'){
