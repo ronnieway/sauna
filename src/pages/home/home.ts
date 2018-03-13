@@ -92,8 +92,14 @@ export class HomePage {
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
-                      wrapper.style.paddingTop = '0px';
-                      wrapper.style.marginLeft = a + 'px';  
+                      if (a > 0){ 
+                        wrapper.style.paddingLeft =  a + 'px';  
+                        document.getElementById('outerBrowserButton').style.left = a + 'px'; 
+                      } else {
+                        wrapper.style.paddingLeft = '0px';
+                        document.getElementById('outerBrowserButton').style.left = '0px';
+                      }
+                      wrapper.style.paddingTop = '0px'; 
                     }; 
                     zoomIt();
                     
@@ -125,7 +131,7 @@ export class HomePage {
           browser.insertCSS({
             code: `body{ 
                     background-color: #408080 !important;
-                    margin: 25px 0 0 0 !important;
+                    margin: 0 !important;
                   }
                   #pmess{
                     margin-top: 10px;
@@ -142,10 +148,10 @@ export class HomePage {
                     border: 0 !important;
                   }
                   #customWrapper{
-                  margin: 0 auto;
-                  width: 803px;
-                  position: relative;
-                }`
+                    margin: 0 auto;
+                    width: 803px;
+                    position: relative;
+                  }`
           });
 
           if(this.connecting) {
