@@ -51,8 +51,72 @@ export class HomePage {
     browser.on('loadstop')
       .subscribe(
         (event) => {
-          let iOS = true;// /iPad|iPhone|iPod/.test(navigator.userAgent);
+          let iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent);
           if (iOS){
+            browser.executeScript({
+              code: `localStorage.setItem('iab', 'true');
+              
+                    let wrapper = document.createElement("div");
+                    wrapper.id = "customWrapper";
+                    while (document.body.firstChild)
+                    {
+                      wrapper.appendChild(document.body.firstChild);
+                    }
+                    document.body.appendChild(wrapper);
+
+                    if (window.screen.height > window.screen.width && !!document.getElementById('wrap')) {
+                      document.body.style.marginLeft = '7%';
+                    } else {
+                      document.body.style.marginLeft = 'auto';
+                    }
+                    
+                    let a;
+                    let wHeight;
+                    let wWidth;
+                    let absWidth = 803;
+                    let absHeight = 600;
+                    let vRatio;
+                    let hRatio;
+                    
+                    function zoomIt(){
+                      wHeight = window.innerHeight;
+                      wWidth = window.innerWidth;
+   
+                      vRatio = wHeight / absHeight;
+                      hRatio = wWidth / absWidth;
+  
+                      wrapper.style.paddingLeft = '0px';
+                      
+                      if (vRatio >= hRatio) { 
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
+                        a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
+                      } else {
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
+                        a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
+                      }
+                      
+                      wrapper.style.paddingTop = '0px';
+                      wrapper.style.marginLeft = a + 'px';  
+                    }; 
+                    zoomIt();
+                    
+                    window.addEventListener('touchmove', (e) => {
+                      e.preventDefault();
+                    }, false);
+                    
+                    window.addEventListener('scroll', (e) => {
+                      e.preventDefault();
+                    }, false);
+                    
+                    window.addEventListener('dragstart', (e) => { 
+                      e.preventDefault(); 
+                    }, false);
+                    
+                    window.addEventListener('orientationchange', zoomIt);`
+            });
+          } else {
             browser.executeScript({
               code: `localStorage.setItem('iab', 'true');
                     let outerButton;
@@ -102,27 +166,6 @@ export class HomePage {
                   }
                   table, tbody, td, tr{
                     border: 0 !important;
-                  }
-                  #closeBrowserButton{
-                    padding: 5px 0 0 15px;
-                    margin: 0 auto;
-                    position: relative;
-                    color: white; 
-                    font-size: 16px;
-                    font-weight: bold;
-                    text-align: left;
-                    line-height: 18px; 
-                    z-index: 99999;
-                    width: 100%;
-                  }
-                  #outerBrowserButton{ 
-                    position: fixed;
-                    left: 0;
-                    float: left;
-                    top: 0;
-                    width: 803px;
-                    margin-top: 30px;
-                    z-index: 99998;
                   }`
           });
           let checkingClick = setInterval(() => {
