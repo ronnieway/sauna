@@ -51,7 +51,7 @@ export class HomePage {
     browser.on('loadstop')
       .subscribe(
         (event) => {
-          let iOS =  /iPad|iPhone|iPod/.test(navigator.userAgent);
+          let iOS = true; // /iPad|iPhone|iPod/.test(navigator.userAgent);
           if (iOS){
             browser.executeScript({
               code: `let wrapper = document.createElement("div");
@@ -60,7 +60,6 @@ export class HomePage {
                       wrapper.appendChild(document.body.firstChild);
                     } 
                     document.body.appendChild(wrapper);
-
                     if (!!document.getElementById('wrap')) {
                       wrapper.style.margin = 'auto';
                     }
