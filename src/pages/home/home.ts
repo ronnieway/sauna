@@ -91,7 +91,7 @@ export class HomePage {
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
-                      //if (wHeight > wWidth){ 
+                      if (wHeight > wWidth){ 
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
@@ -148,6 +148,7 @@ export class HomePage {
                     margin: 0 auto;
                     width: 803px;
                     position: relative;
+                    overflow: hidden;
                   }`
           });
 
