@@ -76,7 +76,7 @@ export class HomePage {
                       wHeight = window.innerHeight;
                       wWidth = window.innerWidth;
    
-                      vRatio = wHeight / absHeight * 0.8;
+                      vRatio = wHeight / absHeight;
                       hRatio = wWidth / absWidth;
   
                       wrapper.style.paddingLeft = '0px';
@@ -119,7 +119,7 @@ export class HomePage {
             browser.executeScript({
               code: `localStorage.setItem('iab', 'true');
                     if (window.screen.height > window.screen.width && !!document.getElementById('wrap')) {
-                      document.body.style.marginLeft = '7%';
+                      document.body.style.marginLeft = '10%';
                     } else {
                       document.body.style.marginLeft = 'auto';
                     }`
