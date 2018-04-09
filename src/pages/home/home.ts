@@ -119,6 +119,8 @@ export class HomePage {
             browser.executeScript({
               code: `localStorage.setItem('iab', 'true');
                     if (window.screen.height > window.screen.width && !!document.getElementById('wrap')) {
+                      document.body.style.marginLeft = '7%';
+                    } else {
                       document.body.style.marginLeft = 'auto';
                     }`
             });
