@@ -51,35 +51,78 @@ export class HomePage {
     browser.on('loadstop')
       .subscribe(
         (event) => {
-          let iOS = true;// /iPad|iPhone|iPod/.test(navigator.userAgent);
+          let iOS = true; // /iPad|iPhone|iPod/.test(navigator.userAgent);
           if (iOS){
             browser.executeScript({
+              code: `let wrapper = document.createElement("div");
+                    wrapper.id = "customWrapper";
+                    while (document.body.firstChild) {
+                      wrapper.appendChild(document.body.firstChild);
+                    } 
+                    document.body.appendChild(wrapper);
+                    if (!!document.getElementById('wrap')) {
+                      wrapper.style.margin = 'auto';
+                    }
+                    
+                    let a;
+                    let wHeight;
+                    let wWidth;
+                    let absWidth = 803;
+                    let absHeight = 600;
+                    let vRatio;
+                    let hRatio;
+                    
+                    function zoomIt(){
+                      wHeight = window.innerHeight;
+                      wWidth = window.innerWidth;
+   
+                      vRatio = wHeight / absHeight;
+                      hRatio = wWidth / absWidth;
+  
+                      wrapper.style.paddingLeft = '0px';
+                      
+                      if (vRatio >= hRatio) { 
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
+                        a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
+                      } else {
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
+                        a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
+                      }
+                      
+                      if (a > 0){ 
+                        wrapper.style.paddingLeft =  a + 'px';  
+                        document.getElementById('outerBrowserButton').style.left = a + 'px'; 
+                      } else {
+                        wrapper.style.paddingLeft = '0px';
+                        document.getElementById('outerBrowserButton').style.left = '0px';
+                      }
+                      wrapper.style.paddingTop = '0px'; 
+                    }; 
+                    zoomIt();
+                    
+                    window.addEventListener('touchmove', (e) => {
+                      e.preventDefault();
+                    }, false);
+                    
+                    window.addEventListener('scroll', (e) => {
+                      e.preventDefault();
+                    }, false);
+                    
+                    window.addEventListener('dragstart', (e) => { 
+                      e.preventDefault(); 
+                    }, false);
+                    
+                    window.addEventListener('orientationchange', zoomIt);`
+            });
+          } else {
+            browser.executeScript({
               code: `localStorage.setItem('iab', 'true');
-                    let outerButton;
-                    let button;
                     if (window.screen.height > window.screen.width && !!document.getElementById('wrap')) {
                       document.body.style.marginLeft = '7%';
                     } else {
                       document.body.style.marginLeft = 'auto';
-                    }
-                      
-                    if (!!document.getElementById('outerBrowserButton') && !!document.getElementById('closeBrowserButton')){
-                      outerButton = document.getElementById('outerBrowserButton');
-                      button = document.getElementById('closeBrowserButton');
-
-                    } else {
-                      setTimeout(function() {
-                        outerButton = document.createElement('div');
-                        outerButton.setAttribute('id', 'outerBrowserButton');
-                        button = document.createElement('div');
-                        button.innerHTML = '< Home';
-                        button.setAttribute('id', 'closeBrowserButton');
-                        button.onclick = function() {
-                          localStorage.setItem('iab', 'false');
-                        };
-                        outerButton.appendChild(button);
-                        document.body.appendChild(outerButton);
-                      }, 1000);
                     }`
             });
           }
@@ -87,7 +130,7 @@ export class HomePage {
           browser.insertCSS({
             code: `body{ 
                     background-color: #408080 !important;
-                    margin: 25px 0 0 0 !important;
+                    margin: 0 !important;
                   }
                   #pmess{
                     margin-top: 10px;
@@ -103,42 +146,12 @@ export class HomePage {
                   table, tbody, td, tr{
                     border: 0 !important;
                   }
-                  #closeBrowserButton{
-                    padding: 5px 0 0 15px;
+                  #customWrapper{
                     margin: 0 auto;
-                    position: relative;
-                    color: white; 
-                    font-size: 16px;
-                    font-weight: bold;
-                    text-align: left;
-                    line-height: 18px; 
-                    z-index: 99999;
-                    width: 100%;
-                  }
-                  #outerBrowserButton{ 
-                    position: fixed;
-                    left: 0;
-                    float: left;
-                    top: 0;
                     width: 803px;
-                    margin-top: 30px;
-                    z-index: 99998;
+                    position: relative;
                   }`
           });
-          let checkingClick = setInterval(() => {
-            browser.executeScript({
-              code: `let result = function(){
-                      return localStorage.iab;
-                    };
-                    result();`
-            })
-              .then(val =>{
-                if (val[0] == 'false'){
-                  clearInterval(checkingClick);
-                  browser.close();
-                }
-              });
-          }, 1000);
 
           if(this.connecting) {
             if (this.loader) {
