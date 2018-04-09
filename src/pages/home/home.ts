@@ -149,9 +149,6 @@ export class HomePage {
                     position: relative;
                     overflow: hidden;
                   }
-                  #INPUT1, #INPUT2, #INPUT9, #INPUT15{
-                    margin-top: 15px;
-                  }
                   `
           });
 
