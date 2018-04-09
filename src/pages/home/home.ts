@@ -91,13 +91,13 @@ export class HomePage {
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
-                      if (a > 0){ 
-                        wrapper.style.paddingLeft =  a + 'px';  
-                        document.getElementById('outerBrowserButton').style.left = a + 'px'; 
-                      } else {
+                      //if (a > 0){ 
+                      //  wrapper.style.paddingLeft =  a + 'px';  
+                      //  document.getElementById('outerBrowserButton').style.left = a + 'px'; 
+                      //} else {
                         wrapper.style.paddingLeft = '0px';
                         document.getElementById('outerBrowserButton').style.left = '0px';
-                      }
+                      //}
                       wrapper.style.paddingTop = '0px'; 
                     }; 
                     zoomIt();
