@@ -76,7 +76,7 @@ export class HomePage {
                       wHeight = window.innerHeight;
                       wWidth = window.innerWidth;
    
-                      vRatio = wHeight / absHeight * 0.9;
+                      vRatio = wHeight / absHeight * 0.8;
                       hRatio = wWidth / absWidth;
   
                       wrapper.style.paddingLeft = '0px';
@@ -92,7 +92,7 @@ export class HomePage {
                       }
                       
                       if (wHeight < wWidth){
-                        a = a*1.5;
+                        a = a*1.75;
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
