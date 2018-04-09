@@ -152,7 +152,7 @@ export class HomePage {
                     overflow: hidden;
                   }
                   #INPUT1, #INPUT2{
-                    padding: 0 !important;
+                    margin-top: 50 !important;
                   }
                   `
           });
