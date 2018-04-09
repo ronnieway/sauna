@@ -91,7 +91,8 @@ export class HomePage {
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
-                      if (wHeight < wWidth){ 
+                      if (wHeight < wWidth){
+                        a = a*2;
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
@@ -128,7 +129,7 @@ export class HomePage {
           browser.insertCSS({
             code: `body{ 
                     background-color: #408080 !important;
-                    margin: 0 !important;
+                    margin: 25px 0 0 0 !important;
                   }
                   #pmess{
                     margin-top: 10px;
