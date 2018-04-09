@@ -76,7 +76,7 @@ export class HomePage {
                       wHeight = window.innerHeight;
                       wWidth = window.innerWidth;
    
-                      vRatio = wHeight / absHeight;
+                      vRatio = wHeight / absHeight * 0.8;
                       hRatio = wWidth / absWidth;
   
                       wrapper.style.paddingLeft = '0px';
@@ -150,6 +150,9 @@ export class HomePage {
                     width: 803px;
                     position: relative;
                     overflow: hidden;
+                  }
+                  #INPUT1, #INPUT2{
+                    padding: 0 !important;
                   }
                   `
           });
