@@ -87,14 +87,9 @@ export class HomePage {
                         wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
-                      let b = 86 * a;
-                      document.getElementById('INPUT1').style.width = b + 'px';
-                      document.getElementById('INPUT1').style.height = b + 'px';   
-                      document.getElementById('INPUT2').style.width = b + 'px';
-                      document.getElementById('INPUT2').style.height = b + 'px';
 
                       if (wHeight < wWidth){
-                        a = a * 1.75;
+                        a = a * 1.6;
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
