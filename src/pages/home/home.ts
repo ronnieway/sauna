@@ -151,10 +151,11 @@ export class HomePage {
                     position: relative;
                     overflow: hidden;
                   }
-                  .imgsub{
+                  INPUT1.imgsub, INPUT2.imgsub{
                     z-index: 999999 !important;
                     padding: 10px;
                     background-color:red !important;
+                    position: relative !important;
                   }
                   `
           });
