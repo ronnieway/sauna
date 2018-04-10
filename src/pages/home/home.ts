@@ -154,7 +154,7 @@ export class HomePage {
                   #INPUT1, #INPUT2{
                     padding: 10px !important;
                     background-color:red !important;
-                    background-size: contain;
+                    background-image: none;
                   }
                   `
           });
