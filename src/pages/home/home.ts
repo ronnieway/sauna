@@ -151,7 +151,7 @@ export class HomePage {
                     position: relative;
                     overflow: hidden;
                   }
-                  #INPUT1, #INPUT2{
+                  .imgsub{
                     z-index: 999999 !important;
                     padding: 10px;
                     background-color:red !important;
