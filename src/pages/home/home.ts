@@ -152,12 +152,9 @@ export class HomePage {
                     overflow: hidden;
                   }
                   #INPUT1, #INPUT2{
-                    z-index: 999999 !important;
-                    padding: 10px;
+                    padding: 10px !important;
                     background-color:red !important;
-                    position: relative !important;
-                    left: -10px;
-                    top: -10px;
+                    height: 10px !important;
                   }
                   `
           });
