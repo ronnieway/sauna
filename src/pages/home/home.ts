@@ -153,6 +153,7 @@ export class HomePage {
                   }
                   #INPUT1, #INPUT2{
                     z-index: 50 !important;
+                    padding: 10px;
                   }
                   `
           });
