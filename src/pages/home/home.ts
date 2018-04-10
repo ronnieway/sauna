@@ -60,13 +60,6 @@ export class HomePage {
                       wrapper.appendChild(document.body.firstChild);
                     } 
                     document.body.appendChild(wrapper);
-                    if (!!document.getElementById('wrap')) {
-                      wrapper.style.margin = 'auto';
-                    }
-                    let elems = document.body.getElementsByTagName("canvas");
-                    for (let i = 0; i< elems.length; i++) {
-                      elems[i].parentNode.removeChild(elems[i]);
-                    }
     
                     let a;
                     let wHeight;
@@ -94,9 +87,14 @@ export class HomePage {
                         wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
-                      
+                      let b = 86 * a;
+                      document.getElementById('INPUT1').style.width = b + 'px';
+                      document.getElementById('INPUT1').style.height = b + 'px';   
+                      document.getElementById('INPUT2').style.width = b + 'px';
+                      document.getElementById('INPUT2').style.height = b + 'px';
+
                       if (wHeight < wWidth){
-                        a = a*1.5;
+                        a = a * 1.75;
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
@@ -133,7 +131,7 @@ export class HomePage {
           browser.insertCSS({
             code: `body{ 
                     background-color: #408080 !important;
-                    margin: 10px 0 0 0 !important;
+                    margin: 0 auto !important;
                   }
                   #pmess{
                     margin-top: 10px;
@@ -154,8 +152,6 @@ export class HomePage {
                     width: 803px;
                     position: relative;
                     overflow: hidden;
-                  }
-                  #INPUT1, #INPUT2{
                   }
                   `
           });
