@@ -82,20 +82,20 @@ export class HomePage {
                       wrapper.style.paddingLeft = '0px';
                       
                       if (wHeight >= wWidth) { 
-                        wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
-                        wrapper.style.transformOrigin = 'left top';
+                        //wrapper.style.cssText += '; -webkit-transform:scale(' + hRatio + '); transform:scale(' + hRatio + ');';
+                        //wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                       } else {
-                        wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
-                        wrapper.style.transformOrigin = 'left top';
+                        //wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
+                        //wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
                       if (wHeight < wWidth){
                         a = a*1.5;
-                        wrapper.style.paddingLeft =  a + 'px';   
+                        //wrapper.style.paddingLeft =  a + 'px';   
                       } else {
-                        wrapper.style.paddingLeft = '0px';
+                        //wrapper.style.paddingLeft = '0px';
                       }
                       wrapper.style.paddingTop = '0px'; 
                     }; 
