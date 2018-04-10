@@ -152,9 +152,6 @@ export class HomePage {
                     overflow: hidden;
                   }
                   #INPUT1, #INPUT2{
-                    padding: 10px !important;
-                    background-color:red !important;
-                    background-image: none !important;
                   }
                   `
           });
