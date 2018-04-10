@@ -92,7 +92,7 @@ export class HomePage {
                       }
                       
                       if (wHeight < wWidth){
-                        a = a*1.75;
+                        a = a*1.8;
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
@@ -154,6 +154,7 @@ export class HomePage {
                   #INPUT1, #INPUT2{
                     z-index: 500 !important;
                     padding: 10px;
+                    background-color:red !important;
                   }
                   `
           });
