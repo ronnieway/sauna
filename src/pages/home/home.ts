@@ -152,7 +152,7 @@ export class HomePage {
                     overflow: hidden;
                   }
                   #INPUT1, #INPUT2{
-                    z-index: 500 !important;
+                    z-index: 999999 !important;
                     padding: 10px;
                     background-color:red !important;
                   }
