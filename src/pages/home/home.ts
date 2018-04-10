@@ -86,13 +86,13 @@ export class HomePage {
                         wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * hRatio)/2;
                       } else {
-                        //wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
-                        //wrapper.style.transformOrigin = 'left top';
+                        wrapper.style.cssText += '; -webkit-transform:scale(' + vRatio + '); transform:scale(' + vRatio + ');';
+                        wrapper.style.transformOrigin = 'left top';
                         a = (window.innerWidth - wrapper.offsetWidth * vRatio)/2;
                       }
                       
                       if (wHeight < wWidth){
-                        a = a*1.6;
+                        a = a*1.7;
                         wrapper.style.paddingLeft =  a + 'px';   
                       } else {
                         wrapper.style.paddingLeft = '0px';
@@ -151,7 +151,7 @@ export class HomePage {
                     position: relative;
                     overflow: hidden;
                   }
-                  INPUT1.imgsub, INPUT2.imgsub{
+                  INPUT1, INPUT2{
                     z-index: 999999 !important;
                     padding: 10px;
                     background-color:red !important;
